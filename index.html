@@ -152,6 +152,140 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">2021 ICPC Asia Taiwan Online Programming Contest 题解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-10-05 21:15:42 / 修改时间：22:16:35" itemprop="dateCreated datePublished" datetime="2023-10-05T21:15:42+08:00">2023-10-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">图论</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E8%AE%BA/%E7%BD%91%E7%BB%9C%E6%B5%81/" itemprop="url" rel="index"><span itemprop="name">网络流</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="2021-ICPC-Asia-Taiwan-Online-Programming-Contest-题解"><a href="#2021-ICPC-Asia-Taiwan-Online-Programming-Contest-题解" class="headerlink" title="2021 ICPC Asia Taiwan Online Programming Contest 题解"></a>2021 ICPC Asia Taiwan Online Programming Contest 题解</h1><p>训练题, 场上做了 ABDFG. 目前补了 CJ. 比较可惜是 J 题是签到题, 放在最后没来得及看, 经验问题.</p>
+<p>题目链接: <a href="https://codeforces.com/group/nzwf9tsg2d/contest/477278" target="_blank" rel="noopener">https://codeforces.com/group/nzwf9tsg2d/contest/477278</a></p>
+<h2 id="A-Olympic-Ranking"><a href="#A-Olympic-Ranking" class="headerlink" title="A Olympic Ranking"></a>A Olympic Ranking</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>一眼顶针</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/a.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="B-Aliquot-Sum"><a href="#B-Aliquot-Sum" class="headerlink" title="B Aliquot Sum"></a>B Aliquot Sum</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>求因数和, 可以对每个数枚举因子, 复杂度 $O(n\sqrt{n})$.</p>
+<p>如果用筛法, 对于每个数筛它的倍数, 可以做到 $O(n\log{n})$. 证明需要用到调和级数的增长近似于 $\ln(n) + C$, 其中 $C$ 为 欧拉常数.</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/b.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="C-A-Sorting-Problem"><a href="#C-A-Sorting-Problem" class="headerlink" title="C A Sorting Problem"></a>C A Sorting Problem</h2><h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>考场上往这个方向想, 但没深入, 就先做后面了. 还是生疏了.</p>
+<p>具体做法是记录每个数的位置, 问题转化为每次操作交换相邻两数, 使得数组单调递增. 经典求逆序对数量. 使用归并排序或者树状数组即可.</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/c.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="D-Drunk-Passenger"><a href="#D-Drunk-Passenger" class="headerlink" title="D Drunk Passenger"></a>D Drunk Passenger</h2><h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>这道题花了不少时间, 还是太菜了.</p>
+<p>考虑 DP. 假设当前已经坐了 $i$ 个人, 一个显然的结论是 $2$ 到 $i$ 的座位已经坐了人, 而 $i + 1$ 到 $n$ 的座位在当前状态是等价的, 还有第一个座位比较特殊. 所以定义 $f_i$ 表示坐了 $i$ 个人后本就不应坐人的座位 (也就是 $i + 1$ 到 $n$ 的座位) 坐人的概率, $g_i$ 表示坐了 $i - 1$ 个人后第一个座位坐人的概率. 有如下转移:</p>
+<p>$$f_i &#x3D; f_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$<br>$$g_i &#x3D; g_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/d.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="E-Eatcoin"><a href="#E-Eatcoin" class="headerlink" title="E Eatcoin"></a>E Eatcoin</h2><h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>python 题.</p>
+<p>首先求自然数五次方和公式, 可以用拉格朗日手推, 也可以写前几项高斯消元.</p>
+<p>然后二分法求最小的天数.</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><p>没有, 谁愿意拿 python 写写吧, 二分模板题.</p>
+<h2 id="F-Flip"><a href="#F-Flip" class="headerlink" title="F Flip"></a>F Flip</h2><h3 id="分析-5"><a href="#分析-5" class="headerlink" title="分析"></a>分析</h3><p>和动态区间和最值很像.</p>
+<p>维护区间左右端点的值, 从左和从右开始满足条件最长长度, 区间内答案数就可以用线段树维护了.</p>
+<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/f.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="G-Garden-Park"><a href="#G-Garden-Park" class="headerlink" title="G Garden Park"></a>G Garden Park</h2><h3 id="分析-6"><a href="#分析-6" class="headerlink" title="分析"></a>分析</h3><p>正解 DP. 找官方题解吧.</p>
+<p>我拿点分治做的, 模板题.</p>
+<p>统计经过当前树根的答案数, 点分治换树根即可.</p>
+<p>核心在于求经过当前树根的答案数. 对每个儿子 dfs, 找出所有单调递减和单调递增的路径数, 然后分别用乘法原理算贡献. 复杂度 $O(n\log^2{n})$.</p>
+<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/g.cpp" target="_blank" rel="noopener">GitHub</a></p>
+<h2 id="H-A-Hard-Problem"><a href="#H-A-Hard-Problem" class="headerlink" title="H A Hard Problem"></a>H A Hard Problem</h2><h3 id="分析-7"><a href="#分析-7" class="headerlink" title="分析"></a>分析</h3><p>显然要分开每一位考虑. 然后要求满足条件的代价最小的染色方法.</p>
+<p>跟所有的网络流题目一样, 然后它就是最小割了.</p>
+<p>虽然对于会网络流的这是模板题, 但上次写网络流是一年前, 所以等于不会.</p>
+<h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><p>以后补.</p>
+<h2 id="G-ICPC-Kingdom"><a href="#G-ICPC-Kingdom" class="headerlink" title="G ICPC Kingdom"></a>G ICPC Kingdom</h2><p>以后补</p>
+<h2 id="J-JavaScript"><a href="#J-JavaScript" class="headerlink" title="J JavaScript"></a>J JavaScript</h2><h3 id="分析-8"><a href="#分析-8" class="headerlink" title="分析"></a>分析</h3><p>签到题, 判断是不是全是数字.</p>
+<h3 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/j.cpp" target="_blank" rel="noopener">GitHub</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/09/11/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,10 +1014,6 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
                 </span>
                   ，
@@ -892,15 +1022,19 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/DP/%E5%8A%A8%E6%80%81DP/" itemprop="url" rel="index"><span itemprop="name">动态DP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E6%95%B0%E5%AD%A6/%E7%9F%A9%E9%98%B5/" itemprop="url" rel="index"><span itemprop="name">矩阵</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1160,86 +1294,6 @@
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/05/28/test/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/05/28/test/" class="post-title-link" itemprop="url">test</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-05-28 10:47:05" itemprop="dateCreated datePublished" datetime="2022-05-28T10:47:05+08:00">2022-05-28</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-26 21:34:00" itemprop="dateModified" datetime="2023-08-26T21:34:00+08:00">2023-08-26</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2022/05/28/test/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/28/test/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Test"><a href="#Test" class="headerlink" title="Test"></a>Test</h1><p>$$\begin{equation}\label{eq1}<br>e&#x3D;mc^2<br>\end{equation}$$</p>
-<p>著名的质能方程 $\eqref{eq1}$ 由爱因斯坦提出 …</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1318,20 +1372,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">25</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
