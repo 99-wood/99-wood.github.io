@@ -177,7 +177,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2023-10-05 21:15:42 / 修改时间：22:16:35" itemprop="dateCreated datePublished" datetime="2023-10-05T21:15:42+08:00">2023-10-05</time>
+              <time title="创建时间：2023-10-05 21:15:42 / 修改时间：22:40:25" itemprop="dateCreated datePublished" datetime="2023-10-05T21:15:42+08:00">2023-10-05</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -185,15 +185,15 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -246,7 +246,13 @@
 <h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/c.cpp" target="_blank" rel="noopener">GitHub</a></p>
 <h2 id="D-Drunk-Passenger"><a href="#D-Drunk-Passenger" class="headerlink" title="D Drunk Passenger"></a>D Drunk Passenger</h2><h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>这道题花了不少时间, 还是太菜了.</p>
 <p>考虑 DP. 假设当前已经坐了 $i$ 个人, 一个显然的结论是 $2$ 到 $i$ 的座位已经坐了人, 而 $i + 1$ 到 $n$ 的座位在当前状态是等价的, 还有第一个座位比较特殊. 所以定义 $f_i$ 表示坐了 $i$ 个人后本就不应坐人的座位 (也就是 $i + 1$ 到 $n$ 的座位) 坐人的概率, $g_i$ 表示坐了 $i - 1$ 个人后第一个座位坐人的概率. 有如下转移:</p>
-<p>$$f_i &#x3D; f_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$<br>$$g_i &#x3D; g_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$</p>
+<p>$$f_i &#x3D; f_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$</p>
+<p>$$g_i &#x3D; g_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}$$</p>
+<p>当然, 你也可以推式子. 用题解的话说就是</p>
+<blockquote>
+<p>推出答案之數學式子 $\frac{n}{2n - 1}$ 直接算答案。</p>
+</blockquote>
+<p><del>台湾的题解挺有意思.</del></p>
 <h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><p><a href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only)/d.cpp" target="_blank" rel="noopener">GitHub</a></p>
 <h2 id="E-Eatcoin"><a href="#E-Eatcoin" class="headerlink" title="E Eatcoin"></a>E Eatcoin</h2><h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>python 题.</p>
 <p>首先求自然数五次方和公式, 可以用拉格朗日手推, 也可以写前几项高斯消元.</p>
@@ -1014,6 +1020,10 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
                 </span>
                   ，
@@ -1022,15 +1032,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                  <a href="/categories/DP/%E5%8A%A8%E6%80%81DP/" itemprop="url" rel="index"><span itemprop="name">动态DP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E5%8A%A8%E6%80%81DP/" itemprop="url" rel="index"><span itemprop="name">动态DP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
