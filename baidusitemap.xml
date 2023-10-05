@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://yoursite.com/2023/08/24/%E6%9A%91%E5%81%87%E5%9B%9E%E5%BF%86%E5%BD%95/</loc>
-    <lastmod>2023-10-04</lastmod>
+    <lastmod>2023-10-05</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2023/09/11/%E9%AB%98%E7%AD%89%E6%95%B0%E5%AD%A6/</loc>
@@ -17,11 +17,11 @@
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/</loc>
+    <loc>http://yoursite.com/2021/08/30/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%B8%80)/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2021/08/30/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%B8%80)/</loc>
+    <loc>http://yoursite.com/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
@@ -45,15 +45,11 @@
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/</loc>
-    <lastmod>2023-08-26</lastmod>
-  </url>
-  <url>
     <loc>http://yoursite.com/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/12/12/NOIP2020-%E7%A7%BB%E7%90%83%E6%B8%B8%E6%88%8F/</loc>
+    <loc>http://yoursite.com/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
@@ -61,11 +57,15 @@
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2022/06/02/OI%E5%B8%B8%E7%94%A8%E6%9C%AF%E8%AF%AD/</loc>
+    <loc>http://yoursite.com/2020/12/12/NOIP2020-%E7%A7%BB%E7%90%83%E6%B8%B8%E6%88%8F/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
     <loc>http://yoursite.com/2020/07/26/P1486-%E9%BB%91%E6%9A%97%E5%9F%8E%E5%A0%A1/</loc>
+    <lastmod>2023-08-26</lastmod>
+  </url>
+  <url>
+    <loc>http://yoursite.com/2022/06/02/OI%E5%B8%B8%E7%94%A8%E6%9C%AF%E8%AF%AD/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
@@ -89,11 +89,11 @@
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/06/CF1399B-Gifts-Fixing/</loc>
+    <loc>http://yoursite.com/2020/08/06/CF1399A-Remove-Smallest/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
   <url>
-    <loc>http://yoursite.com/2020/08/06/CF1399A-Remove-Smallest/</loc>
+    <loc>http://yoursite.com/2020/08/06/CF1399B-Gifts-Fixing/</loc>
     <lastmod>2023-08-26</lastmod>
   </url>
 </urlset> 
