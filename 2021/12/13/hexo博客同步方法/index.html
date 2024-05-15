@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="hexo博客同步方法今天终于实现了随时写博客的想法, 对 git 的使用也有了更深的了解. 于是写一篇博客来记录, 以免以后忘记如何同步. 前置 git node.js 一个 hexo 博客  开整上传首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令 123456git init #git 命令初始化git remote add origin https:&#x2F;&#x2F;">
+  <meta name="description" content="hexo博客同步方法今天终于实现了随时写博客的想法, 对 git 的使用也有了更深的了解. 于是写一篇博客来记录, 以免以后忘记如何同步. 前置 git node.js 一个 hexo 博客  开整上传首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令123456git init #git 命令初始化git remote add origin https:&#x2F;&#x2F;g">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo博客同步方法">
 <meta property="og:url" content="http://yoursite.com/2021/12/13/hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95/index.html">
 <meta property="og:site_name" content="99_wood&#39;s blog">
-<meta property="og:description" content="hexo博客同步方法今天终于实现了随时写博客的想法, 对 git 的使用也有了更深的了解. 于是写一篇博客来记录, 以免以后忘记如何同步. 前置 git node.js 一个 hexo 博客  开整上传首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令 123456git init #git 命令初始化git remote add origin https:&#x2F;&#x2F;">
+<meta property="og:description" content="hexo博客同步方法今天终于实现了随时写博客的想法, 对 git 的使用也有了更深的了解. 于是写一篇博客来记录, 以免以后忘记如何同步. 前置 git node.js 一个 hexo 博客  开整上传首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令123456git init #git 命令初始化git remote add origin https:&#x2F;&#x2F;g">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-12-12T18:02:18.000Z">
 <meta property="article:modified_time" content="2023-08-26T13:34:00.545Z">
@@ -221,9 +221,7 @@
 <li>node.js</li>
 <li>一个 hexo 博客</li>
 </ul>
-<h2 id="开整"><a href="#开整" class="headerlink" title="开整"></a>开整</h2><h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p>首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令</p>
-<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init #git 命令初始化</span><br><span class="line">git remote <span class="built_in">add</span> origin https://github.<span class="keyword">com</span>/用户名/你的GitHub用户名.github.io.git #添加仓库地址</span><br><span class="line">git checkout -<span class="keyword">b</span> 分支名 #新建分支并切换到新建的分支</span><br><span class="line">git <span class="built_in">add</span> . #添加所有本地文件到git</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">&quot;这里填写你本次提交的备注，内容随意&quot;</span> #git提交</span><br><span class="line">git push origin 分支名 #文件推送到hexo分支</span><br></pre></td></tr></table></figure>
-
+<h2 id="开整"><a href="#开整" class="headerlink" title="开整"></a>开整</h2><h3 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h3><p>首先需要在已经有 hexo 博客的电脑 ( 记为 A 端 ) 的博客目录下使用一下命令<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git init #git 命令初始化</span><br><span class="line">git remote <span class="built_in">add</span> origin https://github.<span class="keyword">com</span>/用户名/你的GitHub用户名.github.io.git #添加仓库地址</span><br><span class="line">git checkout -<span class="keyword">b</span> 分支名 #新建分支并切换到新建的分支</span><br><span class="line">git <span class="built_in">add</span> . #添加所有本地文件到git</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">&quot;这里填写你本次提交的备注，内容随意&quot;</span> #git提交</span><br><span class="line">git push origin 分支名 #文件推送到hexo分支</span><br></pre></td></tr></table></figure></p>
 <p>需要注意的是, 由于 GitHub 政策变更现在已经不能通过地址来 push, 需要 ssh 完成. 因此上文地址应改为 GitHub 仓库的 ssh , 可以从仓库页面 -&gt; code -&gt; ssh 复制. 分支名可以自己定, 一般为 hexo.</p>
 <h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>在想要写博客的电脑 ( B 端 ) 使用如下命令</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git clone -<span class="keyword">b</span> 分支名 https://github.<span class="keyword">com</span>/用户名/你的GitHub用户</span><br><span class="line"></span><br><span class="line">sudo npm install -g hexo-cli #安装hexo,注意这里不需要hexo初始化,否则之前的hexo配置参数会重置</span><br><span class="line">sudo npm install #安装依赖库</span><br><span class="line">sudo npm install hexo-deployer-git #安装git部署相关配置</span><br></pre></td></tr></table></figure>
@@ -231,7 +229,6 @@
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">add</span> .</span><br><span class="line">git commit -<span class="keyword">m</span> <span class="string">&quot;这里填写你本次提交的备注，内容随意&quot;</span></span><br><span class="line">git push origin 分支名</span><br></pre></td></tr></table></figure>
 <p>在A端使用</p>
 <figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
-
 <p>这样，你的数据就全部同步到 A 端了.</p>
 
     </div>
@@ -360,14 +357,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

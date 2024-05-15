@@ -224,17 +224,14 @@
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="J-Sushi"><a href="#J-Sushi" class="headerlink" title="J Sushi"></a>J Sushi</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_j">题目链接</a></p>
 <p>难在优化状态, 发现答案与盘子的顺序无关, 设计状态 $f_{i, j, k}$ 表示有 $i$ 个盘子有 $1$ 个寿司, 有 $j$ 个盘子有 $2$ 个寿司, 有 $k$ 个盘子有 $3$ 个寿司全部吃光的期望次数. </p>
 <p>状态转移方程推出来是</p>
-<p>$$f_{i, j, k} &#x3D; \frac{i}{i + j + k} \times f_{i - 1, j, k}  + \frac{j}{i + j + k} \times f_{i + 1, j - 1, k}  + \frac{k}{i + j + k} \times f_{i, j + 1, k - 1}  + \frac{n}{i + j + k}$$</p>
-<p>一个易错点是循环顺序是 $k$, $j$, $i$. 读者可以思考一下原因.</p>
+<script type="math/tex; mode=display">f_{i, j, k} = \frac{i}{i + j + k} \times f_{i - 1, j, k}  + \frac{j}{i + j + k} \times f_{i + 1, j - 1, k}  + \frac{k}{i + j + k} \times f_{i, j + 1, k - 1}  + \frac{n}{i + j + k}</script><p>一个易错点是循环顺序是 $k$, $j$, $i$. 读者可以思考一下原因.</p>
 <h3 id="R-Walk"><a href="#R-Walk" class="headerlink" title="R Walk"></a>R Walk</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_r">题目链接</a></p>
 <p>设计状态 $f_{i, u, v}$ 表示长度为 $i$ 的从 $u$ 到 $v$ 的路径个数.</p>
 <p>转移方程</p>
-<p>$$f_{i, u, v} &#x3D; \sum\limits_{k &#x3D; 1}^n f_{i - 1, u, k} + f_{1, k, v}$$</p>
-<p>这东西很像矩阵乘法, 可以用矩阵快速幂优化.</p>
+<script type="math/tex; mode=display">f_{i, u, v} = \sum\limits_{k = 1}^n f_{i - 1, u, k} + f_{1, k, v}</script><p>这东西很像矩阵乘法, 可以用矩阵快速幂优化.</p>
 <h3 id="U-Grouping"><a href="#U-Grouping" class="headerlink" title="U Grouping"></a>U Grouping</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_u">题目链接</a></p>
 <p>枚举子集的方法</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = now; i; i = (i - <span class="number">1</span>) &amp; now)&#123;</span><br><span class="line">	f[now] = <span class="built_in">max</span>(f[now], f[now ^ i] + <span class="built_in">solve</span>(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="V-Subtree"><a href="#V-Subtree" class="headerlink" title="V Subtree"></a>V Subtree</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_v">题目链接</a></p>
 <p>换根 DP. 但是模数不一定为质数, 所以记录前缀积和后缀积解决.</p>
 <h3 id="W-Intervals"><a href="#W-Intervals" class="headerlink" title="W Intervals"></a>W Intervals</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_w">题目链接</a></p>
@@ -245,8 +242,7 @@
 <h3 id="Y-Grid-2"><a href="#Y-Grid-2" class="headerlink" title="Y Grid 2"></a>Y Grid 2</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_y">题目链接</a></p>
 <p>带障碍的走方格. 一开始想离散化做, 发现代码困难遂看题解.</p>
 <p>设计状态 $f_{i}$ 表示从开始到障碍 $i$ 的位置<strong>且不通过障碍</strong>的方案数.</p>
-<p>$$f_{i} &#x3D; \tbinom{x_i - 1 + y_i - 1}{x_i - 1} - \sum\limits_{x_j \leq x_i, y_j \leq y_i} \tbinom{x_i - x_j + y_i - y_j}{x_i - x_j} f_{j} $$</p>
-<h3 id="Z-Frog-3"><a href="#Z-Frog-3" class="headerlink" title="Z Frog 3"></a>Z Frog 3</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_z">题目链接</a></p>
+<script type="math/tex; mode=display">f_{i} = \tbinom{x_i - 1 + y_i - 1}{x_i - 1} - \sum\limits_{x_j \leq x_i, y_j \leq y_i} \tbinom{x_i - x_j + y_i - y_j}{x_i - x_j} f_{j}</script><h3 id="Z-Frog-3"><a href="#Z-Frog-3" class="headerlink" title="Z Frog 3"></a>Z Frog 3</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_z">题目链接</a></p>
 <p>斜率优化 DP 模板题.</p>
 
     </div>
@@ -376,14 +372,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">

@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="一个积分后求导的小结论引入做高数题的时候会遇到一类题目：对一个变上限函数求导。例如 $$\frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} &#x3D; f(x)$$ 这是显然的。 但如果积分函数中加入了 $x$，例如： $$\frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}">
+  <meta name="description" content="一个积分后求导的小结论引入做高数题的时候会遇到一类题目：对一个变上限函数求导。例如 \frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} &#x3D; f(x)这是显然的。 但如果积分函数中加入了 $x$，例如： \frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}x}问题就不在那样显然了">
 <meta property="og:type" content="article">
 <meta property="og:title" content="一个积分后求导的小结论">
 <meta property="og:url" content="http://yoursite.com/2023/12/18/%E4%B8%80%E4%B8%AA%E7%A7%AF%E5%88%86%E5%90%8E%E6%B1%82%E5%AF%BC%E7%9A%84%E5%B0%8F%E7%BB%93%E8%AE%BA/index.html">
 <meta property="og:site_name" content="99_wood&#39;s blog">
-<meta property="og:description" content="一个积分后求导的小结论引入做高数题的时候会遇到一类题目：对一个变上限函数求导。例如 $$\frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} &#x3D; f(x)$$ 这是显然的。 但如果积分函数中加入了 $x$，例如： $$\frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}">
+<meta property="og:description" content="一个积分后求导的小结论引入做高数题的时候会遇到一类题目：对一个变上限函数求导。例如 \frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} &#x3D; f(x)这是显然的。 但如果积分函数中加入了 $x$，例如： \frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}x}问题就不在那样显然了">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-12-18T09:27:38.000Z">
 <meta property="article:modified_time" content="2023-12-18T11:25:59.769Z">
@@ -209,20 +209,21 @@
 
       
         <h1 id="一个积分后求导的小结论"><a href="#一个积分后求导的小结论" class="headerlink" title="一个积分后求导的小结论"></a>一个积分后求导的小结论</h1><h1 id="引入"><a href="#引入" class="headerlink" title="引入"></a>引入</h1><p>做高数题的时候会遇到一类题目：对一个变上限函数求导。例如</p>
-<p>$$\frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} &#x3D; f(x)$$</p>
-<p>这是显然的。</p>
+<script type="math/tex; mode=display">\frac{\mathrm{d}\int_0^x f(t)\mathrm{d}t}{\mathrm{d}x} = f(x)</script><p>这是显然的。</p>
 <p>但如果积分函数中加入了 $x$，例如：</p>
-<p>$$\frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}x}$$</p>
-<p>问题就不在那样显然了。</p>
+<script type="math/tex; mode=display">\frac{\mathrm{d}\int_0^x sin(t - x)\mathrm{d}t}{\mathrm{d}x}</script><p>问题就不在那样显然了。</p>
 <p>我初次遇到这题把它拆成导数定义来做，结果算错了。于是我在想有没有一种结论可以省去讨论，于是又了今天的这篇文章。</p>
 <h2 id="推导"><a href="#推导" class="headerlink" title="推导"></a>推导</h2><p>考虑一个一般的情况。求以下函数：</p>
-<p>$$\frac{\mathrm{d}\int_0^x f(ax+bt+c)\mathrm{d}t}{\mathrm{d}x}$$</p>
-<p>我们令 $F(x) &#x3D; \int f(x) \mathrm{d}x$。</p>
+<script type="math/tex; mode=display">\frac{\mathrm{d}\int_0^x f(ax+bt+c)\mathrm{d}t}{\mathrm{d}x}</script><p>我们令 $F(x) = \int f(x) \mathrm{d}x$。</p>
 <p>根据导数的定义，有</p>
-<p>$$\frac{\mathrm{d}\int_0^x f(ax+bt+c)\mathrm{d}t}{\mathrm{d}x} &#x3D; \frac{\int_0^{x + \Delta x} f(a(x + \Delta x)+bt+c)\mathrm{d}t - \int_0^x f(ax+bt+c)\mathrm{d}t}{\Delta x}$$</p>
-<p>根据微积分基本定理有</p>
-<p>$$<br>\begin{align}<br>\mathrm{RHS} &amp;&#x3D; \frac{\frac{1}{b} F[a(x + \Delta x) + bt + c]|^{x + \Delta x}_0 - \frac{1}{b} F(ax + bt + c)|^x_0}{\Delta x} \nonumber \\<br>&amp;&#x3D; \frac{1}{b}\frac{(F[(a + b)(x + \Delta x) + c] - F[a(x + \Delta x) + c]) - (F[(a + b)x + c] - F(ax + c))}{\Delta x} \nonumber \\<br>&amp;&#x3D; \frac{1}{b}(\frac{F[(a + b)(x + \Delta x) + c] - F[(a + b)x + c]}{\Delta x} - \frac{F[a(x + \Delta x) + c] - F(ax + c)}{\Delta x}) \nonumber \\<br>&amp;&#x3D; \frac{1}{b}\{(a + b)f[(a + b)x + c] + af(ax + c)\} \nonumber<br>\end{align}<br>$$</p>
-
+<script type="math/tex; mode=display">\frac{\mathrm{d}\int_0^x f(ax+bt+c)\mathrm{d}t}{\mathrm{d}x} = \frac{\int_0^{x + \Delta x} f(a(x + \Delta x)+bt+c)\mathrm{d}t - \int_0^x f(ax+bt+c)\mathrm{d}t}{\Delta x}</script><p>根据微积分基本定理有</p>
+<script type="math/tex; mode=display">
+\begin{align}
+\mathrm{RHS} &= \frac{\frac{1}{b} F[a(x + \Delta x) + bt + c]|^{x + \Delta x}_0 - \frac{1}{b} F(ax + bt + c)|^x_0}{\Delta x} \nonumber \\\\
+&= \frac{1}{b}\frac{(F[(a + b)(x + \Delta x) + c] - F[a(x + \Delta x) + c]) - (F[(a + b)x + c] - F(ax + c))}{\Delta x} \nonumber \\\\
+&= \frac{1}{b}(\frac{F[(a + b)(x + \Delta x) + c] - F[(a + b)x + c]}{\Delta x} - \frac{F[a(x + \Delta x) + c] - F(ax + c)}{\Delta x}) \nonumber \\\\
+&= \frac{1}{b}\\{(a + b)f[(a + b)x + c] + af(ax + c)\\} \nonumber
+\end{align}</script>
     </div>
 
     
@@ -346,14 +347,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">32</span>
+          <span class="site-state-item-count">33</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">27</span>
+        <span class="site-state-item-count">28</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
