@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.1.1">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2021 ICPC Asia Taiwan Online Programming Contest 题解训练题, 场上做了 ABDFG. 目前补了 CJ. 比较可惜是 J 题是签到题, 放在最后没来得及看, 经验问题. 题目链接: https:&#x2F;&#x2F;codeforces.com&#x2F;group&#x2F;nzwf9tsg2d&#x2F;contest&#x2F;477278 A Olympic Ranking分析一眼顶针 代码GitH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2021 ICPC Asia Taiwan Online Programming Contest 题解">
+<meta property="og:url" content="http://yoursite.com/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/index.html">
+<meta property="og:site_name" content="99_wood&#39;s blog">
+<meta property="og:description" content="2021 ICPC Asia Taiwan Online Programming Contest 题解训练题, 场上做了 ABDFG. 目前补了 CJ. 比较可惜是 J 题是签到题, 放在最后没来得及看, 经验问题. 题目链接: https:&#x2F;&#x2F;codeforces.com&#x2F;group&#x2F;nzwf9tsg2d&#x2F;contest&#x2F;477278 A Olympic Ranking分析一眼顶针 代码GitH">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-10-05T13:15:42.000Z">
+<meta property="article:modified_time" content="2023-10-08T10:27:05.612Z">
+<meta property="article:author" content="99_wood">
+<meta property="article:tag" content="Codeforces">
+<meta property="article:tag" content="题解">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true
+  };
+</script>
+
+  <title>2021 ICPC Asia Taiwan Online Programming Contest 题解 | 99_wood's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+    
+    <a target="_blank" rel="noopener" href="https://github.com/99-wood" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#00FA9A; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">99_wood's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">万物皆虚 万事皆允</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          2021 ICPC Asia Taiwan Online Programming Contest 题解
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2023-10-05 21:15:42" itemprop="dateCreated datePublished" datetime="2023-10-05T21:15:42+08:00">2023-10-05</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-10-08 18:27:05" itemprop="dateModified" datetime="2023-10-08T18:27:05+08:00">2023-10-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E5%AD%A6/" itemprop="url" rel="index"><span itemprop="name">数学</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E8%AE%BA/" itemprop="url" rel="index"><span itemprop="name">图论</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%9B%BE%E8%AE%BA/%E7%BD%91%E7%BB%9C%E6%B5%81/" itemprop="url" rel="index"><span itemprop="name">网络流</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="2021-ICPC-Asia-Taiwan-Online-Programming-Contest-题解"><a href="#2021-ICPC-Asia-Taiwan-Online-Programming-Contest-题解" class="headerlink" title="2021 ICPC Asia Taiwan Online Programming Contest 题解"></a>2021 ICPC Asia Taiwan Online Programming Contest 题解</h1><p>训练题, 场上做了 ABDFG. 目前补了 CJ. 比较可惜是 J 题是签到题, 放在最后没来得及看, 经验问题.</p>
+<p>题目链接: <a target="_blank" rel="noopener" href="https://codeforces.com/group/nzwf9tsg2d/contest/477278">https://codeforces.com/group/nzwf9tsg2d/contest/477278</a></p>
+<h2 id="A-Olympic-Ranking"><a href="#A-Olympic-Ranking" class="headerlink" title="A Olympic Ranking"></a>A Olympic Ranking</h2><h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>一眼顶针</p>
+<h3 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/a.cpp)</p>
+<h2 id="B-Aliquot-Sum"><a href="#B-Aliquot-Sum" class="headerlink" title="B Aliquot Sum"></a>B Aliquot Sum</h2><h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>求因数和, 可以对每个数枚举因子, 复杂度 $O(n\sqrt{n})$.</p>
+<p>如果用筛法, 对于每个数筛它的倍数, 可以做到 $O(n\log{n})$. 证明需要用到调和级数的增长近似于 $\ln(n) + C$, 其中 $C$ 为 欧拉常数.</p>
+<h3 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/b.cpp)</p>
+<h2 id="C-A-Sorting-Problem"><a href="#C-A-Sorting-Problem" class="headerlink" title="C A Sorting Problem"></a>C A Sorting Problem</h2><h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>考场上往这个方向想, 但没深入, 就先做后面了. 还是生疏了.</p>
+<p>具体做法是记录每个数的位置, 问题转化为每次操作交换相邻两数, 使得数组单调递增. 经典求逆序对数量. 使用归并排序或者树状数组即可.</p>
+<h3 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/c.cpp)</p>
+<h2 id="D-Drunk-Passenger"><a href="#D-Drunk-Passenger" class="headerlink" title="D Drunk Passenger"></a>D Drunk Passenger</h2><h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>这道题花了不少时间, 还是太菜了.</p>
+<p>考虑 DP. 假设当前已经坐了 $i$ 个人, 一个显然的结论是 $2$ 到 $i$ 的座位已经坐了人, 而 $i + 1$ 到 $n$ 的座位在当前状态是等价的, 还有第一个座位比较特殊. 所以定义 $f_i$ 表示坐了 $i$ 个人后本就不应坐人的座位 (也就是 $i + 1$ 到 $n$ 的座位) 坐人的概率, $g_i$ 表示坐了 $i - 1$ 个人后第一个座位坐人的概率. 有如下转移:</p>
+<script type="math/tex; mode=display">f_i = f_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}</script><script type="math/tex; mode=display">g_i = g_{i - 1} + f_{i - 1} \times \frac{1}{n - (i - 1)}</script><p>当然, 你也可以推式子. 用题解的话说就是</p>
+<blockquote>
+<p>推出答案之數學式子 $\frac{n}{2n - 1}$ 直接算答案。</p>
+</blockquote>
+<p>~台湾的题解挺有意思.~</p>
+<h3 id="代码-3"><a href="#代码-3" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/d.cpp)</p>
+<h2 id="E-Eatcoin"><a href="#E-Eatcoin" class="headerlink" title="E Eatcoin"></a>E Eatcoin</h2><h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>python 题.</p>
+<p>首先求自然数五次方和公式, 可以用拉格朗日手推, 也可以写前几项高斯消元.</p>
+<p>然后二分法求最小的天数.</p>
+<h3 id="代码-4"><a href="#代码-4" class="headerlink" title="代码"></a>代码</h3><p>没有, 谁愿意拿 python 写写吧, 二分模板题.</p>
+<h2 id="F-Flip"><a href="#F-Flip" class="headerlink" title="F Flip"></a>F Flip</h2><h3 id="分析-5"><a href="#分析-5" class="headerlink" title="分析"></a>分析</h3><p>和动态区间和最值很像.</p>
+<p>维护区间左右端点的值, 从左和从右开始满足条件最长长度, 区间内答案数就可以用线段树维护了.</p>
+<h3 id="代码-5"><a href="#代码-5" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/f.cpp)</p>
+<h2 id="G-Garden-Park"><a href="#G-Garden-Park" class="headerlink" title="G Garden Park"></a>G Garden Park</h2><h3 id="分析-6"><a href="#分析-6" class="headerlink" title="分析"></a>分析</h3><p>正解 DP. 找官方题解吧.</p>
+<p>我拿点分治做的, 模板题.</p>
+<p>统计经过当前树根的答案数, 点分治换树根即可.</p>
+<p>核心在于求经过当前树根的答案数. 对每个儿子 dfs, 找出所有单调递减和单调递增的路径数, 然后分别用乘法原理算贡献. 复杂度 $O(n\log^2{n})$.</p>
+<h3 id="代码-6"><a href="#代码-6" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/g.cpp)</p>
+<h2 id="H-A-Hard-Problem"><a href="#H-A-Hard-Problem" class="headerlink" title="H A Hard Problem"></a>H A Hard Problem</h2><h3 id="分析-7"><a href="#分析-7" class="headerlink" title="分析"></a>分析</h3><p>显然要分开每一位考虑. 然后要求满足条件的代价最小的染色方法.</p>
+<p>跟所有的网络流题目一样, 然后它就是最小割了.</p>
+<p>虽然对于会网络流的这是模板题, 但上次写网络流是一年前, 所以等于不会.</p>
+<h3 id="代码-7"><a href="#代码-7" class="headerlink" title="代码"></a>代码</h3><p>以后补.</p>
+<p>补好了.</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/h.cpp)</p>
+<h2 id="G-ICPC-Kingdom"><a href="#G-ICPC-Kingdom" class="headerlink" title="G ICPC Kingdom"></a>G ICPC Kingdom</h2><p>以后补</p>
+<h2 id="J-JavaScript"><a href="#J-JavaScript" class="headerlink" title="J JavaScript"></a>J JavaScript</h2><h3 id="分析-8"><a href="#分析-8" class="headerlink" title="分析"></a>分析</h3><p>签到题, 判断是不是全是数字.</p>
+<h3 id="代码-8"><a href="#代码-8" class="headerlink" title="代码"></a>代码</h3><p><a target="_blank" rel="noopener" href="https://github.com/99-wood/OIcode/blob/main/CF/2021%20ICPC%20Asia%20Taiwan%20Online%20Programming%20Contest%20%26%20NEU%20training%202023%20Autumn%20Contest%2014%20(Individual%20only">GitHub</a>/j.cpp)</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.png" alt="99_wood 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.png" alt="99_wood 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Codeforces/" rel="tag"># Codeforces</a>
+              <a href="/tags/%E9%A2%98%E8%A7%A3/" rel="tag"># 题解</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2023/08/24/%E6%9A%91%E5%81%87%E5%9B%9E%E5%BF%86%E5%BD%95/" rel="prev" title="暑假回忆录">
+      <i class="fa fa-chevron-left"></i> 暑假回忆录
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/" rel="next" title="《你的名字。》黑胶音乐推荐">
+      《你的名字。》黑胶音乐推荐 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let activeClass = CONFIG.comments.activeClass;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">2021 ICPC Asia Taiwan Online Programming Contest 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#A-Olympic-Ranking"><span class="nav-number">1.1.</span> <span class="nav-text">A Olympic Ranking</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.1.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">1.1.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#B-Aliquot-Sum"><span class="nav-number">1.2.</span> <span class="nav-text">B Aliquot Sum</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#C-A-Sorting-Problem"><span class="nav-number">1.3.</span> <span class="nav-text">C A Sorting Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#D-Drunk-Passenger"><span class="nav-number">1.4.</span> <span class="nav-text">D Drunk Passenger</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-Eatcoin"><span class="nav-number">1.5.</span> <span class="nav-text">E Eatcoin</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-4"><span class="nav-number">1.5.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Flip"><span class="nav-number">1.6.</span> <span class="nav-text">F Flip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-5"><span class="nav-number">1.6.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-5"><span class="nav-number">1.6.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Garden-Park"><span class="nav-number">1.7.</span> <span class="nav-text">G Garden Park</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-6"><span class="nav-number">1.7.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-6"><span class="nav-number">1.7.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-A-Hard-Problem"><span class="nav-number">1.8.</span> <span class="nav-text">H A Hard Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-7"><span class="nav-number">1.8.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-7"><span class="nav-number">1.8.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-ICPC-Kingdom"><span class="nav-number">1.9.</span> <span class="nav-text">G ICPC Kingdom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J-JavaScript"><span class="nav-number">1.10.</span> <span class="nav-text">J JavaScript</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-8"><span class="nav-number">1.10.1.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81-8"><span class="nav-number">1.10.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <!-- 音乐播放器 -->
+      <div>
+          
+            <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=330 height=86 src="//music.163.com/outchain/player?type=2&id=26908739&auto=1&height=66"></iframe>
+          
+      </div>
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="99_wood"
+      src="/images/myavatar.jpg">
+  <p class="site-author-name" itemprop="name">99_wood</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/99-woods" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;99-woods" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:2941426785@qq.com" title="E-Mail → mailto:2941426785@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="http://wpa.qq.com/msgrd?v=3&uin=2941426785&site=qq&menu=yes" title="QQ → http:&#x2F;&#x2F;wpa.qq.com&#x2F;msgrd?v&#x3D;3&amp;uin&#x3D;2941426785&amp;site&#x3D;qq&amp;menu&#x3D;yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">99_wood</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.1.1
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : true,
+      appId      : 'kR5HnzDif3BLArhvtNvi5nnP-gzGzoHsz',
+      appKey     : 'g9IXkE0N6kAmnfOgQOpmIihL',
+      placeholder: "Just go go",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : ''
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>

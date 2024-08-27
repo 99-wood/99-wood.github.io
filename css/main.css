@@ -6,7 +6,7 @@
 }
 :root {
   --body-bg-color: #0092fa;
-  --content-bg-color: #86eeea;
+  --content-bg-color: #87daff;
   --card-bg-color: #f5f5f5;
   --text-color: #555;
   --link-color: #555;
@@ -1170,7 +1170,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff7cbd;
+  background: #77377a;
   border-radius: 50%;
   content: ' ';
   display: inline-block;

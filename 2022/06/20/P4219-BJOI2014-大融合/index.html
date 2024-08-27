@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
-<meta name="generator" content="Hexo 4.2.1">
+<meta name="generator" content="Hexo 7.1.1">
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
   <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
@@ -82,7 +82,7 @@
   <div class="container use-motion">
     <div class="headband"></div>
     
-    <a href="https://github.com/99-woods" target="_blank" rel="noopener" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#00FA9A; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a target="_blank" rel="noopener" href="https://github.com/99-wood" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#151513; color:#00FA9A; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
 
     <header class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-container">
@@ -238,11 +238,9 @@
 <p>假设删去的边连接 $x, y$, 且 $x, y$ 原来的深度 $dep_x &lt; dep_y$. 删边会影响 $x$ 到根路径上的点的子树大小, 以及以 $top_a$, 其中 $a$ 为 $y$ 所在重链中 $y$ 一下的节点.</p>
 <p>我们可以用树剖来维护 $siz$ 和 $dep$, 断开边时, 将 $x$ 到根的路径上的点的 $siz$ 都减去 $siz_y$, 将 $x$ 一下的重链上节点的 $top$ 修改为 $y$. 查询时, $siz_y \times (siz_{root} - siz_y)$ 即为答案.</p>
 <p>本做法为真·用树剖来维护树剖, 复杂度为 $O(m\log^2n)$, 还是很快的.</p>
-<p>#代码</p>
-<p>只放出修改和查询时的核心代码, 细节较多, 注意更新 $dep$ 和 $siz$, 完整代码可以看<a href="https://www.luogu.com.cn/record/77665218" target="_blank" rel="noopener">我的提交</a></p>
-<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fa[y] = <span class="number">0</span>;</span><br><span class="line">top[y] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).top;</span><br><span class="line">top[x] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 top</span></span><br><span class="line"><span class="keyword">if</span>(top[y] != y)&#123;</span><br><span class="line">	modify(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y], dfn[y] + dep[tail[top[y]]] - dep[y], y); <span class="comment">// 修改 y 所在重链 top</span></span><br><span class="line">	top[y] = y;</span><br><span class="line">	tail[top[y]] = tail[top[x]];</span><br><span class="line">	tail[top[x]] = x;</span><br><span class="line">&#125;</span><br><span class="line">siz[y] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz; <span class="comment">// 更新 siz</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">	top[x] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line">	mul(<span class="number">1</span>, <span class="number">1</span>, n, dfn[top[x]], dfn[x], -siz[y]); <span class="comment">// 修改 x 到根的 siz</span></span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">siz[y] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz;</span><br><span class="line">top[x] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 siz 和 top</span></span><br><span class="line"><span class="keyword">while</span>(fa[top[x]])&#123;</span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">	top[x] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;;</span><br><span class="line">&#125;</span><br><span class="line">x = top[x];</span><br><span class="line"><span class="comment">// x 跳到根</span></span><br><span class="line">siz[x] = query(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).siz;</span><br><span class="line">ans[i] = <span class="number">1L</span>L * siz[y] * (siz[x] - siz[y]); <span class="comment">//注意 long long</span></span><br></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>只放出修改和查询时的核心代码, 细节较多, 注意更新 $dep$ 和 $siz$, 完整代码可以看<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/77665218">我的提交</a></p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fa[y] = <span class="number">0</span>;</span><br><span class="line">top[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).top;</span><br><span class="line">top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 top</span></span><br><span class="line"><span class="keyword">if</span>(top[y] != y)&#123;</span><br><span class="line">	<span class="built_in">modify</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y], dfn[y] + dep[tail[top[y]]] - dep[y], y); <span class="comment">// 修改 y 所在重链 top</span></span><br><span class="line">	top[y] = y;</span><br><span class="line">	tail[top[y]] = tail[top[x]];</span><br><span class="line">	tail[top[x]] = x;</span><br><span class="line">&#125;</span><br><span class="line">siz[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz; <span class="comment">// 更新 siz</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">	top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line">	<span class="built_in">mul</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[top[x]], dfn[x], -siz[y]); <span class="comment">// 修改 x 到根的 siz</span></span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">siz[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz;</span><br><span class="line">top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 siz 和 top</span></span><br><span class="line"><span class="keyword">while</span>(fa[top[x]])&#123;</span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">	top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;;</span><br><span class="line">&#125;</span><br><span class="line">x = top[x];</span><br><span class="line"><span class="comment">// x 跳到根</span></span><br><span class="line">siz[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).siz;</span><br><span class="line">ans[i] = <span class="number">1LL</span> * siz[y] * (siz[x] - siz[y]); <span class="comment">//注意 long long</span></span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
     
@@ -347,7 +345,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P4219-BJOI2014-大融合"><span class="nav-number">1.</span> <span class="nav-text">P4219 [BJOI2014]大融合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目大意"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#分析"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#修改"><span class="nav-number">3.1.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查询"><span class="nav-number">3.2.</span> <span class="nav-text">查询</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">P4219 [BJOI2014]大融合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE%E5%A4%A7%E6%84%8F"><span class="nav-number">2.</span> <span class="nav-text">题目大意</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">3.</span> <span class="nav-text">分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%BB%A3%E7%A0%81"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9"><span class="nav-number">4.1.</span> <span class="nav-text">修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2"><span class="nav-number">4.2.</span> <span class="nav-text">查询</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -369,20 +367,20 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">23</span>
+          <span class="site-state-item-count">34</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">23</span>
+        <span class="site-state-item-count">29</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -418,13 +416,13 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2023</span>
+  <span itemprop="copyrightYear">2024</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">99_wood</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.2.1
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v7.1.1
   </div>
   <span class="post-meta-divider">|</span>
   <div class="theme-info">主题 – <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> v7.7.1
