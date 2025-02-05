@@ -152,6 +152,156 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/06/CF1399B-Gifts-Fixing/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2020/08/06/CF1399B-Gifts-Fixing/" class="post-title-link" itemprop="url">CF1399B Gifts Fixing</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-08-06 18:16:31" itemprop="dateCreated datePublished" datetime="2020-08-06T18:16:31+08:00">2020-08-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E5%85%A5%E9%97%A8/" itemprop="url" rel="index"><span itemprop="name">入门</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2020/08/06/CF1399B-Gifts-Fixing/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2020/08/06/CF1399B-Gifts-Fixing/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="CF1399B-Gifts-Fixing"><a href="#CF1399B-Gifts-Fixing" class="headerlink" title="CF1399B Gifts Fixing"></a>CF1399B Gifts Fixing</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><pre><code>B. Gifts Fixing
+time limit per test1 second
+memory limit per test256 megabytes
+inputstandard input
+outputstandard output
+You have n gifts and you want to give all of them to children. Of course, you don&#39;t want to offend anyone, so all gifts should be equal between each other. The i-th gift consists of ai candies and bi oranges.
+
+During one move, you can choose some gift 1≤i≤n and do one of the following operations:
+
+eat exactly one candy from this gift (decrease ai by one);
+eat exactly one orange from this gift (decrease bi by one);
+eat exactly one candy and exactly one orange from this gift (decrease both ai and bi by one).
+Of course, you can not eat a candy or orange if it&#39;s not present in the gift (so neither ai nor bi can become less than zero).
+
+As said above, all gifts should be equal. This means that after some sequence of moves the following two conditions should be satisfied: a1=a2=⋯=an and b1=b2=⋯=bn (and ai equals bi is not necessary).
+
+Your task is to find the minimum number of moves required to equalize all the given gifts.
+
+You have to answer t independent test cases.
+
+Input
+The first line of the input contains one integer t (1≤t≤1000) — the number of test cases. Then t test cases follow.
+
+The first line of the test case contains one integer n (1≤n≤50) — the number of gifts. The second line of the test case contains n integers a1,a2,…,an (1≤ai≤109), where ai is the number of candies in the i-th gift. The third line of the test case contains n integers b1,b2,…,bn (1≤bi≤109), where bi is the number of oranges in the i-th gift.
+
+Output
+For each test case, print one integer: the minimum number of moves required to equalize all the given gifts.
+
+Example
+input
+5
+3
+3 5 6
+3 2 3
+5
+1 2 3 4 5
+5 4 3 2 1
+3
+1 1 1
+2 2 2
+6
+1 1000000000 1000000000 1000000000 1000000000 1000000000
+1 1 1 1 1 1
+3
+10 12 8
+7 5 4
+output
+6
+16
+0
+4999999995
+7
+Note
+In the first test case of the example, we can perform the following sequence of moves:
+
+choose the first gift and eat one orange from it, so a=[3,5,6] and b=[2,2,3];
+choose the second gift and eat one candy from it, so a=[3,4,6] and b=[2,2,3];
+choose the second gift and eat one candy from it, so a=[3,3,6] and b=[2,2,3];
+choose the third gift and eat one candy and one orange from it, so a=[3,3,5] and b=[2,2,2];
+choose the third gift and eat one candy from it, so a=[3,3,4] and b=[2,2,2];
+choose the third gift and eat one candy from it, so a=[3,3,3] and b=[2,2,2].
+</code></pre><h2 id="翻译"><a href="#翻译" class="headerlink" title="翻译"></a>翻译</h2><p><a target="_blank" rel="noopener" href="https://fanyi.baidu.com/?aldtype=16047#en/zh/A.%20Remove%20Smallest%0Atime%20limit%20per%20test1%20second%0Amemory%20limit%20per%20test256%20megabytes%0Ainputstandard%20input%0Aoutputstandard%20output%0AYou%20are%20given%20the%20array%20a%20consisting%20of%20n%20positive%20(greater%20than%20zero">百度翻译结果</a>%20integers.%0A%0AIn%20one%20move%2C%20you%20can%20choose%20two%20indices%20i%20and%20j%20(i%E2%89%A0j)%20such%20that%20the%20absolute%20difference%20between%20ai%20and%20aj%20is%20no%20more%20than%20one%20(%7Cai%E2%88%92aj%7C%E2%89%A41)%20and%20remove%20the%20smallest%20of%20these%20two%20elements.%20If%20two%20elements%20are%20equal%2C%20you%20can%20remove%20any%20of%20them%20(but%20exactly%20one).%0A%0AYour%20task%20is%20to%20find%20if%20it%20is%20possible%20to%20obtain%20the%20array%20consisting%20of%20only%20one%20element%20using%20several%20(possibly%2C%20zero)%20such%20moves%20or%20not.%0A%0AYou%20have%20to%20answer%20t%20independent%20test%20cases.%0A%0AInput%0AThe%20first%20line%20of%20the%20input%20contains%20one%20integer%20t%20(1%E2%89%A4t%E2%89%A41000)%20%E2%80%94%20the%20number%20of%20test%20cases.%20Then%20t%20test%20cases%20follow.%0A%0AThe%20first%20line%20of%20the%20test%20case%20contains%20one%20integer%20n%20(1%E2%89%A4n%E2%89%A450)%20%E2%80%94%20the%20length%20of%20a.%20The%20second%20line%20of%20the%20test%20case%20contains%20n%20integers%20a1%2Ca2%2C%E2%80%A6%2Can%20(1%E2%89%A4ai%E2%89%A4100)%2C%20where%20ai%20is%20the%20i-th%20element%20of%20a.%0A%0AOutput%0AFor%20each%20test%20case%2C%20print%20the%20answer%3A%20%22YES%22%20if%20it%20is%20possible%20to%20obtain%20the%20array%20consisting%20of%20only%20one%20element%20using%20several%20(possibly%2C%20zero)%20moves%20described%20in%20the%20problem%20statement%2C%20or%20%22NO%22%20otherwise.)</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p><strong><del>自己想</del></strong></p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;vector&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;queue&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;stack&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="keyword">include</span><span class="string">&lt;map&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="type">int</span> a[<span class="number">100</span>];</span><br><span class="line"><span class="type">int</span> b[<span class="number">100</span>];</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="type">int</span> t;</span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;t);</span><br><span class="line">	<span class="keyword">while</span>(t--)&#123;</span><br><span class="line">		<span class="type">int</span> n;</span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;n);</span><br><span class="line">		<span class="type">int</span> mina=<span class="number">1000000010</span>,minb=<span class="number">1000000010</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;a[i]);</span><br><span class="line">			<span class="keyword">if</span>(a[i]&lt;mina)mina=a[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;b[i]);</span><br><span class="line">			<span class="keyword">if</span>(b[i]&lt;minb)minb=b[i];</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="type">long</span> <span class="type">long</span> con=<span class="number">0</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="type">int</span> i=<span class="number">0</span>;i&lt;n;++i)&#123;</span><br><span class="line">			<span class="type">int</span> x=a[i]-mina,y=b[i]-minb;</span><br><span class="line">			con+=<span class="built_in">max</span>(x,y);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%I64d\n&quot;</span>,con);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//	freopen(&quot;data.in&quot;,&quot;r&quot;,stdin);</span></span><br><span class="line"><span class="comment">//	freopen(&quot;test.out&quot;,&quot;w&quot;,stdout);</span></span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/08/06/CF1399A-Remove-Smallest/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -660,14 +810,14 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">34</span>
+          <span class="site-state-item-count">35</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">29</span>
+        <span class="site-state-item-count">30</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
@@ -709,7 +859,7 @@
 <div class="copyright">
   
   &copy; 
-  <span itemprop="copyrightYear">2024</span>
+  <span itemprop="copyrightYear">2025</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
