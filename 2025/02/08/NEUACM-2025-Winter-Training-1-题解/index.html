@@ -20,23 +20,20 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="初识微积分前言寒假开始几天不想写作业后面也不想写，闲暇之时看了看李永乐老师和3Blue1Brown的关于微积分的视频，便一发不可收拾。所以把这几天学到的知识怕忘了写个随笔。 定义微积分就是对一个问题进行连续微分后计算再求解整个问题的方法。  微积分学（Calculus，在拉丁语中意为计数用的小石头） 是研究极限、微分学、积分学和无穷级数等的一个数学分支，并成为了现代大学教育的重要组成部分。历史">
+  <meta name="description" content="NEUACM 2025 Winter Training 1 题解F 炸弹题意在一条直线上有 $n$ 个炸弹，每个炸弹的坐标是 $x_i$，爆炸半径是 $r_i$，当一个炸弹爆炸时，如果另一个炸弹所在位置 $x_j$ 满足：$|x_j-x_i| \le r_i$，那么，该炸弹也会被引爆。 现在，请你帮忙计算一下，先把第 $i$ 个炸弹引爆，将引爆多少个炸弹呢？  答案对 $10^9 + 7$ 取模。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="初识微积分">
-<meta property="og:url" content="http://yoursite.com/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/index.html">
+<meta property="og:title" content="NEUACM 2025 Winter Training 1 题解">
+<meta property="og:url" content="http://yoursite.com/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="99_wood&#39;s blog">
-<meta property="og:description" content="初识微积分前言寒假开始几天不想写作业后面也不想写，闲暇之时看了看李永乐老师和3Blue1Brown的关于微积分的视频，便一发不可收拾。所以把这几天学到的知识怕忘了写个随笔。 定义微积分就是对一个问题进行连续微分后计算再求解整个问题的方法。  微积分学（Calculus，在拉丁语中意为计数用的小石头） 是研究极限、微分学、积分学和无穷级数等的一个数学分支，并成为了现代大学教育的重要组成部分。历史">
+<meta property="og:description" content="NEUACM 2025 Winter Training 1 题解F 炸弹题意在一条直线上有 $n$ 个炸弹，每个炸弹的坐标是 $x_i$，爆炸半径是 $r_i$，当一个炸弹爆炸时，如果另一个炸弹所在位置 $x_j$ 满足：$|x_j-x_i| \le r_i$，那么，该炸弹也会被引爆。 现在，请你帮忙计算一下，先把第 $i$ 个炸弹引爆，将引爆多少个炸弹呢？  答案对 $10^9 + 7$ 取模。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212318996-1229169991.png">
-<meta property="og:image" content="https://i.loli.net/2020/03/01/1HamDrOFGVR2dAE.png">
-<meta property="og:image" content="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212320347-842064787.png">
-<meta property="article:published_time" content="2020-02-29T03:47:45.000Z">
-<meta property="article:modified_time" content="2023-08-23T16:06:32.490Z">
+<meta property="article:published_time" content="2025-02-08T08:52:20.000Z">
+<meta property="article:modified_time" content="2025-02-08T11:44:19.730Z">
 <meta property="article:author" content="99_wood">
+<meta property="article:tag" content="集训">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212318996-1229169991.png">
 
-<link rel="canonical" href="http://yoursite.com/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/">
+<link rel="canonical" href="http://yoursite.com/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -48,7 +45,7 @@
   };
 </script>
 
-  <title>初识微积分 | 99_wood's blog</title>
+  <title>NEUACM 2025 Winter Training 1 题解 | 99_wood's blog</title>
   
 
 
@@ -160,7 +157,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/myavatar.jpg">
@@ -173,7 +170,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          初识微积分
+          NEUACM 2025 Winter Training 1 题解
         </h1>
 
         <div class="post-meta">
@@ -182,24 +179,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2020-02-29 11:47:45" itemprop="dateCreated datePublished" datetime="2020-02-29T11:47:45+08:00">2020-02-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
-                </span>
+              <time title="创建时间：2025-02-08 16:52:20 / 修改时间：19:44:19" itemprop="dateCreated datePublished" datetime="2025-02-08T16:52:20+08:00">2025-02-08</time>
             </span>
 
           
@@ -211,8 +193,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -227,26 +209,66 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h1 id="初识微积分"><a href="#初识微积分" class="headerlink" title="初识微积分"></a>初识微积分</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>寒假开始几天不想写作业<del>后面也不想写</del>，闲暇之时看了看<a target="_blank" rel="noopener" href="https://space.bilibili.com/9458053?from=search&amp;seid=10946562271097898825">李永乐老师</a>和<a target="_blank" rel="noopener" href="https://space.bilibili.com/88461692?from=search&amp;seid=8771060376994081753">3Blue1Brown</a>的关于微积分的视频，便一发不可收拾。所以把这几天学到的知识怕忘了写个随笔。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>微积分就是对一个问题进行连续微分后计算再求解整个问题的方法。</p>
-<blockquote>
-<p>微积分学（Calculus，在拉丁语中意为计数用的小石头） 是研究极限、微分学、积分学和无穷级数等的一个数学分支，并成为了现代大学教育的重要组成部分。历史上，微积分曾经指无穷小的计算。更本质的讲，微积分学是一门研究变化的学问。<br>——维基百科 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6">微积分学</a></p>
-</blockquote>
-<h2 id="问题导入"><a href="#问题导入" class="headerlink" title="问题导入"></a>问题导入</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>有这样一个v-t图像（如图表1）。求3s行驶的距离。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212318996-1229169991.png" alt="图表1"></p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p><img src="https://i.loli.net/2020/03/01/1HamDrOFGVR2dAE.png" alt="p1.png"></p>
+        <h1 id="NEUACM-2025-Winter-Training-1-题解"><a href="#NEUACM-2025-Winter-Training-1-题解" class="headerlink" title="NEUACM 2025 Winter Training 1 题解"></a>NEUACM 2025 Winter Training 1 题解</h1><h2 id="F-炸弹"><a href="#F-炸弹" class="headerlink" title="F 炸弹"></a>F 炸弹</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>在一条直线上有 $n$ 个炸弹，每个炸弹的坐标是 $x_i$，爆炸半径是 $r_i$，当一个炸弹爆炸时，如果另一个炸弹所在位置 $x_j$ 满足：<br>$|x_j-x_i| \le r_i$，那么，该炸弹也会被引爆。</p>
+<p>现在，请你帮忙计算一下，先把第 $i$ 个炸弹引爆，将引爆多少个炸弹呢？ </p>
+<p>答案对 $10^9 + 7$ 取模。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>注意到一个炸弹爆炸后引发的爆炸区域是连续的。如果我们可以求出每个炸弹爆炸后引发的爆炸区域的做右端点，则引爆的炸弹数为区域中炸弹的个数。</p>
+<p>定义 $l_i$ 和 $r_i$ 分别表示第 $i$ 个炸弹爆炸后引发的爆炸区域的左端点和右端点。</p>
+<p>那么有 $l_i = \min \left(x_i - r_i, l_j \right)$ 其中 $|x_j - x_i| \le r_i$。</p>
+<p>这个式子我们可以借用 $\text{dijkstra}$ 算法的思想，先计算 $x_i - r_i$ 最小的炸弹 $l_i$，也就是 $x_i - r_i$。然后再用它去更新其他可以引发它的炸弹的 $l_i$，然后再取 $l_i$ 最小的去更新可以引发它的……</p>
+<p>还有一个问题是能够引发某个炸弹的炸弹很多，如果每个都去更新则复杂度很高。实际上，我们只需要去更新某个炸弹左边的第一个能够引发这个炸弹的炸弹，以及右边的第一个能够引发这个炸弹的炸弹。这样更新是可以不断延续下去而不影响正确性的。</p>
+<p>每个炸弹会更新左右两个可以引发它的炸弹，每次更新后的 $l_i$ 加入优先队列。复杂度 $\mathcal{O}\left(n \log n \right)$。</p>
+<h2 id="G-病毒"><a href="#G-病毒" class="headerlink" title="G 病毒"></a>G 病毒</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>二进制病毒审查委员会最近发现了如下的规律：某些确定的二进制串是病毒的代码。如果某段代码中不存在任何一段病毒代码，那么我们就称这段代码是安全的。现在委员会已经找出了所有的病毒代码段，试问，是否存在一个无限长的安全的二进制代码。</p>
+<p>示例：</p>
+<p>例如如果 $\{011, 11, 00000\}$ 为病毒代码段，那么一个可能的无限长安全代码就是 $010101 \ldots$。如果 $\{01, 11, 000000\}$ 为病毒代码段，那么就不存在一个无限长的安全代码。</p>
+<p>现在给出所有的病毒代码段，判断是否存在无限长的安全代码。</p>
+<p>$1 \leq n \leq 2000$，所有病毒代码段的总长度不超过 $3 \times 10^4$。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>我们把所有的代码段放到 $\text{trie}$ 树上建立 $\text{AC}$ 自动机。对于一个不含病毒的代码，它在 $\text{AC}$ 自动机上的转移不会经过病毒代码的结尾节点。也就是说，我们需要在 $\text{AC}$ 自动机上从根节点出发找一个环。</p>
+<p>一个细节是，如果一个节点的 $\text{fail}$ 树上经过病毒节点，则该节点也是病毒节点。</p>
+<h2 id="J-Adventurers"><a href="#J-Adventurers" class="headerlink" title="J Adventurers"></a>J Adventurers</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>二维平面上 $n$ 个点，要求把他们用一个十字分为四部分，使得点最少的部分的点数量尽可能大。</p>
+<p>数据范围： $n \le 10^5$。</p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>将点按照某一维排序，这里我们都用 $x$ 来排序。将十字的竖线从左往右扫，此时我们以及将点分为两部分，只需要确定横线的值来使得最少部分的点尽可能大。考虑二分答案，对于左右的任意部分，当答案确定后，我们也就可以确定横线可以存在的区间。我们将左右两部分的区间相交，看是否为空。</p>
+<p>确定区间可以用平衡树实现，复杂度 $\mathcal{O} \left( \log n \right)$，二分复杂度 $\mathcal{O} \left( \log n \right)$，扫描复杂度 $\mathcal{O} \left( n \right)$，总复杂度 $\mathcal{O} \left( n \log^2 n \right)$。</p>
+<h2 id="N-Graph-Subset-Problem"><a href="#N-Graph-Subset-Problem" class="headerlink" title="N - Graph Subset Problem"></a>N - Graph Subset Problem</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>$T$ 组数据。</p>
+<p>给你一个有 $n$ 个顶点和 $m$ 条边的无向图，和一个整数 $k$。</p>
+<p>请你找到一个大小为 $k$ 的团（称一个 $k$ 个点的集合为团，当且仅当点集大小为 $k$，并且该子集的每两个顶点之间存在一条边。）或一个非空的顶点子集，使该子集的每个顶点在该子集中至少有 $k$ 个邻居。</p>
+<p>输出方案。</p>
+<p>对于每个测试用例：</p>
 <ul>
-<li>由图可知这是一个匀加速运动。</li>
-<li>可以将其想象为多个匀速直线运动如图表2。此时3s内路程s=0<em>1+2</em>1+4*1=6(m)</li>
-<li>增加长条段数如图表3。此时3s内路程s=0<em>0.5+1</em>0.5+2<em>0.5+3</em>0.5+4<em>0.5+5</em>0.5=7.5(m)</li>
-<li>以此类推，可以发现s=长条组成的面积（如图表4）s=6*3/2=9(m)</li>
+<li>如果找到一个合法点集，在第 $1$ 行输出 <code>1</code> 和子集的大小。在第 $2$ 行，以任意顺序输出子集的顶点。</li>
+<li>如果找到一个大小为 $k$ 的团，那么在第 $1$ 行输出 <code>2</code>。第 $2$ 行中，以任意顺序输出该团的顶点。</li>
+<li>如果没有所需的子集和集团，请输出 <code>-1</code>。</li>
+<li>如果存在多个可能的答案，输出其中任意一个。</li>
 </ul>
-<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>以上这个问题求解的方法就是利用了微积分的思想。把求整个路程的问题化为求的多个可以求解的问题再求和求解整个问题。这一过程用微积分表示就是</p>
-<script type="math/tex; mode=display">\int_0^3 v(t)dt</script><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>其中 \(\int_0^3 v(t)dt\) 表示从0到3积分，可以理解为让t的值由0变化到3，并把每次后面的式子 的值求和。v(t)是速度v关于时间t的函数，这里是时间为t时速度v的值。dt表示时间t的无限小量。整个式子的含义就是从0到3积分，将此时速度v(t)乘无限小的时间dt。dt在整个图像上就表示长条再t轴上的长度，取无限小后的图像就是图表4。<br>数学上，这一积分就叫做定积分。这一式子表示的是函数v(t)在0≤t≤3时函数图像与t轴之间的面积。由于数学中更常见的直角坐标系是x-y坐标系所以定积分更常见的式子是</p>
-<script type="math/tex; mode=display">\int f(x)dx</script><p>其图形意义就是函数f(x)图像与t轴之间的面积（如图表5）。值等于S蓝+S粉-S绿</p>
-<p><img src="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212320347-842064787.png" alt=""></p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>分析团和合法点集的特点，团要求每个点有 $k - 1$ 条边，点集要求每个点有 $k$ 条边。也就是说，所有度小于 $k - 1$ 的点都可以删去。</p>
+<p>按照这个想法，我们先删掉度小于 $k - 1$ 的点。此时图中每个点的度数都大于等于 $k - 1$。若所有点度数都大于等于 $k$ 那么当前的图就是一个合法的点集。否则我们找到一个度为 $k - 1$ 的点，判断这和点和与它相连的所有点是否在一个团中。如果符合则输出，否则删去这个点，重复上述过程。</p>
+<p>判断一个点集是否是一个团，我们可以直接暴力判断每个边是否存在。对于某条边，可以在其中一个节点的出边中二分查找另一个节点。所以，对于一个大小为 $k$ 的点集，判断的时间复杂度为 $\mathcal{O}\left( k^2 \log m \right)$。上述算法中每次循环都会至少删掉一个度数为 $k - 1$ 的点，循环次数为 $\displaystyle \frac{m}{k - 1}$。所以总的时间复杂度为 $\displaystyle \frac{m}{k - 1} \times k^2 \log m = \mathcal{O} \left( mk \log m \right)$。看似无法通过，但是，我们注意到团的边数为 $\displaystyle \frac{k(k - 1)}{2}$，当 $m &lt; \displaystyle \frac{k(k - 1)}{2}$ 时，我们并不需要判断是否出现团。所以复杂度为 $\mathcal{O} \left( m \sqrt{m} \log m \right)$。</p>
+<h2 id="O-Greedy-Shopping"><a href="#O-Greedy-Shopping" class="headerlink" title="O Greedy Shopping"></a>O Greedy Shopping</h2><h3 id="题意-4"><a href="#题意-4" class="headerlink" title="题意"></a>题意</h3><p>给定一个大小为 $n$ 的<strong>非升序列</strong> $a$ 。</p>
+<p>现在有两类操作，</p>
+<p><code>1 x y</code> ， $\forall i\in[1,x],a_i=\max(a_i,y).$</p>
+<p><code>2 x y</code> ，<br>从下标 $x$ 开始，从左往右访问序列 $a$ ，如果 $a_i\le y$ ，则 $\text{answer}++,y=y-a_i$ 。</p>
+<p>对于每一次操作 $2$ ，输出 $\text{answer}$ 。</p>
+<h3 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h3><div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        Hint 1
+    </div>
+    <div class='spoiler-content'>
+        <p>修改后的序列仍然满足非升的条件。</p>
+
+    </div>
+</div>
+<div class='spoiler collapsed'>
+    <div class='spoiler-title'>
+        Hint 2
+    </div>
+    <div class='spoiler-content'>
+        <p>每次 $\text{2}$ 操作，最多分成 $\log n$ 个不连续的段。</p>
+
+    </div>
+</div>
+<h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>根据以上提示可以想到用线段树维护序列区间左端点值，右端点值，区间和。</p>
+<p>对于操作 $\text{1}$，如果当前区间最小值大于 $y$，则无需修改，否则递归下去修改，复杂度 $\mathcal{O} \left( \log n \right)$。</p>
+<p>对于操作 $\text{2}$，我们可以线段树上二分找到第一个可以统计的元素，然后再线段树上二分找到统计的区间右端点，不断重复上述过程找到所有统计的区间。复杂度 $\mathcal{O} \left( \log^2 n \right)$。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -275,17 +297,20 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9B%86%E8%AE%AD/" rel="tag"># 集训</a>
+          </div>
 
         
 
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/07/26/P1486-%E9%BB%91%E6%9A%97%E5%9F%8E%E5%A0%A1/" rel="next" title="YBT1486 黑暗城堡">
-      YBT1486 黑暗城堡 <i class="fa fa-chevron-right"></i>
+    <a href="/2025/02/06/2024%E4%B8%8B%E5%8D%8A%E5%B9%B4%E5%9B%9E%E5%BF%86%E5%BD%95/" rel="prev" title="2024下半年回忆录">
+      <i class="fa fa-chevron-left"></i> 2024下半年回忆录
     </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -346,7 +371,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86"><span class="nav-number">1.</span> <span class="nav-text">初识微积分</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.2.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%E5%AF%BC%E5%85%A5"><span class="nav-number">1.3.</span> <span class="nav-text">问题导入</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E7%9B%AE"><span class="nav-number">1.3.1.</span> <span class="nav-text">题目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%80%9D%E8%80%83"><span class="nav-number">1.3.2.</span> <span class="nav-text">思考</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%9D%E6%83%B3"><span class="nav-number">1.4.</span> <span class="nav-text">思想</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%AB%E4%B9%89"><span class="nav-number">1.5.</span> <span class="nav-text">含义</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">NEUACM 2025 Winter Training 1 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#F-%E7%82%B8%E5%BC%B9"><span class="nav-number">1.1.</span> <span class="nav-text">F 炸弹</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-%E7%97%85%E6%AF%92"><span class="nav-number">1.2.</span> <span class="nav-text">G 病毒</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J-Adventurers"><span class="nav-number">1.3.</span> <span class="nav-text">J Adventurers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#N-Graph-Subset-Problem"><span class="nav-number">1.4.</span> <span class="nav-text">N - Graph Subset Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#O-Greedy-Shopping"><span class="nav-number">1.5.</span> <span class="nav-text">O Greedy Shopping</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8F%90%E7%A4%BA"><span class="nav-number">1.5.2.</span> <span class="nav-text">提示</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-4"><span class="nav-number">1.5.3.</span> <span class="nav-text">分析</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
