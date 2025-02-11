@@ -264,6 +264,160 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">NEUACM 2025 Winter Training 2 题解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2025-02-10 20:59:37" itemprop="dateCreated datePublished" datetime="2025-02-10T20:59:37+08:00">2025-02-10</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-11 10:53:30" itemprop="dateModified" datetime="2025-02-11T10:53:30+08:00">2025-02-11</time>
+              </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="NEUACM-2025-Winter-Training-2-题解"><a href="#NEUACM-2025-Winter-Training-2-题解" class="headerlink" title="NEUACM 2025 Winter Training 2 题解"></a>NEUACM 2025 Winter Training 2 题解</h1><h2 id="D-松鼠聚会"><a href="#D-松鼠聚会" class="headerlink" title="D 松鼠聚会"></a>D 松鼠聚会</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维平面上 $n$ 个点。求其中一个点使得其他点到该点的切比雪夫距离之和最小。</p>
+<p>$0 \le n \le 10^5$。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>切比雪夫距离含有 $\max$，难以维护。考虑通过坐标变换 </p>
+<script type="math/tex; mode=display">\left[ \begin{matrix}
+x'\\
+y'\\
+\end{matrix} \right]
+=
+\frac{1}{2}
+\left[ \begin{matrix}
+1 & 1\\
+1 & -1\\
+\end{matrix} \right]
+\left[ \begin{matrix}
+x\\
+y\\
+\end{matrix} \right]</script><p>将切比雪夫距离转化为曼哈顿距离求解。</p>
+<p>对于点 $(x_i, y_i)$，其他点到该点的距离和为：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    \text{dis}_i &= \sum_{j \ne i} |x_j - x_i| + |y_j - y_i|\\
+    &= \sum_{x_j < x_i} (x_i - x_j) + \sum_{x_j > x_i} (x_j - x_i) + \sum_{y_j < y_i} (y_i - y_j) + \sum_{y_j > y_i} (y_j - y_i)
+\end{align*}</script><p>将坐标排序后计算即可。</p>
+<h2 id="E-ABB"><a href="#E-ABB" class="headerlink" title="E ABB"></a>E ABB</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>求使给定小写字母字符串成为回文串需在字符串末尾加入字母的最少数量。</p>
+<p>字符串长度 $\text{len} \le 4 \times 10 ^ 5$。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>当然可以用马拉车解决。但是没必要。</p>
+<p>题意转化后其实就是找字符串中最长的回文后缀，后缀不够明了，可以反转后转化为找前缀。根据回文串的性质，回文串反转后不变。所以我们就是在反转后的串中寻找<strong>最长的前缀使得它等于反转前的后缀</strong>。这启发我们用 $\text{KMP}$ 算法求解，我们将反转后的字符串拼接到原字符串前，我们要找的就是 $\text{next}_{2n}$。但是有可能此时 $\text{next}_{2n} &gt; n$，为了避免这种情况，我们在中间添加一个特殊字符即可。</p>
+<h2 id="H-图腾"><a href="#H-图腾" class="headerlink" title="H 图腾"></a>H 图腾</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给定一个 $1 \sim N$ 的排列。</p>
+<p>求满足</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_c<y_b<y_d</script><p>的四元组个数与满足</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_b<y_d<y_c</script><p>或</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_d<y_c<y_b</script><p>的四元组个数的差。</p>
+<p>对于 $100\%$ 的数据，$N ≤ 200000$。</p>
+<p>以下是两种四元组的图形。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/18466.png" alt=""></p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/18467.png" alt=""></p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>每个四元组都难以单独计算，而问题要求我们算它们的差，所以，我们尝试用容斥把式子变形，消去不好算的部分。</p>
+<p>定义 $[abcd]$ 表示符合相对大小关系四元组的数量。例如 $[1234]$ 表示单调递增的四元组的个数。</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    &[1324] - [1243] - [1432]\\
+    = &([13xx] - [1342]) - ([1x4x] - [1342]) - ([1x3x] - [1234])\\
+    = &[13xx] - [1x4x] - [1x3x] + [1234]\\
+    = &[13xx] - ([1xxx] - [1x2x]) + [1234]\\
+    = &[13xx] - [1xxx] + [1x2x] + [1234]\\
+\end{align*}</script><p>这个式子的推到还是很有技巧性的。我们发现通过两位去凑，总能消除一个共同的四元组。<br>比如如果你想要消去 $[1234]$，那么 $[1324] - [1243]$ 可以变形为 $([1xx4] - [1234]) - ([12xx] - [1234])$ 来消去。<br>多试几次消去不同的项就能凑出来。</p>
+<p>到这里问题解决的一半，剩下难点在于如何计算每一项。</p>
+<p>对于 $[1xxx]$ 和 $[1234]$ 还是很好计算的，这里不再赘述。</p>
+<p>对于 $[1x2x]$，我们可以枚举 $2$ 出现的位置。</p>
+<p>对于 $2$ 右边的 $x$ 容易处理，只需要乘上右边大于 $a_i$ 的个数。<br>左边相当于要求 $[132]$。并且此时我们只能枚举最右边 $2$ 的位置。</p>
+<p>我们再次尝试容斥原理计算。我们发现，我们可以算出满足左边两个数至少存在一个小于 $a_i$ 的三元组个数为 $\tbinom{i - 1}{2} - \tbinom{G_i}{2}$，其中 $G_i$ 为左边大于 $a_i$ 的元素个数。<br>满足这样的三元组的和为 $[123] + [132] + [213] + [312]$。<br>其中 $[123]$ 很好算， $[213]$ 和 $[312]$ 可以就是求左边有多少个右端小于 $a_i$ 的“下降”，可以通过树状数组计算。</p>
+<p>对于 $[13xx]$，我们发现将这个排列<strong>求逆</strong>后正好是 $[1x2x]$！我们只需要把原排列求逆再用 $[1x2x]$ 的方法计算即可。</p>
+<h2 id="I-Triangle"><a href="#I-Triangle" class="headerlink" title="I Triangle"></a>I Triangle</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>给出一个正整数 $S$ $( 1 \le S \le 10^{18} )$，你需要找出三个 $[0,10^9]$ 范围内的点。<br>使得构成的三角形面积是 $\displaystyle \frac{S}{2}$。</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>可以固定一个一个点为 $(0, 0)$。剩下两个坐标为 $(x_1, y_2)$、$(x_2, y_2)$。</p>
+<script type="math/tex; mode=display">S = \frac{1}{2}\left|\begin{matrix}
+    x1 & y1 \\
+    x2 & y2 \\
+\end{matrix}\right|</script><p>我们让 $x1$、$y2$为 $\left\lceil\sqrt{S}\right\rceil$，调整 $x2$、$y1$，即可完成。</p>
+<h2 id="J-Shift-and-Flip"><a href="#J-Shift-and-Flip" class="headerlink" title="J Shift and Flip"></a>J Shift and Flip</h2><p>给你两个 $\text{01}$ 串 $A$ 和 $B$，你可以进行以下 $3$ 种操作：</p>
+<ol>
+<li>将 $A$ 左移一位（如 $\texttt{0011} \rightarrow \texttt{0110}$）。</li>
+<li>将 $A$ 右移一位（如 $\texttt{0011} \rightarrow \texttt{1001}$）。</li>
+<li>选择一个满足 $B_i = 1$ 的位置 $i$，令 $A_i = 1 - A_i$。</li>
+</ol>
+<p>问要使 $A$ 和 $B$ 相等至少要进行几次操作。</p>
+<p>$\text{len}_A, \text{len}_B \le 2000$。</p>
+<h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>显然如果 $A$ 中有 $1$，而 $B$ 中没有 $1$，问题无解。</p>
+<p>显然如果 $A$ 和 $B$ 中都没有 $1$，答案为 $0$。</p>
+<p>下面我们只需要解决 $B$ 中至少有一个 $1$ 的情况。<br>通过简单分析，我们可以将整个过程总结为以下三步。1. 去往第一个小修改的位置；2. 沿着一个方向不断修改；3. 将 $A$ 和 $B$ 对齐。</p>
+<p>我们可以想象有一个初始为 $0$ 计数器，当左移时计数器减 $1$，右移时计数器加 $1$。<br>我们定义整个过程中计数器的最小值为 $l$，最大值为 $r$，最后的值为 $d$。<br>根据我们刚才的分析，整个过程要么是“左右左”，要么是“右左右”，那么整个移动的距离就是 $2 \times (R - L) - \left|d\right|$。</p>
+<p>下面我们不妨设过程为“左右左”来解决，对于“右左右”我们可以将 $A$ 和 $B$ 反转后用相同的方法解决。</p>
+<p>我们先预处理出 $\text{pre}_i$ 和 $\text{suf}_i$ 分别表示 $B$ 中 $i$ 左边和右边第一个 $1$ 与 $i$ 的距离。<br>然后我们可以枚举 $d$，来确定 $l$ 和 $r$。<br>我们扫描 $A$ 串，若 $A_i \ne B_{(i + d) \bmod n}$ 则说明该位置要反转。<br>若 $\text{pre}_{(i + d) \bmod n} \le d$，则说明我们可以在右移的过程中某个位置将这一位修改。<br>否则，说明我们需要在一开始多左移或右移几位来修改这一位。</p>
+<p>如果要通过左移修改，那么要满足 $\displaystyle -l \ge \text{pre}_i$；</p>
+<p>如果要通过右移修改，那么要满足 $\displaystyle r \ge d + \text{pre}_{(i + d) \bmod n}$。</p>
+<p>这样我们就有了若干个约束条件，优化的目标是让 $r - l$ 尽可能小。<br>我们通过图像来解决这个最优化问题。我们将所有的条件画在坐标系中，发现是若干 $\displaystyle \frac{3}{4}$ 平面交。<br>我们可以排序后用单调栈保留相交后最外边的 $\displaystyle \frac{3}{4}$ 平面，在交点处求解。</p>
+<p>复杂度 $\mathcal{O}(n^2 \log n)$。如果用桶排可以优化到 $\mathcal{O}(n^2)$。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1476,118 +1630,6 @@ A (B A)^{n - 1} B
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/10/21/%E6%9D%BF%E5%88%B7-Atcoder-Educational-DP-Contest-%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2023/10/21/%E6%9D%BF%E5%88%B7-Atcoder-Educational-DP-Contest-%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">板刷 Atcoder Educational DP Contest 总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2023-10-21 23:03:56" itemprop="dateCreated datePublished" datetime="2023-10-21T23:03:56+08:00">2023-10-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-22 14:03:52" itemprop="dateModified" datetime="2023-11-22T14:03:52+08:00">2023-11-22</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2023/10/21/%E6%9D%BF%E5%88%B7-Atcoder-Educational-DP-Contest-%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/21/%E6%9D%BF%E5%88%B7-Atcoder-Educational-DP-Contest-%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="板刷-Atcoder-Educational-DP-Contest-总结"><a href="#板刷-Atcoder-Educational-DP-Contest-总结" class="headerlink" title="板刷 Atcoder Educational DP Contest 总结"></a>板刷 Atcoder Educational DP Contest 总结</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>最近为了水 ACM 选修课积分, 于是写了一下 OJ 中的 DP 提高题, 发现是 AtCoder 上的题目. 做下来收获颇丰, 所以写篇总结.</p>
-<p>总结会写一些我在写的时候花时间比较多或者看了题解或者有收获的题, 代码选择性地放.</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="J-Sushi"><a href="#J-Sushi" class="headerlink" title="J Sushi"></a>J Sushi</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_j">题目链接</a></p>
-<p>难在优化状态, 发现答案与盘子的顺序无关, 设计状态 $f_{i, j, k}$ 表示有 $i$ 个盘子有 $1$ 个寿司, 有 $j$ 个盘子有 $2$ 个寿司, 有 $k$ 个盘子有 $3$ 个寿司全部吃光的期望次数. </p>
-<p>状态转移方程推出来是</p>
-<script type="math/tex; mode=display">f_{i, j, k} = \frac{i}{i + j + k} \times f_{i - 1, j, k}  + \frac{j}{i + j + k} \times f_{i + 1, j - 1, k}  + \frac{k}{i + j + k} \times f_{i, j + 1, k - 1}  + \frac{n}{i + j + k}</script><p>一个易错点是循环顺序是 $k$, $j$, $i$. 读者可以思考一下原因.</p>
-<h3 id="R-Walk"><a href="#R-Walk" class="headerlink" title="R Walk"></a>R Walk</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_r">题目链接</a></p>
-<p>设计状态 $f_{i, u, v}$ 表示长度为 $i$ 的从 $u$ 到 $v$ 的路径个数.</p>
-<p>转移方程</p>
-<script type="math/tex; mode=display">f_{i, u, v} = \sum\limits_{k = 1}^n f_{i - 1, u, k} + f_{1, k, v}</script><p>这东西很像矩阵乘法, 可以用矩阵快速幂优化.</p>
-<h3 id="U-Grouping"><a href="#U-Grouping" class="headerlink" title="U Grouping"></a>U Grouping</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_u">题目链接</a></p>
-<p>枚举子集的方法</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="type">int</span> i = now; i; i = (i - <span class="number">1</span>) &amp; now)&#123;</span><br><span class="line">	f[now] = <span class="built_in">max</span>(f[now], f[now ^ i] + <span class="built_in">solve</span>(i));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="V-Subtree"><a href="#V-Subtree" class="headerlink" title="V Subtree"></a>V Subtree</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_v">题目链接</a></p>
-<p>换根 DP. 但是模数不一定为质数, 所以记录前缀积和后缀积解决.</p>
-<h3 id="W-Intervals"><a href="#W-Intervals" class="headerlink" title="W Intervals"></a>W Intervals</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_w">题目链接</a></p>
-<p>好题.</p>
-<p>按区间右端点排序, 只有考虑到 i 时, 计算所有右端点为 i 的区间对答案的贡献, 可以做到不重不漏. 而且可以发现, 这样计算只需要考虑最右边选的点的位置.</p>
-<p>令 $f_{i,j}$ 表示考虑到 i, 最后一个点在 j 的最大值.</p>
-<p>写出状态转移方程发现可以把 $f$ 放在线段树上. 很好的一道题.</p>
-<h3 id="Y-Grid-2"><a href="#Y-Grid-2" class="headerlink" title="Y Grid 2"></a>Y Grid 2</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_y">题目链接</a></p>
-<p>带障碍的走方格. 一开始想离散化做, 发现代码困难遂看题解.</p>
-<p>设计状态 $f_{i}$ 表示从开始到障碍 $i$ 的位置<strong>且不通过障碍</strong>的方案数.</p>
-<script type="math/tex; mode=display">f_{i} = \tbinom{x_i - 1 + y_i - 1}{x_i - 1} - \sum\limits_{x_j \leq x_i, y_j \leq y_i} \tbinom{x_i - x_j + y_i - y_j}{x_i - x_j} f_{j}</script><h3 id="Z-Frog-3"><a href="#Z-Frog-3" class="headerlink" title="Z Frog 3"></a>Z Frog 3</h3><p><a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/AT_dp_z">题目链接</a></p>
-<p>斜率优化 DP 模板题.</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1666,7 +1708,7 @@ A (B A)^{n - 1} B
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">36</span>
+          <span class="site-state-item-count">37</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

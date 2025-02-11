@@ -20,24 +20,23 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="《你的名字。》黑胶音乐推荐前言昨天鼠鼠收到了在叔叔那买的《你的名字。》原声带，所以借机写个歌推吧。 说到这盘黑胶，就不得不提《你的名字。》这部空前绝后的作品。顺便一提，《你的名字。》已经是 7 年前的作品了，时间就是流逝得这么快。 我第一次了解到这部作品是通过 OI。想必 OIer 都还记得，当年有人 P 了这么一个图片。  这幅图如今可能已经是时代的眼泪了。但是这幅图对于刚学 OI 的我还是有一">
+  <meta name="description" content="NEUACM 2025 Winter Training 2 题解D 松鼠聚会题意二维平面上 $n$ 个点。求其中一个点使得其他点到该点的切比雪夫距离之和最小。 $0 \le n \le 10^5$。 分析切比雪夫距离含有 $\max$，难以维护。考虑通过坐标变换  \left[ \begin{matrix} x&#39;\\ y&#39;\\ \end{matrix} \right] &#x3D; \frac{1}{2}">
 <meta property="og:type" content="article">
-<meta property="og:title" content="《你的名字。》黑胶音乐推荐">
-<meta property="og:url" content="http://yoursite.com/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/index.html">
+<meta property="og:title" content="NEUACM 2025 Winter Training 2 题解">
+<meta property="og:url" content="http://yoursite.com/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="99_wood&#39;s blog">
-<meta property="og:description" content="《你的名字。》黑胶音乐推荐前言昨天鼠鼠收到了在叔叔那买的《你的名字。》原声带，所以借机写个歌推吧。 说到这盘黑胶，就不得不提《你的名字。》这部空前绝后的作品。顺便一提，《你的名字。》已经是 7 年前的作品了，时间就是流逝得这么快。 我第一次了解到这部作品是通过 OI。想必 OIer 都还记得，当年有人 P 了这么一个图片。  这幅图如今可能已经是时代的眼泪了。但是这幅图对于刚学 OI 的我还是有一">
+<meta property="og:description" content="NEUACM 2025 Winter Training 2 题解D 松鼠聚会题意二维平面上 $n$ 个点。求其中一个点使得其他点到该点的切比雪夫距离之和最小。 $0 \le n \le 10^5$。 分析切比雪夫距离含有 $\max$，难以维护。考虑通过坐标变换  \left[ \begin{matrix} x&#39;\\ y&#39;\\ \end{matrix} \right] &#x3D; \frac{1}{2}">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/picture/%E4%BD%A0%E7%9A%84NOIP.jpeg">
-<meta property="og:image" content="http://yoursite.com/picture/@%E5%AD%97.Your.Name.2016.%E6%97%A5%E8%AF%AD%E4%B8%AD%E5%AD%97_2.mp4_20231014_231652.167.jpg">
-<meta property="og:image" content="http://yoursite.com/picture/@%E5%AD%97.Your.Name.2016.%E6%97%A5%E8%AF%AD%E4%B8%AD%E5%AD%97_2.mp4_20231015_214527.805.jpg">
-<meta property="og:image" content="http://yoursite.com/picture/@%E5%AD%97.Your.Name.2016.%E6%97%A5%E8%AF%AD%E4%B8%AD%E5%AD%97_2.mp4_20231015_214729.541.jpg">
-<meta property="article:published_time" content="2023-10-14T11:51:01.000Z">
-<meta property="article:modified_time" content="2023-11-22T06:03:52.594Z">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/18466.png">
+<meta property="og:image" content="https://cdn.luogu.com.cn/upload/pic/18467.png">
+<meta property="article:published_time" content="2025-02-10T12:59:37.000Z">
+<meta property="article:modified_time" content="2025-02-11T02:53:30.701Z">
 <meta property="article:author" content="99_wood">
+<meta property="article:tag" content="集训">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/picture/%E4%BD%A0%E7%9A%84NOIP.jpeg">
+<meta name="twitter:image" content="https://cdn.luogu.com.cn/upload/pic/18466.png">
 
-<link rel="canonical" href="http://yoursite.com/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/">
+<link rel="canonical" href="http://yoursite.com/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -49,7 +48,7 @@
   };
 </script>
 
-  <title>《你的名字。》黑胶音乐推荐 | 99_wood's blog</title>
+  <title>NEUACM 2025 Winter Training 2 题解 | 99_wood's blog</title>
   
 
 
@@ -161,7 +160,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/myavatar.jpg">
@@ -174,7 +173,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          《你的名字。》黑胶音乐推荐
+          NEUACM 2025 Winter Training 2 题解
         </h1>
 
         <div class="post-meta">
@@ -184,14 +183,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2023-10-14 19:51:01" itemprop="dateCreated datePublished" datetime="2023-10-14T19:51:01+08:00">2023-10-14</time>
+              <time title="创建时间：2025-02-10 20:59:37" itemprop="dateCreated datePublished" datetime="2025-02-10T20:59:37+08:00">2025-02-10</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-11-22 14:03:52" itemprop="dateModified" datetime="2023-11-22T14:03:52+08:00">2023-11-22</time>
+                <time title="修改时间：2025-02-11 10:53:30" itemprop="dateModified" datetime="2025-02-11T10:53:30+08:00">2025-02-11</time>
               </span>
 
           
@@ -203,8 +202,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2023/10/14/%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/10/NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -219,46 +218,82 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="《你的名字。》黑胶音乐推荐"><a href="#《你的名字。》黑胶音乐推荐" class="headerlink" title="《你的名字。》黑胶音乐推荐"></a>《你的名字。》黑胶音乐推荐</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>昨天鼠鼠收到了在叔叔那买的《你的名字。》原声带，所以借机写个歌推吧。</p>
-<p>说到这盘黑胶，就不得不提《你的名字。》这部空前绝后的作品。顺便一提，《你的名字。》已经是 7 年前的作品了，时间就是流逝得这么快。</p>
-<p>我第一次了解到这部作品是通过 OI。想必 OIer 都还记得，当年有人 P 了这么一个图片。</p>
-<p><img src="/picture/你的NOIP.jpeg" alt=""></p>
-<p>这幅图如今可能已经是时代的眼泪了。但是这幅图对于刚学 OI 的我还是有一点小小的震撼。图片右面“自主招生”如今看来是一个很久以前的词。谁能想到几年后由于自主招生政策的取消，OI 已经越来越成为一种兴趣而非升学的一种途径。很难评价这对于信息学人才的培养是有利的还是不利的。话说我在找这陈年老图的时候发现萌娘百科甚至有一个页面来介绍 OI 梗，感兴趣的读者可以前往<a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/OI%E6%A2%97">链接</a>。</p>
-<p>回到作品本身，君名可谓是一部最能体现新海诚创作哲学的作品，平凡的人物，平常的场景，细腻的画面，感人的情节，以及人与人的羁绊在这部作品当中展现得淋漓尽致。不少观众都是从这个作品开始了解新海诚，以至于了解动漫。</p>
-<p>这部作品的配乐由 RADWIMPS 担当，这个乐队也担当了新海诚后续作品《天气之子》和《铃芽之旅》的配乐工作。这个在当时处于巅峰的乐队在这部作品的配乐方面给出了令人满意的答卷。可以说，贴合情节的配乐让《你的名字。》这个本就优秀的作品更上了一步台阶。其中《前前前世》MV 在 YouTube 的点击量已经突破 3 亿，我也是从这部 MV 接触到君名的 OST。所以我一直希望入手君名 OST 的黑胶，由于市面盗版充斥等原因，错过了日版的黑胶。但是很幸运的是这张专辑国内引进了，于是我入手了中国唱片（上海）公司发行的君名 OST，也就是我们今天要谈论的这张黑胶。</p>
-<p>关于这张黑胶的音质，我由于设备原因没法给大家展示，大家可以到 b 站 up 主混交林上传的视频中领略，这个 up 通过内录的方式获取了黑胶原声，理论上是最接近黑胶原声的。附上<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Av4y1d7Ai/">链接</a>。</p>
-<h2 id="01-夢灯籠"><a href="#01-夢灯籠" class="headerlink" title="01 夢灯籠"></a>01 夢灯籠</h2><p>《夢灯籠》作为片头，很好地将观众带入了作品营造的轻松梦幻的氛围。这首歌的歌词也非常具有感染力，表达了梦想、回忆和相遇的主题，以及主人公之间那种特殊的纽带。</p>
-<p><img src="/picture/@字.Your.Name.2016.日语中字_2.mp4_20231014_231652.167.jpg" alt=""></p>
-<h2 id="08-前前前世-movie-ver"><a href="#08-前前前世-movie-ver" class="headerlink" title="08 前前前世 (movie ver.)"></a>08 前前前世 (movie ver.)</h2><p>这个可以说是我比较喜欢的一首曲子，同时它也被当作君名的主题曲。这首歌在电影中出现在两主人公意识到交换身体并且说出</p>
-<blockquote>
-<p>我在梦中和那个男生</p>
-<p>我在梦中和那个女生</p>
-<p>交换了身体</p>
-</blockquote>
-<p>这句台词后响起，并且快速地展现了三叶和泷交换身体后的种种细节。</p>
-<p>而歌词</p>
-<blockquote>
-<p>君の前前前世から僕は 君を探しはじめたよ</p>
-<p>从你的前前前世开始 我就一直寻觅着你的踪迹</p>
-<p>そのぶきっちょな笑い方をめがけて やってきたんだよ</p>
-<p>追寻着你那略显笨拙的笑容 终于找到了你</p>
-</blockquote>
-<p>也暗示了故事的结局不会是个令人伤心的结局。</p>
-<p>这里还是推荐大家可以看一下原版 MV，这里附上<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=PDSkFeMVNFs">油管链接</a>。</p>
-<h2 id="24-スパークル-movie-ver"><a href="#24-スパークル-movie-ver" class="headerlink" title="24 スパークル (movie ver.)"></a>24 スパークル (movie ver.)</h2><p>《火花/スパークル》出现于电影泷和三叶相见又分离之后，泷想办法回忆三叶名字却发现怎么也想不起来时。作品在这里逐渐令人揪心。这里更是出现了名台词</p>
-<blockquote>
-<p>重要的人</p>
-<p>不能忘记的人</p>
-<p>不想忘记的人</p>
-</blockquote>
-<p><img src="/picture/@字.Your.Name.2016.日语中字_2.mp4_20231015_214527.805.jpg" alt=""></p>
-<p><img src="/picture/@字.Your.Name.2016.日语中字_2.mp4_20231015_214729.541.jpg" alt=""></p>
-<p>随后 BGM 响起，直接泪目。</p>
-<h2 id="27-なんでもないや-movie-ver"><a href="#27-なんでもないや-movie-ver" class="headerlink" title="27 なんでもないや (movie ver.)"></a>27 なんでもないや (movie ver.)</h2><p>片尾曲，却也是我最喜欢的一曲，也是我在 OSU 当中玩的做多的谱子之一。一开始打这张谱，会发现总是快，听多了就会明白这首曲子更多的是想描绘一种日常而非某种宏大的叙事，自然要求准确而非急切。</p>
-<p>歌曲的标题本身就是“没什么”的意思，它的歌词提供了对日常的细微瞬间和人际关系的深入哲学考察。而往往最打动人心的不是宏大的场面，而是最珍贵的日常。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>第一次写歌推，写得不好。我更多地希望结合个人的经历来谈这个 OST，如果只是为了描述音乐，不如直接听。音乐的旋律本身固然重要，但更重要的还是其背后的故事。</p>
-<p>在写歌推的过程中又看了几次君名，有了更深的理解，但过去一个人傻呵呵看君名的时光却一去不返。时间就是这样，一晃眼七年过去，懂得多了，疑惑更多，反而想回到过去一无所知但总觉得无所不知的日子，可谁又能说现在的自己不是一无所知呢？</p>
-<p>还有很多想说，但是不太想说太多空洞的文字。还是留给大家遐想的空间，读到这里的读者不妨回忆一下自己七年前的生活吧，一定会发现自己的经历比音乐和电影还更要打动人心。不妨也分享一下自己的过往，不要未来只记得曾有人和事不能忘记，不想忘记。</p>
+        <h1 id="NEUACM-2025-Winter-Training-2-题解"><a href="#NEUACM-2025-Winter-Training-2-题解" class="headerlink" title="NEUACM 2025 Winter Training 2 题解"></a>NEUACM 2025 Winter Training 2 题解</h1><h2 id="D-松鼠聚会"><a href="#D-松鼠聚会" class="headerlink" title="D 松鼠聚会"></a>D 松鼠聚会</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>二维平面上 $n$ 个点。求其中一个点使得其他点到该点的切比雪夫距离之和最小。</p>
+<p>$0 \le n \le 10^5$。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>切比雪夫距离含有 $\max$，难以维护。考虑通过坐标变换 </p>
+<script type="math/tex; mode=display">\left[ \begin{matrix}
+x'\\
+y'\\
+\end{matrix} \right]
+=
+\frac{1}{2}
+\left[ \begin{matrix}
+1 & 1\\
+1 & -1\\
+\end{matrix} \right]
+\left[ \begin{matrix}
+x\\
+y\\
+\end{matrix} \right]</script><p>将切比雪夫距离转化为曼哈顿距离求解。</p>
+<p>对于点 $(x_i, y_i)$，其他点到该点的距离和为：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    \text{dis}_i &= \sum_{j \ne i} |x_j - x_i| + |y_j - y_i|\\
+    &= \sum_{x_j < x_i} (x_i - x_j) + \sum_{x_j > x_i} (x_j - x_i) + \sum_{y_j < y_i} (y_i - y_j) + \sum_{y_j > y_i} (y_j - y_i)
+\end{align*}</script><p>将坐标排序后计算即可。</p>
+<h2 id="E-ABB"><a href="#E-ABB" class="headerlink" title="E ABB"></a>E ABB</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>求使给定小写字母字符串成为回文串需在字符串末尾加入字母的最少数量。</p>
+<p>字符串长度 $\text{len} \le 4 \times 10 ^ 5$。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>当然可以用马拉车解决。但是没必要。</p>
+<p>题意转化后其实就是找字符串中最长的回文后缀，后缀不够明了，可以反转后转化为找前缀。根据回文串的性质，回文串反转后不变。所以我们就是在反转后的串中寻找<strong>最长的前缀使得它等于反转前的后缀</strong>。这启发我们用 $\text{KMP}$ 算法求解，我们将反转后的字符串拼接到原字符串前，我们要找的就是 $\text{next}_{2n}$。但是有可能此时 $\text{next}_{2n} &gt; n$，为了避免这种情况，我们在中间添加一个特殊字符即可。</p>
+<h2 id="H-图腾"><a href="#H-图腾" class="headerlink" title="H 图腾"></a>H 图腾</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给定一个 $1 \sim N$ 的排列。</p>
+<p>求满足</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_c<y_b<y_d</script><p>的四元组个数与满足</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_b<y_d<y_c</script><p>或</p>
+<script type="math/tex; mode=display">1≤a<b<c<d≤N,y_a<y_d<y_c<y_b</script><p>的四元组个数的差。</p>
+<p>对于 $100\%$ 的数据，$N ≤ 200000$。</p>
+<p>以下是两种四元组的图形。</p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/18466.png" alt=""></p>
+<p><img src="https://cdn.luogu.com.cn/upload/pic/18467.png" alt=""></p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>每个四元组都难以单独计算，而问题要求我们算它们的差，所以，我们尝试用容斥把式子变形，消去不好算的部分。</p>
+<p>定义 $[abcd]$ 表示符合相对大小关系四元组的数量。例如 $[1234]$ 表示单调递增的四元组的个数。</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    &[1324] - [1243] - [1432]\\
+    = &([13xx] - [1342]) - ([1x4x] - [1342]) - ([1x3x] - [1234])\\
+    = &[13xx] - [1x4x] - [1x3x] + [1234]\\
+    = &[13xx] - ([1xxx] - [1x2x]) + [1234]\\
+    = &[13xx] - [1xxx] + [1x2x] + [1234]\\
+\end{align*}</script><p>这个式子的推到还是很有技巧性的。我们发现通过两位去凑，总能消除一个共同的四元组。<br>比如如果你想要消去 $[1234]$，那么 $[1324] - [1243]$ 可以变形为 $([1xx4] - [1234]) - ([12xx] - [1234])$ 来消去。<br>多试几次消去不同的项就能凑出来。</p>
+<p>到这里问题解决的一半，剩下难点在于如何计算每一项。</p>
+<p>对于 $[1xxx]$ 和 $[1234]$ 还是很好计算的，这里不再赘述。</p>
+<p>对于 $[1x2x]$，我们可以枚举 $2$ 出现的位置。</p>
+<p>对于 $2$ 右边的 $x$ 容易处理，只需要乘上右边大于 $a_i$ 的个数。<br>左边相当于要求 $[132]$。并且此时我们只能枚举最右边 $2$ 的位置。</p>
+<p>我们再次尝试容斥原理计算。我们发现，我们可以算出满足左边两个数至少存在一个小于 $a_i$ 的三元组个数为 $\tbinom{i - 1}{2} - \tbinom{G_i}{2}$，其中 $G_i$ 为左边大于 $a_i$ 的元素个数。<br>满足这样的三元组的和为 $[123] + [132] + [213] + [312]$。<br>其中 $[123]$ 很好算， $[213]$ 和 $[312]$ 可以就是求左边有多少个右端小于 $a_i$ 的“下降”，可以通过树状数组计算。</p>
+<p>对于 $[13xx]$，我们发现将这个排列<strong>求逆</strong>后正好是 $[1x2x]$！我们只需要把原排列求逆再用 $[1x2x]$ 的方法计算即可。</p>
+<h2 id="I-Triangle"><a href="#I-Triangle" class="headerlink" title="I Triangle"></a>I Triangle</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>给出一个正整数 $S$ $( 1 \le S \le 10^{18} )$，你需要找出三个 $[0,10^9]$ 范围内的点。<br>使得构成的三角形面积是 $\displaystyle \frac{S}{2}$。</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>可以固定一个一个点为 $(0, 0)$。剩下两个坐标为 $(x_1, y_2)$、$(x_2, y_2)$。</p>
+<script type="math/tex; mode=display">S = \frac{1}{2}\left|\begin{matrix}
+    x1 & y1 \\
+    x2 & y2 \\
+\end{matrix}\right|</script><p>我们让 $x1$、$y2$为 $\left\lceil\sqrt{S}\right\rceil$，调整 $x2$、$y1$，即可完成。</p>
+<h2 id="J-Shift-and-Flip"><a href="#J-Shift-and-Flip" class="headerlink" title="J Shift and Flip"></a>J Shift and Flip</h2><p>给你两个 $\text{01}$ 串 $A$ 和 $B$，你可以进行以下 $3$ 种操作：</p>
+<ol>
+<li>将 $A$ 左移一位（如 $\texttt{0011} \rightarrow \texttt{0110}$）。</li>
+<li>将 $A$ 右移一位（如 $\texttt{0011} \rightarrow \texttt{1001}$）。</li>
+<li>选择一个满足 $B_i = 1$ 的位置 $i$，令 $A_i = 1 - A_i$。</li>
+</ol>
+<p>问要使 $A$ 和 $B$ 相等至少要进行几次操作。</p>
+<p>$\text{len}_A, \text{len}_B \le 2000$。</p>
+<h3 id="分析-4"><a href="#分析-4" class="headerlink" title="分析"></a>分析</h3><p>显然如果 $A$ 中有 $1$，而 $B$ 中没有 $1$，问题无解。</p>
+<p>显然如果 $A$ 和 $B$ 中都没有 $1$，答案为 $0$。</p>
+<p>下面我们只需要解决 $B$ 中至少有一个 $1$ 的情况。<br>通过简单分析，我们可以将整个过程总结为以下三步。1. 去往第一个小修改的位置；2. 沿着一个方向不断修改；3. 将 $A$ 和 $B$ 对齐。</p>
+<p>我们可以想象有一个初始为 $0$ 计数器，当左移时计数器减 $1$，右移时计数器加 $1$。<br>我们定义整个过程中计数器的最小值为 $l$，最大值为 $r$，最后的值为 $d$。<br>根据我们刚才的分析，整个过程要么是“左右左”，要么是“右左右”，那么整个移动的距离就是 $2 \times (R - L) - \left|d\right|$。</p>
+<p>下面我们不妨设过程为“左右左”来解决，对于“右左右”我们可以将 $A$ 和 $B$ 反转后用相同的方法解决。</p>
+<p>我们先预处理出 $\text{pre}_i$ 和 $\text{suf}_i$ 分别表示 $B$ 中 $i$ 左边和右边第一个 $1$ 与 $i$ 的距离。<br>然后我们可以枚举 $d$，来确定 $l$ 和 $r$。<br>我们扫描 $A$ 串，若 $A_i \ne B_{(i + d) \bmod n}$ 则说明该位置要反转。<br>若 $\text{pre}_{(i + d) \bmod n} \le d$，则说明我们可以在右移的过程中某个位置将这一位修改。<br>否则，说明我们需要在一开始多左移或右移几位来修改这一位。</p>
+<p>如果要通过左移修改，那么要满足 $\displaystyle -l \ge \text{pre}_i$；</p>
+<p>如果要通过右移修改，那么要满足 $\displaystyle r \ge d + \text{pre}_{(i + d) \bmod n}$。</p>
+<p>这样我们就有了若干个约束条件，优化的目标是让 $r - l$ 尽可能小。<br>我们通过图像来解决这个最优化问题。我们将所有的条件画在坐标系中，发现是若干 $\displaystyle \frac{3}{4}$ 平面交。<br>我们可以排序后用单调栈保留相交后最外边的 $\displaystyle \frac{3}{4}$ 平面，在交点处求解。</p>
+<p>复杂度 $\mathcal{O}(n^2 \log n)$。如果用桶排可以优化到 $\mathcal{O}(n^2)$。</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -287,6 +322,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E9%9B%86%E8%AE%AD/" rel="tag"># 集训</a>
+          </div>
 
         
 
@@ -294,13 +332,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2023/10/05/2021-ICPC-Asia-Taiwan-Online-Programming-Contest-%E9%A2%98%E8%A7%A3/" rel="prev" title="2021 ICPC Asia Taiwan Online Programming Contest 题解">
-      <i class="fa fa-chevron-left"></i> 2021 ICPC Asia Taiwan Online Programming Contest 题解
+    <a href="/2025/02/08/NEUACM-2025-Winter-Training-1-%E9%A2%98%E8%A7%A3/" rel="prev" title="NEUACM 2025 Winter Training 1 题解">
+      <i class="fa fa-chevron-left"></i> NEUACM 2025 Winter Training 1 题解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2023/10/17/NEUOJ-2383-%E6%B5%81%E8%A1%8C%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2-%E9%A2%98%E8%A7%A3/" rel="next" title="NEUOJ 2383 流行的字符串 题解">
-      NEUOJ 2383 流行的字符串 题解 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -361,7 +396,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E3%80%8A%E4%BD%A0%E7%9A%84%E5%90%8D%E5%AD%97%E3%80%82%E3%80%8B%E9%BB%91%E8%83%B6%E9%9F%B3%E4%B9%90%E6%8E%A8%E8%8D%90"><span class="nav-number">1.</span> <span class="nav-text">《你的名字。》黑胶音乐推荐</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#01-%E5%A4%A2%E7%81%AF%E7%B1%A0"><span class="nav-number">1.2.</span> <span class="nav-text">01 夢灯籠</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#08-%E5%89%8D%E5%89%8D%E5%89%8D%E4%B8%96-movie-ver"><span class="nav-number">1.3.</span> <span class="nav-text">08 前前前世 (movie ver.)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#24-%E3%82%B9%E3%83%91%E3%83%BC%E3%82%AF%E3%83%AB-movie-ver"><span class="nav-number">1.4.</span> <span class="nav-text">24 スパークル (movie ver.)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-%E3%81%AA%E3%82%93%E3%81%A7%E3%82%82%E3%81%AA%E3%81%84%E3%82%84-movie-ver"><span class="nav-number">1.5.</span> <span class="nav-text">27 なんでもないや (movie ver.)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.6.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NEUACM-2025-Winter-Training-2-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">NEUACM 2025 Winter Training 2 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E6%9D%BE%E9%BC%A0%E8%81%9A%E4%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">D 松鼠聚会</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#E-ABB"><span class="nav-number">1.2.</span> <span class="nav-text">E ABB</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-%E5%9B%BE%E8%85%BE"><span class="nav-number">1.3.</span> <span class="nav-text">H 图腾</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#I-Triangle"><span class="nav-number">1.4.</span> <span class="nav-text">I Triangle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#J-Shift-and-Flip"><span class="nav-number">1.5.</span> <span class="nav-text">J Shift and Flip</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-4"><span class="nav-number">1.5.1.</span> <span class="nav-text">分析</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
