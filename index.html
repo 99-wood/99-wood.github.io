@@ -264,6 +264,113 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/18/NEUACM-2025-Winter-Training-4-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/18/NEUACM-2025-Winter-Training-4-%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">NEUACM 2025 Winter Training 4 题解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-18 14:29:15 / 修改时间：16:48:57" itemprop="dateCreated datePublished" datetime="2025-02-18T14:29:15+08:00">2025-02-18</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/02/18/NEUACM-2025-Winter-Training-4-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/18/NEUACM-2025-Winter-Training-4-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="NEUACM-2025-Winter-Training-4-题解"><a href="#NEUACM-2025-Winter-Training-4-题解" class="headerlink" title="NEUACM 2025 Winter Training 4 题解"></a>NEUACM 2025 Winter Training 4 题解</h1><h2 id="D-运输计划"><a href="#D-运输计划" class="headerlink" title="D 运输计划"></a>D 运输计划</h2><h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>一个 $n$ 个点的树，每条边的边权，给出 $m$ 条路径。要求只改变一条边的边权，使得所有路径中长度最大的路径的长度最小。</p>
+<p>$n, m \le 3 \times 10^5$。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>“最大值最小”提示我们要二分答案。假设我们当前要求最大路径长度不能超过 $d$。那么所有长度大于 $d$ 的路径中都要包含操作的边，且操作的边的边权应当大于等于该路径的原长与 $d$ 的差。<br>更进一步，这条边的边权应当大于等于所有路径长度最大值与 $d$ 的差。所以，我们可以树上差分来给超过 $d$ 的路径打标记，然后去遍历每一条边，查看是否存在一条边被所有的标记覆盖且边权大于等于路径长度最大值与 $d$ 的差。</p>
+<h2 id="E-通配符匹配"><a href="#E-通配符匹配" class="headerlink" title="E 通配符匹配"></a>E 通配符匹配</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>几乎所有操作系统的命令行界面（CLI）中都支持文件名的通配符匹配以方便用户。最常见的通配符有两个，一个是星号（<code>*</code>），可以匹配 0 个及以上的任意字符：另一个是问号（<code>?</code>），可以匹配恰好一个任意字符。现在需要你编写一个程序，对于给定的文件名列表和一个包含通配符的字符串，判断哪些文件可以被匹配。</p>
+<p>对于 $100 \%$ 的数据</p>
+<ul>
+<li>字符串长度不超过 $100000$</li>
+<li>$1 \le n \le 100$</li>
+<li>通配符个数不超过 $10$</li>
+</ul>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>注意到通配符个数不超过 $10$，所以我们尝试从这里入手。首先我们可以把模式串用通配符分割成 $h$ 段，其中每一段为确定的字符串或第一个字符为通配符剩下的字符为字符串。例如 $\texttt{a<em>b?c}$ 会被分割为 $\texttt{a}$、$\texttt{</em>b}$ 和 $\texttt{?c}$ 三部分。</p>
+<p>定义状态 $f_{k, i}$ 表示待匹配串在第 $i$ 个字符处能否匹配到第 $k$ 段结尾。</p>
+<p>接着考虑如何转移。我们用 $\mathrm{str}$ 表示模式串， $s$ 表示待匹配串，$\mathrm{pos}_k$ 表示第 $k$ 段结尾位置，$\mathrm{len}_k$ 表示第 $k$ 段长度。</p>
+<p>若第 $k$ 段为确定的字符串，那么直接匹配再从前一段转移即可，即 $f_{k, i} = [f_{k - 1, i - \mathrm{len}_k} \wedge \mathrm{str}_{\mathrm{pos}_k - \mathrm{len}_k + 1, \mathrm{pos}_k} = s_{i - \mathrm{len}_k + 1, i}]$。</p>
+<p>若第 $k$ 段为开头为 $\texttt{?}$ 的字符串，那么直接匹配确定的部分，再跳过前一个字符转移即可，即 $f_{k, i} = [f_{k - 1, i - \mathrm{len}_k} \wedge \mathrm{str}_{\mathrm{pos}_k - \mathrm{len}_k + 2, \mathrm{pos}_k} = s_{i - \mathrm{len}_k + 2, i}]$。</p>
+<p>若第 $k$ 段为开头为 $\texttt{*}$ 的字符串，那么直接匹配确定的部分，再跳过若干字符转移即可，即 $f_{k, i} = [\exists(j \le i - \mathrm{len}_k + 1 \wedge f_{k - 1, j}) \wedge \mathrm{str}_{\mathrm{pos}_k - \mathrm{len}_k + 2, \mathrm{pos}_k} = s_{i - \mathrm{len}_k + 2, i}]$。</p>
+<p>匹配用字符串哈希即可。</p>
+<h2 id="I-Mex-Game"><a href="#I-Mex-Game" class="headerlink" title="I Mex Game"></a>I Mex Game</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>给定一个长度为 $n+1(1 \le n \le 2 \times 10^5)$ 的字符串 $s$。共 $n$ 轮游戏，第 $i$ 轮进行 $i$ 次操作，每轮均由 <code>Alice</code> 先，与 <code>Bob</code> 交替往集合 $X$ 中加入非负整数（一次加入即一次操作）。对于每一轮，记 $x=\mathrm{mex}(X)$，若 $s_x$ 为 $\texttt{A}$ 则 <code>Alice</code> 胜，反之 <code>Bob</code> 胜。对于每一轮，输出谁胜。</p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>集合 $A$ 中的数不可能成为 $x$，所以两人的策略都是不断加入下一个另一个人的字母出现的位置。又因为操作 $i$ 次后，$x$ 可能出现的范围为 $[0, i]$。所以我们只需要统计 $[0, i]$ 中 $\texttt{A}$ 和 $\texttt{B}$ 出现的次数。如果对方字母出现的次数比自己能操作的次数多则输。</p>
+<h2 id="K-Tree-Edges-XOR"><a href="#K-Tree-Edges-XOR" class="headerlink" title="K Tree Edges XOR"></a>K Tree Edges XOR</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>$n$ 个点，$m$个询问。</p>
+<p>给你一棵树的括号序列，输出它的直径。</p>
+<p> <img src="https://cdn.luogu.com.cn/upload/vjudge_pic/CF1149C/a9818ec6abf351ce6c6a0eaa115c2729c37577f5.png" alt=""></p>
+<p>有 $m$ 次询问，每次询问表示交换两个括号，输出交换两个括号后的直径（保证每次操作后都为一棵树）</p>
+<p>输出共 $m+1$ 行。</p>
+<p>$3 \le n \le 100000, 1 \le q \le 100000$</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>括号序列相当于表示了一次 $\text{DFS}$ 遍历树，<code>(</code>$ 表示进入子树，<code>)</code> 表示回到父亲。那么一条路径的长度就是一段形如 <code>)))))(((</code> 的字符串的长度。</p>
+<p>考虑用线段树维护这个序列。假设答案由两个区间合并而来，左边由 $a$ 个 <code>(</code>，$b$ 个 <code>)</code> 组成，右边由 $c$ 个 <code>(</code>，$d$ 个 <code>)</code> 组成。那么合并后的答案就是 $a + |b - c| + d$。这里用了一个重要的技巧，用 $\max$ 来去绝对值。$a + |b - c| + d = \max(a + b - c + d, a - b + c + d)$。我们令 $x = a + b$，$y = a - b$，$p = d + c$，$q = d - c$。那么答案就是 $\max(x + q, y + p)$。也就是说，</p>
+<ul>
+<li>$x$ 表示一段区间后缀括号合并后 <code>)</code> 与 <code>(</code> 和的最大值</li>
+<li>$y$ 表示一段区间后缀括号合并后 <code>)</code> 与 <code>(</code> 差的最大值，</li>
+<li>$p$ 表示一段区间前缀括号合并后 <code>(</code> 与 <code>)</code> 和的最大值</li>
+<li>$y$ 表示一段区间前缀括号合并后 <code>(</code> 与 <code>)</code> 差的最大值</li>
+</ul>
+<p>再考虑如何维护 $x, y, p, q$。</p>
+<p>这里以 $x$ 为例。对于线段树上一个节点，$x_p$ 可以直接从右儿子拿来，即 $x_p = x_{rs}$，也可以跨越区间 $x_p = a_l + |b_l + l_r| + r_r$，其中 $l, r$ 表示一个区间合并后 <code>)</code> 和 <code>(</code> 的数量。我们用相同的手法去掉绝对值 $a_l + |b_l + l_r| + r_r = \max(a + b - l_r + r_r, a - b + l_r + r_r) = \max(x_l - l_r + r_r, y_l + l_r + r_r)$。这样我们就维护出了 $x$。剩下的同理，我们就用 $x, y, p, q, l, r$ 不断向上合并求出树的直径。</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/15/NEUACM-2025-Winter-Training-3-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -287,10 +394,16 @@ mjx-container[display="true"] + br {
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2025-02-15 10:53:51 / 修改时间：14:46:41" itemprop="dateCreated datePublished" datetime="2025-02-15T10:53:51+08:00">2025-02-15</time>
+              <time title="创建时间：2025-02-15 10:53:51" itemprop="dateCreated datePublished" datetime="2025-02-15T10:53:51+08:00">2025-02-15</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2025-02-18 14:30:05" itemprop="dateModified" datetime="2025-02-18T14:30:05+08:00">2025-02-18</time>
+              </span>
 
           
   
@@ -1513,146 +1626,6 @@ A (B A)^{n - 1} B
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/01/23/2023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/01/23/2023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">2023年终总结</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-01-23 16:00:22" itemprop="dateCreated datePublished" datetime="2024-01-23T16:00:22+08:00">2024-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2025-02-06 07:44:33" itemprop="dateModified" datetime="2025-02-06T07:44:33+08:00">2025-02-06</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%9B%9E%E5%BF%86%E5%BD%95/" itemprop="url" rel="index"><span itemprop="name">回忆录</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/01/23/2023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/01/23/2023%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="2023-年终总结"><a href="#2023-年终总结" class="headerlink" title="2023 年终总结"></a>2023 年终总结</h1><p>2024 年了捏，写一个 2023 年的年终总结也是有必要的。本来打算是百度之星国赛完了写，结果紧接着的考试周没有时间。考完试想着成绩出了再一起写，前一天成绩全部出了，我们的年终总结也就可以动笔了。</p>
-<p>关于上半年的一些事情在暑假回忆录中就已经很详细地写过了，所以这份年终总结主要写一些 10 月之后的事情。</p>
-<h2 id="十月"><a href="#十月" class="headerlink" title="十月"></a>十月</h2><p>十月貌似没什么特别的事情，基本都是在学校上课什么的。这里不妨说说日常吧。平时基本除开高数的课会提前一个小时到教室外，别的课程都是按部就班去上课。周三和周六有 ACM 的集训，基本是一套区域赛题目，一般可以做 4 到 5 道题。平时没事就去图书馆或者打打音游。真是朴实无华的日常呐。</p>
-<p>给大家看看十月的黑胶。</p>
-<p><img src="/picture/IMG_20231031_222707.jpg" alt=""></p>
-<h2 id="十一月"><a href="#十一月" class="headerlink" title="十一月"></a>十一月</h2><p>十一月比较有意思的事情就是 ICPC 南京赛区了。虽然结果有点难绷。</p>
-<p>南京站前我们队伍对于拿牌子还是很有信心的，平时模拟赛做的还行，甚至在省赛拿到了二等奖。怀着这样的心情，我们登上了去往南京的飞机。</p>
-<p><img src="/picture/IMG_20231103_104400.jpg" alt=""><br>不是这架，将就着看</p>
-<p>第一天晚上和 lhm 去瞎逛，结果马路上看到这个东西。</p>
-<p><img src="/picture/IMG_20231103_182545.jpg" alt=""></p>
-<p>于是晚上吃了这个。</p>
-<p><img src="/picture/IMG_20231103_191702.jpg" alt=""></p>
-<p>然后去看了看南京长江大桥，夜景还是很不错的。</p>
-<p><img src="/picture/IMG_20231103_213515.jpg" alt=""></p>
-<p>第二天是签到和热身赛。</p>
-<p>这里放几张照片，只能说南航还是有实力的。</p>
-<p><img src="/picture/IMG_20231104_101353_1.jpg" alt=""></p>
-<p><img src="/picture/IMG_20231104_112201.jpg" alt=""></p>
-<p><img src="/picture/IMG_20231104_114847.jpg" alt=""></p>
-<p><img src="/picture/IMG_20231104_195133.jpg" alt=""></p>
-<p>第三天是正式赛，但是结果三个人不知道怎么回事没一个人在线，直接打铁。😥😥😥</p>
-<h2 id="十二月"><a href="#十二月" class="headerlink" title="十二月"></a>十二月</h2><p>十二月还不错。</p>
-<p>首先是 ACM 选修课的校赛，运气不错 10 题拿下第二。</p>
-<p>然后是月底的百度之星国赛。</p>
-<p>第一天随便去玩了玩。</p>
-<p>地坛十分冷清，但是南边的河里有不少人滑冰。</p>
-<p>第二天正式赛，每个题都觉得不难，但是过题过得非常慢，最后拿了个铜首。绷。主办方甚至精心准备了铁奖。</p>
-<p>第三天就是开玩。</p>
-<p>去看了元旦的升旗，放和平鸽还是比较震撼的。</p>
-<p><img src="/picture/7a8162f7ff96820cc7df8fac77ab326.jpg" alt=""></p>
-<p><img src="/picture/IMG_20240101_065746.jpg" alt=""></p>
-<p>晚上去三里屯玩了玩，各方面都给了我很大的震撼。</p>
-<p><img src="/picture/IMG_20240101_212348.jpg" alt=""></p>
-<p>最后一天就回学校了。CR400 确实快。</p>
-<h2 id="一月"><a href="#一月" class="headerlink" title="一月"></a>一月</h2><p>各种考试。除开英语都比较游刃有余，英语属实玄学，甚至难以估分。</p>
-<p>考完试玩了玩雀魂，太费脑子了。</p>
-<p>然后就回太原了。</p>
-<p><img src="/picture/IMG_20240115_215832.jpg" alt=""></p>
-<p>然后去高中看了看老师，出来玩了玩。</p>
-<p>关于三个人吃饭，还没吃却绷不住这件事。</p>
-<p>服务员：给大家介绍一下……</p>
-<p>我们仨：微笑 -》 绷 -》 互相看一下 -》 开怀大啸</p>
-<p>饭后，rx：你这顿吃得开心吗？ 我：那可太开心了，没吃就已经开心了。</p>
-<p>你可能很奇怪，但事实就是这样。</p>
-<p><img src="/picture/af73d35de24a047d30616a20bef335c.jpg" alt=""></p>
-<p>前一天出了成绩，你怎么知道我 C 语言满绩了？</p>
-<p><img src="/picture/c.png" alt=""></p>
-<p>除了英语都能接受，均绩 4.1。希望能绷住。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>过去一年还是很充实的。希望下一年能更好。志存高远，脚踏实地。</p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
@@ -1731,7 +1704,7 @@ A (B A)^{n - 1} B
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">38</span>
+          <span class="site-state-item-count">39</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
