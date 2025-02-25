@@ -152,6 +152,109 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/" class="post-title-link" itemprop="url">P4219 [BJOI2014]大融合</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-06-20 17:23:26" itemprop="dateCreated datePublished" datetime="2022-06-20T17:23:26+08:00">2022-06-20</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%A0%91%E5%89%96/" itemprop="url" rel="index"><span itemprop="name">树剖</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2022/06/20/P4219-BJOI2014-%E5%A4%A7%E8%9E%8D%E5%90%88/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="P4219-BJOI2014-大融合"><a href="#P4219-BJOI2014-大融合" class="headerlink" title="P4219 [BJOI2014]大融合"></a>P4219 [BJOI2014]大融合</h1><h1 id="题目大意"><a href="#题目大意" class="headerlink" title="题目大意"></a>题目大意</h1><ul>
+<li>给定 $n$ 点, $m$ 个操作如下<ul>
+<li>加入一条边，保证连边的两点原来不连通</li>
+<li>询问有多少条路径通过某条边</li>
+</ul>
+</li>
+<li>$1 \leq n,m \leq 10^5$</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>网上大多题解都是使用 LCT 来维护, 然而蒟蒻并不会 LCT, 所以这里提供一种仅使用树链剖分的解法.</p>
+<p>不难发现某条边路径数为 $siz_x \times (siz_{root} - siz_x)$, 其中 $x$ 为边所连的点中深度较大的一个, $root$ 为树根, $siz$ 为子树大小.</p>
+<p>发现最后 $n$ 个点的形态为一个森林, 所以我们可以先离线下来, 建好森林再倒序删边同时回答询问. </p>
+<p>假设删去的边连接 $x, y$, 且 $x, y$ 原来的深度 $dep_x &lt; dep_y$. 删边会影响 $x$ 到根路径上的点的子树大小, 以及以 $top_a$, 其中 $a$ 为 $y$ 所在重链中 $y$ 一下的节点.</p>
+<p>我们可以用树剖来维护 $siz$ 和 $dep$, 断开边时, 将 $x$ 到根的路径上的点的 $siz$ 都减去 $siz_y$, 将 $x$ 一下的重链上节点的 $top$ 修改为 $y$. 查询时, $siz_y \times (siz_{root} - siz_y)$ 即为答案.</p>
+<p>本做法为真·用树剖来维护树剖, 复杂度为 $O(m\log^2n)$, 还是很快的.</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><p>只放出修改和查询时的核心代码, 细节较多, 注意更新 $dep$ 和 $siz$, 完整代码可以看<a target="_blank" rel="noopener" href="https://www.luogu.com.cn/record/77665218">我的提交</a></p>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">fa[y] = <span class="number">0</span>;</span><br><span class="line">top[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).top;</span><br><span class="line">top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 top</span></span><br><span class="line"><span class="keyword">if</span>(top[y] != y)&#123;</span><br><span class="line">	<span class="built_in">modify</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y], dfn[y] + dep[tail[top[y]]] - dep[y], y); <span class="comment">// 修改 y 所在重链 top</span></span><br><span class="line">	top[y] = y;</span><br><span class="line">	tail[top[y]] = tail[top[x]];</span><br><span class="line">	tail[top[x]] = x;</span><br><span class="line">&#125;</span><br><span class="line">siz[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz; <span class="comment">// 更新 siz</span></span><br><span class="line"><span class="keyword">while</span>(x)&#123;</span><br><span class="line">	top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line">	<span class="built_in">mul</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[top[x]], dfn[x], -siz[y]); <span class="comment">// 修改 x 到根的 siz</span></span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">siz[y] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[y]).siz;</span><br><span class="line">top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;</span><br><span class="line"><span class="comment">// 更新 siz 和 top</span></span><br><span class="line"><span class="keyword">while</span>(fa[top[x]])&#123;</span><br><span class="line">	x = fa[top[x]];</span><br><span class="line">	top[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).top;;</span><br><span class="line">&#125;</span><br><span class="line">x = top[x];</span><br><span class="line"><span class="comment">// x 跳到根</span></span><br><span class="line">siz[x] = <span class="built_in">query</span>(<span class="number">1</span>, <span class="number">1</span>, n, dfn[x]).siz;</span><br><span class="line">ans[i] = <span class="number">1LL</span> * siz[y] * (siz[x] - siz[y]); <span class="comment">//注意 long long</span></span><br></pre></td></tr></table></figure><link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/06/02/OI%E5%B8%B8%E7%94%A8%E6%9C%AF%E8%AF%AD/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -450,11 +553,11 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/DP/%E5%8A%A8%E6%80%81DP/" itemprop="url" rel="index"><span itemprop="name">动态DP</span></a>
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">线段树</span></a>
+                  <a href="/categories/DP/%E5%8A%A8%E6%80%81DP/" itemprop="url" rel="index"><span itemprop="name">动态DP</span></a>
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1179,121 +1282,11 @@ e=mc^2
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/" class="post-title-link" itemprop="url">可持久化线段树学习笔记 (二)</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-09-01 00:15:13" itemprop="dateCreated datePublished" datetime="2021-09-01T00:15:13+08:00">2021-09-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">可持久化数据结构</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">可持久化线段树</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%AB%98%E4%BA%8C%E6%97%A5%E6%9B%B4/" itemprop="url" rel="index"><span itemprop="name">高二日更</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h1 id="可持久化线段树学习笔记-二"><a href="#可持久化线段树学习笔记-二" class="headerlink" title="可持久化线段树学习笔记 (二)"></a>可持久化线段树学习笔记 (二)</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本期主要简单介绍可持久化权值线段树 (即主席树).</p>
-<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
-<li>线段树</li>
-<li>权值线段树</li>
-<li>普通的可持久化线段树</li>
-</ol>
-<h2 id="可持久化权值线段树-主席树"><a href="#可持久化权值线段树-主席树" class="headerlink" title="可持久化权值线段树 (主席树)"></a>可持久化权值线段树 (主席树)</h2><p>主席树是一种把数字的值或离散化后的位置当作左右端点 (即权值线段树) 的可持久化权值线段树.</p>
-<p>这里我们通过一道模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3834">静态区间第k小</a> 来讲解. 这道题我们可以以权值线段树为单个树建立可持久化线段树. 我们可以运用前缀和的思想, 对于 \( root_i \) 的节点 \( a_{j,k} \) 表示 1 到 i 的数中大小在离散化后的数组中 \( [k,k] \) 的数的个数. 这样我们可以在 \( \log n \) 的时间里求出一个区间的第 k 小.</p>
-<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> l,r,cnt;</span><br><span class="line">&#125;tree[<span class="number">15000000</span>];</span><br><span class="line"><span class="type">int</span> root[MAXN];</span><br><span class="line"><span class="type">int</span> endd = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> num[MAXN];</span><br><span class="line"><span class="type">int</span> bucket[MAXN];</span><br><span class="line"><span class="type">int</span> siz;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">clone</span><span class="params">(<span class="type">int</span> id)</span></span>&#123;</span><br><span class="line">	tree[++endd] = tree[id];</span><br><span class="line">	<span class="keyword">return</span> endd;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">buildtree</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	tree[p].l = ++endd;</span><br><span class="line">	tree[p].r = ++endd;</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">buildtree</span>(tree[p].l, l, m);</span><br><span class="line">	<span class="built_in">buildtree</span>(tree[p].r, m + <span class="number">1</span>, r);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> w)</span></span>&#123;</span><br><span class="line">	p = <span class="built_in">clone</span>(p);</span><br><span class="line">	++tree[p].cnt;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span> p;</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(w &lt;= bucket[m])&#123;</span><br><span class="line">		tree[p].l = <span class="built_in">add</span>(tree[p].l, l, m, w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tree[p].r = <span class="built_in">add</span>(tree[p].r, m + <span class="number">1</span>, r, w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ask</span><span class="params">(<span class="type">int</span> p1, <span class="type">int</span> p2,<span class="type">int</span> l,<span class="type">int</span> r, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span> bucket[l];</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(k &lt;= tree[tree[p2].l].cnt - tree[tree[p1].l].cnt) <span class="keyword">return</span> <span class="built_in">ask</span>(tree[p1].l, tree[p2].l, l, m, k);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">ask</span>(tree[p1].r, tree[p2].r, m + <span class="number">1</span>, r, k - (tree[tree[p2].l].cnt - tree[tree[p1].l].cnt));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		num[i] = <span class="built_in">read</span>();</span><br><span class="line">		bucket[i] = num[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(bucket + <span class="number">1</span>, bucket + <span class="number">1</span> + n);</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(siz == <span class="number">0</span> || bucket[i] &gt; bucket[siz])</span><br><span class="line">			bucket[++siz] = bucket[i];</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			bucket[siz] = bucket[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">buildtree</span>(<span class="number">0</span>,<span class="number">1</span>,siz);</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		root[i] = <span class="built_in">add</span>(root[i - <span class="number">1</span>], <span class="number">1</span>, siz, num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,m)&#123;</span><br><span class="line">		<span class="type">int</span> l = <span class="built_in">read</span>(), r = <span class="built_in">read</span>(), k = <span class="built_in">read</span>();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">ask</span>(root[l - <span class="number">1</span>], root[r], <span class="number">1</span>, siz, k));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <a class="extend prev" rel="prev" href="/page/2/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/4/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1367,7 +1360,7 @@ e=mc^2
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

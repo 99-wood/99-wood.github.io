@@ -152,6 +152,116 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/" class="post-title-link" itemprop="url">可持久化线段树学习笔记 (二)</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-09-01 00:15:13" itemprop="dateCreated datePublished" datetime="2021-09-01T00:15:13+08:00">2021-09-01</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/" itemprop="url" rel="index"><span itemprop="name">可持久化数据结构</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91/" itemprop="url" rel="index"><span itemprop="name">可持久化线段树</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%AB%98%E4%BA%8C%E6%97%A5%E6%9B%B4/" itemprop="url" rel="index"><span itemprop="name">高二日更</span></a>
+                </span>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2021/09/01/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%BA%8C)/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+<h1 id="可持久化线段树学习笔记-二"><a href="#可持久化线段树学习笔记-二" class="headerlink" title="可持久化线段树学习笔记 (二)"></a>可持久化线段树学习笔记 (二)</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本期主要简单介绍可持久化权值线段树 (即主席树).</p>
+<h2 id="前置知识"><a href="#前置知识" class="headerlink" title="前置知识"></a>前置知识</h2><ol>
+<li>线段树</li>
+<li>权值线段树</li>
+<li>普通的可持久化线段树</li>
+</ol>
+<h2 id="可持久化权值线段树-主席树"><a href="#可持久化权值线段树-主席树" class="headerlink" title="可持久化权值线段树 (主席树)"></a>可持久化权值线段树 (主席树)</h2><p>主席树是一种把数字的值或离散化后的位置当作左右端点 (即权值线段树) 的可持久化权值线段树.</p>
+<p>这里我们通过一道模板题 <a target="_blank" rel="noopener" href="https://www.luogu.com.cn/problem/P3834">静态区间第k小</a> 来讲解. 这道题我们可以以权值线段树为单个树建立可持久化线段树. 我们可以运用前缀和的思想, 对于 \( root_i \) 的节点 \( a_{j,k} \) 表示 1 到 i 的数中大小在离散化后的数组中 \( [k,k] \) 的数的个数. 这样我们可以在 \( \log n \) 的时间里求出一个区间的第 k 小.</p>
+<h2 id="code"><a href="#code" class="headerlink" title="code"></a>code</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> MAXN = <span class="number">200010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">node</span>&#123;</span><br><span class="line">	<span class="type">int</span> l,r,cnt;</span><br><span class="line">&#125;tree[<span class="number">15000000</span>];</span><br><span class="line"><span class="type">int</span> root[MAXN];</span><br><span class="line"><span class="type">int</span> endd = <span class="number">0</span>;</span><br><span class="line"><span class="type">int</span> num[MAXN];</span><br><span class="line"><span class="type">int</span> bucket[MAXN];</span><br><span class="line"><span class="type">int</span> siz;</span><br><span class="line"><span class="type">int</span> n, m;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">clone</span><span class="params">(<span class="type">int</span> id)</span></span>&#123;</span><br><span class="line">	tree[++endd] = tree[id];</span><br><span class="line">	<span class="keyword">return</span> endd;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">buildtree</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span>;</span><br><span class="line">	tree[p].l = ++endd;</span><br><span class="line">	tree[p].r = ++endd;</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="built_in">buildtree</span>(tree[p].l, l, m);</span><br><span class="line">	<span class="built_in">buildtree</span>(tree[p].r, m + <span class="number">1</span>, r);</span><br><span class="line">	<span class="keyword">return</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">add</span><span class="params">(<span class="type">int</span> p, <span class="type">int</span> l, <span class="type">int</span> r, <span class="type">int</span> w)</span></span>&#123;</span><br><span class="line">	p = <span class="built_in">clone</span>(p);</span><br><span class="line">	++tree[p].cnt;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span> p;</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(w &lt;= bucket[m])&#123;</span><br><span class="line">		tree[p].l = <span class="built_in">add</span>(tree[p].l, l, m, w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">else</span>&#123;</span><br><span class="line">		tree[p].r = <span class="built_in">add</span>(tree[p].r, m + <span class="number">1</span>, r, w);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> p;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">ask</span><span class="params">(<span class="type">int</span> p1, <span class="type">int</span> p2,<span class="type">int</span> l,<span class="type">int</span> r, <span class="type">int</span> k)</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span>(l == r) <span class="keyword">return</span> bucket[l];</span><br><span class="line">	<span class="type">int</span> m = (l + r) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">if</span>(k &lt;= tree[tree[p2].l].cnt - tree[tree[p1].l].cnt) <span class="keyword">return</span> <span class="built_in">ask</span>(tree[p1].l, tree[p2].l, l, m, k);</span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="built_in">ask</span>(tree[p1].r, tree[p2].r, m + <span class="number">1</span>, r, k - (tree[tree[p2].l].cnt - tree[tree[p1].l].cnt));</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	n = <span class="built_in">read</span>(), m = <span class="built_in">read</span>();</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		num[i] = <span class="built_in">read</span>();</span><br><span class="line">		bucket[i] = num[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">sort</span>(bucket + <span class="number">1</span>, bucket + <span class="number">1</span> + n);</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		<span class="keyword">if</span>(siz == <span class="number">0</span> || bucket[i] &gt; bucket[siz])</span><br><span class="line">			bucket[++siz] = bucket[i];</span><br><span class="line">		<span class="keyword">else</span> </span><br><span class="line">			bucket[siz] = bucket[i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">buildtree</span>(<span class="number">0</span>,<span class="number">1</span>,siz);</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,n)&#123;</span><br><span class="line">		root[i] = <span class="built_in">add</span>(root[i - <span class="number">1</span>], <span class="number">1</span>, siz, num[i]);</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">rep</span>(i,<span class="number">1</span>,m)&#123;</span><br><span class="line">		<span class="type">int</span> l = <span class="built_in">read</span>(), r = <span class="built_in">read</span>(), k = <span class="built_in">read</span>();</span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">&quot;%d\n&quot;</span>, <span class="built_in">ask</span>(root[l - <span class="number">1</span>], root[r], <span class="number">1</span>, siz, k));</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2021/08/30/%E5%8F%AF%E6%8C%81%E4%B9%85%E5%8C%96%E7%BA%BF%E6%AE%B5%E6%A0%91%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%20(%E4%B8%80)/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1330,118 +1440,11 @@ choose the third gift and eat one candy from it, so a=[3,3,3] and b=[2,2,2].
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/" class="post-title-link" itemprop="url">初识微积分</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-29 11:47:45" itemprop="dateCreated datePublished" datetime="2020-02-29T11:47:45+08:00">2020-02-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Math/" itemprop="url" rel="index"><span itemprop="name">Math</span></a>
-                </span>
-            </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2020/02/29/%E5%88%9D%E8%AF%86%E5%BE%AE%E7%A7%AF%E5%88%86/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-<h1 id="初识微积分"><a href="#初识微积分" class="headerlink" title="初识微积分"></a>初识微积分</h1><h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>寒假开始几天不想写作业<del>后面也不想写</del>，闲暇之时看了看<a target="_blank" rel="noopener" href="https://space.bilibili.com/9458053?from=search&amp;seid=10946562271097898825">李永乐老师</a>和<a target="_blank" rel="noopener" href="https://space.bilibili.com/88461692?from=search&amp;seid=8771060376994081753">3Blue1Brown</a>的关于微积分的视频，便一发不可收拾。所以把这几天学到的知识怕忘了写个随笔。</p>
-<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>微积分就是对一个问题进行连续微分后计算再求解整个问题的方法。</p>
-<blockquote>
-<p>微积分学（Calculus，在拉丁语中意为计数用的小石头） 是研究极限、微分学、积分学和无穷级数等的一个数学分支，并成为了现代大学教育的重要组成部分。历史上，微积分曾经指无穷小的计算。更本质的讲，微积分学是一门研究变化的学问。<br>——维基百科 <a target="_blank" rel="noopener" href="https://zh.wikipedia.org/zh-hans/%E5%BE%AE%E7%A7%AF%E5%88%86%E5%AD%A6">微积分学</a></p>
-</blockquote>
-<h2 id="问题导入"><a href="#问题导入" class="headerlink" title="问题导入"></a>问题导入</h2><h3 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h3><p>有这样一个v-t图像（如图表1）。求3s行驶的距离。</p>
-<p><img src="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212318996-1229169991.png" alt="图表1"></p>
-<h3 id="思考"><a href="#思考" class="headerlink" title="思考"></a>思考</h3><p><img src="https://i.loli.net/2020/03/01/1HamDrOFGVR2dAE.png" alt="p1.png"></p>
-<ul>
-<li>由图可知这是一个匀加速运动。</li>
-<li>可以将其想象为多个匀速直线运动如图表2。此时3s内路程s=0<em>1+2</em>1+4*1=6(m)</li>
-<li>增加长条段数如图表3。此时3s内路程s=0<em>0.5+1</em>0.5+2<em>0.5+3</em>0.5+4<em>0.5+5</em>0.5=7.5(m)</li>
-<li>以此类推，可以发现s=长条组成的面积（如图表4）s=6*3/2=9(m)</li>
-</ul>
-<h2 id="思想"><a href="#思想" class="headerlink" title="思想"></a>思想</h2><p>以上这个问题求解的方法就是利用了微积分的思想。把求整个路程的问题化为求的多个可以求解的问题再求和求解整个问题。这一过程用微积分表示就是</p>
-<script type="math/tex; mode=display">\int_0^3 v(t)dt</script><h2 id="含义"><a href="#含义" class="headerlink" title="含义"></a>含义</h2><p>其中 \(\int_0^3 v(t)dt\) 表示从0到3积分，可以理解为让t的值由0变化到3，并把每次后面的式子 的值求和。v(t)是速度v关于时间t的函数，这里是时间为t时速度v的值。dt表示时间t的无限小量。整个式子的含义就是从0到3积分，将此时速度v(t)乘无限小的时间dt。dt在整个图像上就表示长条再t轴上的长度，取无限小后的图像就是图表4。<br>数学上，这一积分就叫做定积分。这一式子表示的是函数v(t)在0≤t≤3时函数图像与t轴之间的面积。由于数学中更常见的直角坐标系是x-y坐标系所以定积分更常见的式子是</p>
-<script type="math/tex; mode=display">\int f(x)dx</script><p>其图形意义就是函数f(x)图像与t轴之间的面积（如图表5）。值等于S蓝+S粉-S绿</p>
-<p><img src="https://img2018.cnblogs.com/blog/1490851/202002/1490851-20200201212320347-842064787.png" alt=""></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1515,7 +1518,7 @@ choose the third gift and eat one candy from it, so a=[3,3,3] and b=[2,2,2].
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

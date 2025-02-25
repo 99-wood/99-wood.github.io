@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Pisces","version":"7.7.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":true},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="如果注定要落下, 那就趁现在努力发光. ——SXOI2022 游记本来不打算写的, 但现在进队了, 还是写了国赛前的最后一个游记吧. 真情实感, 望读者不要以知道结局的态度看故事.  背景NOIP 通过一系列骚操作和一点实力拿了全省第五, 虽然和前面的四位来说差距不是一点半点. WC 通过河里的时间规划拿了压线 Cu. NOI online 开摆. 山西已经弱出新低了, 省队就 6 个, 去掉女生">
+  <meta name="description" content="NEUACM 2025 Winter Training 6 题解D 和平委员会 &amp; E Riddle第一次接触 2-SAT 问题，感觉网上的很多博客讲的都不是很清楚，搞了半天没搞懂，好在最后搞懂了。 SAT 问题是指有若干个变元，和一个谓词，要求找出一个指派使得谓词为真，或者说明无解。 2-SAT 问题指的是把这个谓词写成合取范式后，每个大项中最多有两个变元情形。只有 2-SAT 可以在多">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SXOI2022游记">
-<meta property="og:url" content="http://yoursite.com/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/index.html">
+<meta property="og:title" content="NEUACM 2025 Winter Training 6 题解">
+<meta property="og:url" content="http://yoursite.com/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/index.html">
 <meta property="og:site_name" content="99_wood&#39;s blog">
-<meta property="og:description" content="如果注定要落下, 那就趁现在努力发光. ——SXOI2022 游记本来不打算写的, 但现在进队了, 还是写了国赛前的最后一个游记吧. 真情实感, 望读者不要以知道结局的态度看故事.  背景NOIP 通过一系列骚操作和一点实力拿了全省第五, 虽然和前面的四位来说差距不是一点半点. WC 通过河里的时间规划拿了压线 Cu. NOI online 开摆. 山西已经弱出新低了, 省队就 6 个, 去掉女生">
+<meta property="og:description" content="NEUACM 2025 Winter Training 6 题解D 和平委员会 &amp; E Riddle第一次接触 2-SAT 问题，感觉网上的很多博客讲的都不是很清楚，搞了半天没搞懂，好在最后搞懂了。 SAT 问题是指有若干个变元，和一个谓词，要求找出一个指派使得谓词为真，或者说明无解。 2-SAT 问题指的是把这个谓词写成合取范式后，每个大项中最多有两个变元情形。只有 2-SAT 可以在多">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-21T11:54:59.000Z">
-<meta property="article:modified_time" content="2023-08-23T16:06:32.486Z">
+<meta property="article:published_time" content="2025-02-25T07:26:53.000Z">
+<meta property="article:modified_time" content="2025-02-25T09:40:37.305Z">
 <meta property="article:author" content="99_wood">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://yoursite.com/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/">
+<link rel="canonical" href="http://yoursite.com/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/">
 
 
 <script id="page-configurations">
@@ -44,7 +44,7 @@
   };
 </script>
 
-  <title>SXOI2022游记 | 99_wood's blog</title>
+  <title>NEUACM 2025 Winter Training 6 题解 | 99_wood's blog</title>
   
 
 
@@ -156,7 +156,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/myavatar.jpg">
@@ -169,7 +169,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          SXOI2022游记
+          NEUACM 2025 Winter Training 6 题解
         </h1>
 
         <div class="post-meta">
@@ -178,24 +178,9 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-05-21 19:54:59" itemprop="dateCreated datePublished" datetime="2022-05-21T19:54:59+08:00">2022-05-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2023-08-24 00:06:32" itemprop="dateModified" datetime="2023-08-24T00:06:32+08:00">2023-08-24</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%B8%B8%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">游记</span></a>
-                </span>
+              <time title="创建时间：2025-02-25 15:26:53 / 修改时间：17:40:37" itemprop="dateCreated datePublished" datetime="2025-02-25T15:26:53+08:00">2025-02-25</time>
             </span>
 
           
@@ -207,8 +192,8 @@
       </span>
       <span class="post-meta-item-text">Valine：</span>
     
-    <a title="valine" href="/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2022/05/21/SXOI2022%E6%B8%B8%E8%AE%B0/" itemprop="commentCount"></span>
+    <a title="valine" href="/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -223,66 +208,42 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="如果注定要落下-那就趁现在努力发光-——SXOI2022-游记"><a href="#如果注定要落下-那就趁现在努力发光-——SXOI2022-游记" class="headerlink" title="如果注定要落下, 那就趁现在努力发光. ——SXOI2022 游记"></a>如果注定要落下, 那就趁现在努力发光. ——SXOI2022 游记</h1><p>本来不打算写的, 但现在进队了, 还是写了国赛前的最后一个游记吧. 真情实感, 望读者不要以知道结局的态度看故事.</p>
-<hr>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>NOIP 通过一系列骚操作和一点实力拿了全省第五, 虽然和前面的四位来说差距不是一点半点. WC 通过河里的时间规划拿了压线 Cu. NOI online 开摆.</p>
-<p>山西已经弱出新低了, 省队就 6 个, 去掉女生就 5 个, 相当于我压线. 而且没有 1/3 限制, 这… 某附中直接省队变校队好吧. 今年可谓天时地利人和一个都没有.</p>
-<h2 id="战况"><a href="#战况" class="headerlink" title="战况"></a>战况</h2><h3 id="day-1month"><a href="#day-1month" class="headerlink" title="day-1month"></a>day-1month</h3><p>由于疫情在家上网课, 省选由 4.4 -&gt; 4.15 -&gt; 遥遥无期. 听说有可能按 NOIP, 是不是可以压线最后一名进队了?</p>
-<p>听说和山东一起举办, 猪国杀, 立体图.</p>
-<p>不要和山东, 让我躺进队吧… 以我的水平再考省选说不定就掉出省队了. 哎……</p>
-<p>官宣了, SDOI</p>
-<p>预计开学后一周省选, 省选上下午个 4.5h, 这是人能想出来的? 咱不能办就别办, 建议取消! 虽然时间长对我这种经常熬夜的人来说有一定优势.</p>
-<p>开学了</p>
-<h3 id="day-5"><a href="#day-5" class="headerlink" title="day-5"></a>day-5</h3><p>开学了, 每天晚上最后一节晚自习可以到机房刷题. 开始狂补字符串知识, 发现连 KMP 都不会写了.</p>
-<p>教练问我系统, 我求稳选了 Windows, 后面来看我这个决定太对了.</p>
-<p>考场是笔记本, 心凉了一半, 问教练可不可以自己带键盘, 笔记本键盘有些连 end 都没有. 貌似有学校申请带键盘了. </p>
-<h3 id="day-4"><a href="#day-4" class="headerlink" title="day-4"></a>day-4</h3><p>理解了 AC 自动机, 但没有写代码.</p>
-<h3 id="day-3"><a href="#day-3" class="headerlink" title="day-3"></a>day-3</h3><p>过了普通的 AC 自动机, 简化代码后十分巧妙. 加强版貌似不难写, 明天 AC.</p>
-<h3 id="day-2"><a href="#day-2" class="headerlink" title="day-2"></a>day-2</h3><p>过了二次加强版, 优化较容易想到.</p>
-<h3 id="day-1"><a href="#day-1" class="headerlink" title="day-1"></a>day-1</h3><p>尝试打了些板子就睡了, 明天感受一下 9h 马拉松.</p>
-<h3 id="day0"><a href="#day0" class="headerlink" title="day0"></a>day0</h3><p>按照省选时间起床, 给自己整了几道模板题目.</p>
-<p>怎么连主席树都打不出来了? 就这还省选? 洗洗睡吧.</p>
-<h3 id="day1"><a href="#day1" class="headerlink" title="day1"></a>day1</h3><p>5.15 注定是难忘的一天.</p>
-<p>早上五点起床没胃口, 很有精神, 希望可以发挥好.</p>
-<p>很早到了清创, 考点就我一个人, 一会儿来了个吕梁的选手, 看得很强, 甚至自己带了键盘. 我也带了, 万一让带呢?</p>
-<p>进考场的时候问是否让带键盘, 得到了肯定的答复, 属于是带善人了😍, <del>早知道带青轴了</del>.</p>
-<p>解压密码很复杂, 包含 SDOI,  SXOI, NOI2022 等元素.</p>
-<p>开题就给爷吃了一惊, Windows 系统 lemon 测评, 那我用的岂不是最正宗系统? 用 Linux 岂不是大怨种? ❤️</p>
-<p>第一题是个双序列问题, 昨天洛谷灌水区有一道也是双序列的个人想的题, 不会是另一个 FJOI 吧. 连最低的部分分都不会, 感觉树形数据结构不好维护, 应该是根号的奇技淫巧. 考到一般说第一题改为 7s, 进一步加深我的判断. 一个小时过去不知道怎么优化, 写了 O(nq) 的暴力走了.</p>
-<p>第二题一个不知道什么题. 数位 DP? 先跳了.</p>
-<p>第三题字符串. 好耶, 上周才看. 然而写了 AC 自动机发现用不着, 用 trie 就行了, 结果发现空间不够, 改成哈希又太慢. 一下给爷整不会了.</p>
-<p>收题的时候工作人员跟我说不能用自己的键盘, 我??? 最后解释清楚后是他们搞错了, 可以带.</p>
-<p>一试得分: 20 + ? + ? = ? 这还打个毛!😡 </p>
-<p>发现大家大多都不会, 甚至有人说第一题写了 O(n ^ 2 * q) 不稳, 给爷整笑了🤣.</p>
-<p>其实我心态挺好的, 觉得上午考的都是不会的, 下午就全是擅长的 DP 和树论了.</p>
-<p>中午吃饭, 饭吃完发现汤没喝, 先睡觉养足精力.</p>
-<p>一睁眼又该开考了, 凭借我多年在机房睡觉的经历, 很快调整好了状态. 看着别人睡眼惺忪的样子, 一瞬间有点感谢 9h 马拉松.</p>
-<p>压缩包只看见两个文件夹, 完了, 不会是提答吧, 没练过啊!</p>
-<p>解压后发现是传统题, 有一个题没有样例.</p>
-<p>第一题最大独立集, 忘了, 当时有点慌了. </p>
-<p>先看第二题, 不卡空间是树剖模板题, 可是卡了. 研究了一下快读和数据的特殊性质, 发现可用空间微乎其微. 发现根号大小的数组随便开, 于是先把链状的 30pts 用根号分块拿了. 考虑将这一思想拓展无果.</p>
-<p>本来都打算放了, 但感觉分不够, 虽然题目不是给人写的, 但这点分数进队有点困难, 于是强迫自己看第一题.</p>
-<p>发现第一题跟最大独立集其实没啥关系, 先把 k = 1 的点写了, 又把 n &lt;= 8 的点用暴力写了.</p>
-<p>看着状态转移方程写了一个 O(n ^ 5) 大暴力 DP, 在考试前最后 10min 调出来了, 感觉优化的空间很大, 但没时间了.</p>
-<p>交了题笑着走出了考场, 一瞬间感觉进不进队都不重要了, 这种感觉如同我当年无数次重要的考试一样, 小升初, 中考, 这是竭尽全力不计结果的感觉. 我已经把能做到做到最好, 我一直相信我的运气一向很好, 奇迹终将发生. </p>
-<p>玻璃幕墙外, 夕阳一点点落下, 染红了西山, 染红了考场内的一切, 也染红刚出考场的选手们(可能选手们这时候更喜欢绿荫吧), 把他们头上的汗水照的晶莹剔透, 把他们的影子一点点拉长. 似乎只有我注意到了这难得的美景, 大家都只是在急切的交流做法, 问候出题人.</p>
-<p>我知道, 这里面很多人都是我与他们的最后一次见面了, 其中大部分我都不认识, 但我们都曾为了相同的目标拼搏过.</p>
-<p>教练让我, lsh, djl 一起合影留念, 于是我们迎着夕阳留下了可能是最后一次并肩作战的记忆.</p>
-<p>我的 OI 生涯如同这落日一样, 有过光鲜, 如今正一点一点走向黄昏.</p>
-<p><strong>夕阳无限好, 只是近黄昏.</strong></p>
-<p><strong>即便是夕阳, 也在努力地照亮大地啊.</strong></p>
-<p><strong>如果注定要落下, 那就趁现在努力发光.</strong></p>
-<p>Y老师送我们回家, 还给我们仨买了奶茶, 以前从来没喝过欸, 在这种时候, 一杯奶茶简直是享受.</p>
-<p>一路上我们一起聊题目做法, 聊题目的难度, 聊未来的规划, 不知不觉到家了.</p>
-<p>回到家边找数据边吃饭, 吃完饭躺在床上, 好困, 可我还有作业, 先眯一下吧…</p>
-<h3 id="day2"><a href="#day2" class="headerlink" title="day2"></a>day2</h3><p>水了水知乎发现出题人正在在线讲解<del>爬</del>.</p>
-<p>晚上本来打算去机房做生物思维导图, 结果省选出分了.</p>
-<p>奇迹真的出现了? 翻盘了, 不过有人因为用 pbds 抱灵了.</p>
-<p>果然上午就拿了 35pts, 但下午翻盘了, 多亏了我打满暴力的指导方针.</p>
-<p>lsh 退役了, 只能祝他文化课碾压我吧.</p>
-<h3 id="未完待续"><a href="#未完待续" class="headerlink" title="未完待续"></a>未完待续</h3><h2 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h2><p>犹忆当年 SXOI2021, 我因为执着正解和稀烂的 NOIP 没能进队, 当时附中课件的铃声让我记忆犹新, 后来我才知道那是卡农 (Canon), 从此我喜欢上了卡农, 喜欢上了他如同诗经一般循环往复的旋律. 卡农也是唯一一支可以让我只要听见旋律就会落泪的曲子. 过去一年, 听到这旋律, 我的思绪总会回到那个在附中 SXOI2021 考场的上午.</p>
-<p>但我落泪不是因为省选的失利, 而是我从卡农当中听出了我的 OI 生涯. 我的 OI 生涯当中, 除了普及组的奖, 没有一个奖是首次参加就拿到的, 这使我可以深深体会到卡农想表达的那种循环中不断加深的感情. 在 SXOI2022 前, 每当我做不下题时, 打开收藏的卡农, 热泪盈眶, 继续充满动力的刷题. 如今, 终于, 实现了进省队的愿望.</p>
-<p>那么, NOI2022, 最后的音符.</p>
+        <h1 id="NEUACM-2025-Winter-Training-6-题解"><a href="#NEUACM-2025-Winter-Training-6-题解" class="headerlink" title="NEUACM 2025 Winter Training 6 题解"></a>NEUACM 2025 Winter Training 6 题解</h1><h2 id="D-和平委员会-amp-E-Riddle"><a href="#D-和平委员会-amp-E-Riddle" class="headerlink" title="D 和平委员会 &amp; E Riddle"></a>D 和平委员会 &amp; E Riddle</h2><p>第一次接触 2-SAT 问题，感觉网上的很多博客讲的都不是很清楚，搞了半天没搞懂，好在最后搞懂了。</p>
+<p>SAT 问题是指有若干个变元，和一个谓词，要求找出一个指派使得谓词为真，或者说明无解。</p>
+<p>2-SAT 问题指的是把这个谓词写成合取范式后，每个大项中最多有两个变元情形。只有 2-SAT 可以在多项式时间复杂度内求解。</p>
+<p>求解的具体方法就是把每个的变元的真与假看作点，大项改写为蕴含式，然后将前见代表的点连一条指向后见的边。若某个变元的真与假在同一强连通分量中，那么无解。反之，如果不存在这样情况，对于我们取缩点后编号较小的点作为该变元的指派，就可以构造出一种解。</p>
+<p>这样做的道理在于，当这样构造图后，在图上的移动相当于假定前见为真来进行推理。如果某个变元的真与假在同一强连通分量中，说明无论我们对这个变元进行何种指派，都会推出矛盾。而取缩点后编号较小的点是因为编号较小的点在缩点过程中是后访问的，对编号较大的点没有影响。</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>根据宪法，Byteland 民主共和国的公众和平委员会应该在国会中通过立法程序来创立。 不幸的是，由于某些党派代表之间的不和睦而使得这件事存在障碍。 此委员会必须满足下列条件：</p>
+<ul>
+<li>每个党派都在委员会中恰有 $1$ 个代表。</li>
+<li>如果 $2$ 个代表彼此厌恶，则他们不能都属于委员会。</li>
+</ul>
+<p>每个党在议会中有 $2$ 个代表。代表从 $1$ 编号到 $2n$。 编号为 $2i-1$ 和   $2i$ 的代表属于第 $i$ 个党派。 </p>
+<p>任务：写一程序读入党派的数量和关系不友好的代表对，计算决定建立和平委员会是否可能，若行，则列出委员会的成员表。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在第 $i$ 个党派中钦定一个成员是否去看作变元 $X_i$，那么另一个成员是否去就是 $\neg X_i$。</p>
+<p>若 $i$ 和 $j$ 中我们钦定的人厌恶，那么谓词就是 $\neg X_i \vee \neg X_j$，写成蕴含式就是 $X_i \rightarrow \neg X_j$ 和 $X_j \rightarrow \neg X_i$。</p>
+<p>感觉理解了 2-SAT 后还是比较好写的。</p>
+<h2 id="F-Colorful-Tree"><a href="#F-Colorful-Tree" class="headerlink" title="F Colorful Tree"></a>F Colorful Tree</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有一个 $N$ 个节点的树，每条边有颜色、边权。 您需要处理 $Q$ 个询问，每个询问给出 $x_i, y_i, u_i, v_i$，您需要求出假定所有颜色为 $x_i$​ 的边边权全部变成 $y_i$ 后，$u_i$ 和 $v_i$ 之间的距离。询问之间互相独立。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>问题转化后就是要求询问的链上指定颜色的个数和边权和。当然可以用主席树解决。</p>
+<p>但是莫队也是一种方法。受到之前一道题目启发，一个数上的链可以看作欧拉序中的一段括号序列，那我们可以把要求的链对应到欧拉序上，初始括号序列为空，不断扩展。若没有匹配，则加上这条边的贡献，若有匹配，表明要现有括号序列要弹出，也就是减掉这条边的贡献。</p>
+<p>括号序列扩展容易，不好删除，所以可以用不回滚莫队解决。</p>
+<h2 id="G-Rabbit-Exercise"><a href="#G-Rabbit-Exercise" class="headerlink" title="G Rabbit Exercise"></a>G Rabbit Exercise</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>有 $n$ 只兔子在一个数轴上，兔子为了方便起见从 $1$ 到 $n$ 标号，第 $i$ 只兔子的初始坐标为 $x_i$。兔子会以以下的方式在数轴上锻炼：一轮包含 $m$ 个跳跃，第 $j$ 次跳跃是兔子 $a_j (2 \le a_j \le N−1)$ 跳一下，这一下从兔子 $a_{j−1}$ 和兔子 $a_{j+1}$ 中等概率的选一个。假设选了 $x$，那么 $a_j$ 号兔子会跳到它当前坐标关于 $x$ 的坐标的对称点。 注意，即使兔子的位置顺序变化了，但是编号仍保持不变，这里按兔子编号算。兔子会进行 $k$ 轮跳跃，对每个兔子，请你求出它最后坐标的期望值。</p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>兔子跳跃后的期望 $\displaystyle E(x_i’) = \frac{1}{2}(2x_{i - 1} - x_i) + \frac{1}{2}(2x_{i - 1} - x_i) = x_{i-1} + x_{i+1} - x_i$。根据期望的线性性可以计算。但是轮数很多，$n$ 也很大，甚至无法用矩阵快速幂解决。</p>
+<p>但是有个惊人的注意到：$x_i’ - x_{i-1} = x_{i+1} - x_i$ 以及 $x_i - x_{i-1} = x_{i+1} - x_i’$，也就是每次跳跃只会交换差分。那我们可以把交换写成置换的形式，然后用快速幂就好了！</p>
+<h2 id="H-Sky-Full-of-Stars"><a href="#H-Sky-Full-of-Stars" class="headerlink" title="H Sky Full of Stars"></a>H Sky Full of Stars</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>有一个 $n\times n(n \le 10^6)$ 的正方形网格，用红色，绿色，蓝色三种颜色染色，求有多少种染色方案使得至少一行或一列是同一种颜色。结果对 $998244353$ 取模。</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>设 $A_i$ 为所有着色的集合，其中第 $i$ 行仅包含一种颜色，$B_i$ 为所有着色的集合，其中第 $i$ 列仅包含一种颜色。</p>
+<p>因此，需要计算 $|A_1 \cup A_2 \cup \dots \cup A_n \cup B_1 \cup B_2 \cup \dots \cup B_n|$。</p>
+<p>这个就可以用容斥原理计算了。</p>
+<script type="math/tex; mode=display">
+\text{ans} = \sum_{i=0, j = 0, i+j>0}^{n} \binom{n}{i} \binom{n}{j} (-1)^{i+j+1} f(i,j)</script><p>其中 $f(i,j)$ 是满指定 $i$ 行和前 $j$ 列是同种颜色的的着色数。</p>
+<p>$f(0,k) = 3^k \cdot 3^{n(n-k)}$。<br>如果 $i, j$ 都大于零，那么我们可以注意到，所有选定的行和列实际上是同一种颜色。</p>
+<p>因此，$f(i,j) = 3 \cdot 3^{(n-i)(n-j)}$。我们先 $\mathcal{O}(n)$ 计算 $i, j$ 有一个是 $0$ 的部分，剩下的就是：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    \text{ans} =& \sum_{i=1}^{n} \sum_{j=1}^{n} \binom{n}{i} \binom{n}{j} (-1)^{i+j+1} 3 \cdot 3^{(n-i)(n-j)} \\
+    =&3\sum_{i=1}^{n} \binom{n}{i}(-1)^{i+1}  \sum_{j=1}^{n} \binom{n}{j} (-1)^{j} {(3^{(n-i)})}^{(n-j)}\\
+    =&3\sum_{i=1}^{n} \binom{n}{i}(-1)^{i+1} \left(\left(3^{n-i} - 1 \right)^n - 3^{(n-i)n}\right)
+\end{align*}</script><p>又可以 $\mathcal{O}(n)$ 计算了！</p>
 <link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
     </div>
 
@@ -318,13 +279,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2021/12/13/hexo%E5%8D%9A%E5%AE%A2%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95/" rel="prev" title="hexo博客同步方法">
-      <i class="fa fa-chevron-left"></i> hexo博客同步方法
+    <a href="/2025/02/22/NEUACM-2025-Winter-Training-5-%E9%A2%98%E8%A7%A3/" rel="prev" title="NEUACM 2025 Winter Training 5 题解">
+      <i class="fa fa-chevron-left"></i> NEUACM 2025 Winter Training 5 题解
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/05/28/test/" rel="next" title="test">
-      test <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -385,7 +343,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%A6%82%E6%9E%9C%E6%B3%A8%E5%AE%9A%E8%A6%81%E8%90%BD%E4%B8%8B-%E9%82%A3%E5%B0%B1%E8%B6%81%E7%8E%B0%E5%9C%A8%E5%8A%AA%E5%8A%9B%E5%8F%91%E5%85%89-%E2%80%94%E2%80%94SXOI2022-%E6%B8%B8%E8%AE%B0"><span class="nav-number">1.</span> <span class="nav-text">如果注定要落下, 那就趁现在努力发光. ——SXOI2022 游记</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%88%98%E5%86%B5"><span class="nav-number">1.2.</span> <span class="nav-text">战况</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#day-1month"><span class="nav-number">1.2.1.</span> <span class="nav-text">day-1month</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day-5"><span class="nav-number">1.2.2.</span> <span class="nav-text">day-5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day-4"><span class="nav-number">1.2.3.</span> <span class="nav-text">day-4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day-3"><span class="nav-number">1.2.4.</span> <span class="nav-text">day-3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day-2"><span class="nav-number">1.2.5.</span> <span class="nav-text">day-2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day-1"><span class="nav-number">1.2.6.</span> <span class="nav-text">day-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day0"><span class="nav-number">1.2.7.</span> <span class="nav-text">day0</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day1"><span class="nav-number">1.2.8.</span> <span class="nav-text">day1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#day2"><span class="nav-number">1.2.9.</span> <span class="nav-text">day2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AA%E5%AE%8C%E5%BE%85%E7%BB%AD"><span class="nav-number">1.2.10.</span> <span class="nav-text">未完待续</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%8E%E8%AE%B0"><span class="nav-number">1.3.</span> <span class="nav-text">后记</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3"><span class="nav-number">1.</span> <span class="nav-text">NEUACM 2025 Winter Training 6 题解</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#D-%E5%92%8C%E5%B9%B3%E5%A7%94%E5%91%98%E4%BC%9A-amp-E-Riddle"><span class="nav-number">1.1.</span> <span class="nav-text">D 和平委员会 &amp; E Riddle</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F"><span class="nav-number">1.1.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90"><span class="nav-number">1.1.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#F-Colorful-Tree"><span class="nav-number">1.2.</span> <span class="nav-text">F Colorful Tree</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-1"><span class="nav-number">1.2.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#G-Rabbit-Exercise"><span class="nav-number">1.3.</span> <span class="nav-text">G Rabbit Exercise</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-2"><span class="nav-number">1.3.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-2"><span class="nav-number">1.3.2.</span> <span class="nav-text">分析</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#H-Sky-Full-of-Stars"><span class="nav-number">1.4.</span> <span class="nav-text">H Sky Full of Stars</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%98%E6%84%8F-3"><span class="nav-number">1.4.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%86%E6%9E%90-3"><span class="nav-number">1.4.2.</span> <span class="nav-text">分析</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

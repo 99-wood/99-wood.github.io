@@ -264,6 +264,114 @@ mjx-container[display="true"] + br {
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/myavatar.jpg">
+      <meta itemprop="name" content="99_wood">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="99_wood's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+            <a href="/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/" class="post-title-link" itemprop="url">NEUACM 2025 Winter Training 6 题解</a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2025-02-25 15:26:53 / 修改时间：17:40:37" itemprop="dateCreated datePublished" datetime="2025-02-25T15:26:53+08:00">2025-02-25</time>
+            </span>
+
+          
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2025/02/25/NEUACM-2025-Winter-Training-6-%E9%A2%98%E8%A7%A3/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="NEUACM-2025-Winter-Training-6-题解"><a href="#NEUACM-2025-Winter-Training-6-题解" class="headerlink" title="NEUACM 2025 Winter Training 6 题解"></a>NEUACM 2025 Winter Training 6 题解</h1><h2 id="D-和平委员会-amp-E-Riddle"><a href="#D-和平委员会-amp-E-Riddle" class="headerlink" title="D 和平委员会 &amp; E Riddle"></a>D 和平委员会 &amp; E Riddle</h2><p>第一次接触 2-SAT 问题，感觉网上的很多博客讲的都不是很清楚，搞了半天没搞懂，好在最后搞懂了。</p>
+<p>SAT 问题是指有若干个变元，和一个谓词，要求找出一个指派使得谓词为真，或者说明无解。</p>
+<p>2-SAT 问题指的是把这个谓词写成合取范式后，每个大项中最多有两个变元情形。只有 2-SAT 可以在多项式时间复杂度内求解。</p>
+<p>求解的具体方法就是把每个的变元的真与假看作点，大项改写为蕴含式，然后将前见代表的点连一条指向后见的边。若某个变元的真与假在同一强连通分量中，那么无解。反之，如果不存在这样情况，对于我们取缩点后编号较小的点作为该变元的指派，就可以构造出一种解。</p>
+<p>这样做的道理在于，当这样构造图后，在图上的移动相当于假定前见为真来进行推理。如果某个变元的真与假在同一强连通分量中，说明无论我们对这个变元进行何种指派，都会推出矛盾。而取缩点后编号较小的点是因为编号较小的点在缩点过程中是后访问的，对编号较大的点没有影响。</p>
+<h3 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h3><p>根据宪法，Byteland 民主共和国的公众和平委员会应该在国会中通过立法程序来创立。 不幸的是，由于某些党派代表之间的不和睦而使得这件事存在障碍。 此委员会必须满足下列条件：</p>
+<ul>
+<li>每个党派都在委员会中恰有 $1$ 个代表。</li>
+<li>如果 $2$ 个代表彼此厌恶，则他们不能都属于委员会。</li>
+</ul>
+<p>每个党在议会中有 $2$ 个代表。代表从 $1$ 编号到 $2n$。 编号为 $2i-1$ 和   $2i$ 的代表属于第 $i$ 个党派。 </p>
+<p>任务：写一程序读入党派的数量和关系不友好的代表对，计算决定建立和平委员会是否可能，若行，则列出委员会的成员表。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>在第 $i$ 个党派中钦定一个成员是否去看作变元 $X_i$，那么另一个成员是否去就是 $\neg X_i$。</p>
+<p>若 $i$ 和 $j$ 中我们钦定的人厌恶，那么谓词就是 $\neg X_i \vee \neg X_j$，写成蕴含式就是 $X_i \rightarrow \neg X_j$ 和 $X_j \rightarrow \neg X_i$。</p>
+<p>感觉理解了 2-SAT 后还是比较好写的。</p>
+<h2 id="F-Colorful-Tree"><a href="#F-Colorful-Tree" class="headerlink" title="F Colorful Tree"></a>F Colorful Tree</h2><h3 id="题意-1"><a href="#题意-1" class="headerlink" title="题意"></a>题意</h3><p>有一个 $N$ 个节点的树，每条边有颜色、边权。 您需要处理 $Q$ 个询问，每个询问给出 $x_i, y_i, u_i, v_i$，您需要求出假定所有颜色为 $x_i$​ 的边边权全部变成 $y_i$ 后，$u_i$ 和 $v_i$ 之间的距离。询问之间互相独立。</p>
+<h3 id="分析-1"><a href="#分析-1" class="headerlink" title="分析"></a>分析</h3><p>问题转化后就是要求询问的链上指定颜色的个数和边权和。当然可以用主席树解决。</p>
+<p>但是莫队也是一种方法。受到之前一道题目启发，一个数上的链可以看作欧拉序中的一段括号序列，那我们可以把要求的链对应到欧拉序上，初始括号序列为空，不断扩展。若没有匹配，则加上这条边的贡献，若有匹配，表明要现有括号序列要弹出，也就是减掉这条边的贡献。</p>
+<p>括号序列扩展容易，不好删除，所以可以用不回滚莫队解决。</p>
+<h2 id="G-Rabbit-Exercise"><a href="#G-Rabbit-Exercise" class="headerlink" title="G Rabbit Exercise"></a>G Rabbit Exercise</h2><h3 id="题意-2"><a href="#题意-2" class="headerlink" title="题意"></a>题意</h3><p>有 $n$ 只兔子在一个数轴上，兔子为了方便起见从 $1$ 到 $n$ 标号，第 $i$ 只兔子的初始坐标为 $x_i$。兔子会以以下的方式在数轴上锻炼：一轮包含 $m$ 个跳跃，第 $j$ 次跳跃是兔子 $a_j (2 \le a_j \le N−1)$ 跳一下，这一下从兔子 $a_{j−1}$ 和兔子 $a_{j+1}$ 中等概率的选一个。假设选了 $x$，那么 $a_j$ 号兔子会跳到它当前坐标关于 $x$ 的坐标的对称点。 注意，即使兔子的位置顺序变化了，但是编号仍保持不变，这里按兔子编号算。兔子会进行 $k$ 轮跳跃，对每个兔子，请你求出它最后坐标的期望值。</p>
+<h3 id="分析-2"><a href="#分析-2" class="headerlink" title="分析"></a>分析</h3><p>兔子跳跃后的期望 $\displaystyle E(x_i’) = \frac{1}{2}(2x_{i - 1} - x_i) + \frac{1}{2}(2x_{i - 1} - x_i) = x_{i-1} + x_{i+1} - x_i$。根据期望的线性性可以计算。但是轮数很多，$n$ 也很大，甚至无法用矩阵快速幂解决。</p>
+<p>但是有个惊人的注意到：$x_i’ - x_{i-1} = x_{i+1} - x_i$ 以及 $x_i - x_{i-1} = x_{i+1} - x_i’$，也就是每次跳跃只会交换差分。那我们可以把交换写成置换的形式，然后用快速幂就好了！</p>
+<h2 id="H-Sky-Full-of-Stars"><a href="#H-Sky-Full-of-Stars" class="headerlink" title="H Sky Full of Stars"></a>H Sky Full of Stars</h2><h3 id="题意-3"><a href="#题意-3" class="headerlink" title="题意"></a>题意</h3><p>有一个 $n\times n(n \le 10^6)$ 的正方形网格，用红色，绿色，蓝色三种颜色染色，求有多少种染色方案使得至少一行或一列是同一种颜色。结果对 $998244353$ 取模。</p>
+<h3 id="分析-3"><a href="#分析-3" class="headerlink" title="分析"></a>分析</h3><p>设 $A_i$ 为所有着色的集合，其中第 $i$ 行仅包含一种颜色，$B_i$ 为所有着色的集合，其中第 $i$ 列仅包含一种颜色。</p>
+<p>因此，需要计算 $|A_1 \cup A_2 \cup \dots \cup A_n \cup B_1 \cup B_2 \cup \dots \cup B_n|$。</p>
+<p>这个就可以用容斥原理计算了。</p>
+<script type="math/tex; mode=display">
+\text{ans} = \sum_{i=0, j = 0, i+j>0}^{n} \binom{n}{i} \binom{n}{j} (-1)^{i+j+1} f(i,j)</script><p>其中 $f(i,j)$ 是满指定 $i$ 行和前 $j$ 列是同种颜色的的着色数。</p>
+<p>$f(0,k) = 3^k \cdot 3^{n(n-k)}$。<br>如果 $i, j$ 都大于零，那么我们可以注意到，所有选定的行和列实际上是同一种颜色。</p>
+<p>因此，$f(i,j) = 3 \cdot 3^{(n-i)(n-j)}$。我们先 $\mathcal{O}(n)$ 计算 $i, j$ 有一个是 $0$ 的部分，剩下的就是：</p>
+<script type="math/tex; mode=display">
+\begin{align*}
+    \text{ans} =& \sum_{i=1}^{n} \sum_{j=1}^{n} \binom{n}{i} \binom{n}{j} (-1)^{i+j+1} 3 \cdot 3^{(n-i)(n-j)} \\
+    =&3\sum_{i=1}^{n} \binom{n}{i}(-1)^{i+1}  \sum_{j=1}^{n} \binom{n}{j} (-1)^{j} {(3^{(n-i)})}^{(n-j)}\\
+    =&3\sum_{i=1}^{n} \binom{n}{i}(-1)^{i+1} \left(\left(3^{n-i} - 1 \right)^n - 3^{(n-i)n}\right)
+\end{align*}</script><p>又可以 $\mathcal{O}(n)$ 计算了！</p>
+<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+        
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2025/02/22/NEUACM-2025-Winter-Training-5-%E9%A2%98%E8%A7%A3/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1484,209 +1592,11 @@ A (B A)^{n - 1} B
   
   
 
-        
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block home" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2024/04/01/%E2%80%9C%E4%BD%A0%E6%83%B3%E6%B4%BB%E5%87%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA%E7%94%9F%EF%BC%9F%E3%80%8A%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7%E3%80%8B%E4%BA%BA%E7%89%A9%E5%BF%97%E4%B8%8E%E6%88%91%E7%9A%84%E7%AB%9E%E8%B5%9B%E5%8D%8A%E7%94%9F%E2%80%9D/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/myavatar.jpg">
-      <meta itemprop="name" content="99_wood">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="99_wood's blog">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          
-            <a href="/2024/04/01/%E2%80%9C%E4%BD%A0%E6%83%B3%E6%B4%BB%E5%87%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA%E7%94%9F%EF%BC%9F%E3%80%8A%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7%E3%80%8B%E4%BA%BA%E7%89%A9%E5%BF%97%E4%B8%8E%E6%88%91%E7%9A%84%E7%AB%9E%E8%B5%9B%E5%8D%8A%E7%94%9F%E2%80%9D/" class="post-title-link" itemprop="url">“你想活出怎样的人生？《吹响吧！上低音号》人物志与我的竞赛半生”</a>
-        </h1>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2024-04-01 17:26:04" itemprop="dateCreated datePublished" datetime="2024-04-01T17:26:04+08:00">2024-04-01</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-08-27 09:04:36" itemprop="dateModified" datetime="2024-08-27T09:04:36+08:00">2024-08-27</time>
-              </span>
-
-          
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Valine：</span>
-    
-    <a title="valine" href="/2024/04/01/%E2%80%9C%E4%BD%A0%E6%83%B3%E6%B4%BB%E5%87%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA%E7%94%9F%EF%BC%9F%E3%80%8A%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7%E3%80%8B%E4%BA%BA%E7%89%A9%E5%BF%97%E4%B8%8E%E6%88%91%E7%9A%84%E7%AB%9E%E8%B5%9B%E5%8D%8A%E7%94%9F%E2%80%9D/#valine-comments" itemprop="discussionUrl">
-      <span class="post-comments-count valine-comment-count" data-xid="/2024/04/01/%E2%80%9C%E4%BD%A0%E6%83%B3%E6%B4%BB%E5%87%BA%E6%80%8E%E6%A0%B7%E7%9A%84%E4%BA%BA%E7%94%9F%EF%BC%9F%E3%80%8A%E5%90%B9%E5%93%8D%E5%90%A7%EF%BC%81%E4%B8%8A%E4%BD%8E%E9%9F%B3%E5%8F%B7%E3%80%8B%E4%BA%BA%E7%89%A9%E5%BF%97%E4%B8%8E%E6%88%91%E7%9A%84%E7%AB%9E%E8%B5%9B%E5%8D%8A%E7%94%9F%E2%80%9D/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="你想活出怎样的人生？《吹响吧！上低音号》人物志与我的竞赛半生"><a href="#你想活出怎样的人生？《吹响吧！上低音号》人物志与我的竞赛半生" class="headerlink" title="你想活出怎样的人生？《吹响吧！上低音号》人物志与我的竞赛半生"></a>你想活出怎样的人生？《吹响吧！上低音号》人物志与我的竞赛半生</h1><p>4 月 7 日，《吹响把，上低音号 3》即将播出，希望大家可以看看，很好的群像剧。至少，希望读者可以看看我的这篇人物志，多少可以一窥这部优秀作品与笔者的人生。</p>
-<hr>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>《吹响把，上低音号》（以下简称《悠风号》）无疑是一部非常出色的群像剧。当我去看这部番的时候，我从没想到，这部番能引起我如此巨大的共鸣，以至于我现在想要写一些什么来表达我对这部作品的思考。</p>
-<p>我喜欢的作品很多，但真正愿意投入精力的很少。我向来不会因为某些但单一的元素而热爱一部作品。只有当一部作品真正写出了我人生当中很多经历的时候，我才会发自内心地热爱一部作品，就像《Canon in D Major》一样。在我看来，《悠风号》正是一部这样真实得令人“痛苦”的作品。</p>
-<p>所以，在第三季开播的前夕，我用这样一篇人物志来探讨这部作品反映的一些不同人生，以及与我竞赛半生的相似之处。</p>
-<h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>为了让更多的读者可以更好地看懂这篇文章，有必要描述一下故事的背景。</p>
-<p>故事背景设定在北宇治高中的吹奏部。主人公（剧情触发机）黄前久美子是吹奏部的上低音号手。</p>
-<p>剧情主要是从久美子的视角讲述社团为了冲击全国金不断努力以及部员们之间的故事。</p>
-<p>可能读者会觉得，这是一部老套的以社团为主题的作品罢了。可是，我想说，就是这样看似平凡的作品，却无比真实。使我不禁想到了我高中的竞赛经历。</p>
-<p>下面，我将会联系作品和我的经历来分析剧中人物和现实当中这类人物。如果读者没有看过作品也没有关系，只要多想想生活当中是否有这样的人物，一定也会有所感悟和理解。</p>
-<h2 id="人物"><a href="#人物" class="headerlink" title="人物"></a>人物</h2><h3 id="斋藤葵"><a href="#斋藤葵" class="headerlink" title="斋藤葵"></a>斋藤葵</h3><blockquote>
-<p>斋藤葵（斎藤 葵（さいとう あおい），声：日笠阳子）</p>
-<p>三年级生，使用乐器是次中音萨克斯管。与久美子是总角之交，两人独处时久美子会称呼其“小葵”。为了考试而上补习班，最后选择退出了管乐团。</p>
-<p>中考失利没有考到理想的学校才来了北宇治高中，不想升学考试再次失利，因此上了补习班，当吹奏乐部要加练时常常早退。因发觉时间有限无法兼顾课业和社团活动而选择退社，直接导致部长晴香情绪崩溃：退部什么的，我不明白啊！虽然本人退社了，但没有放弃音乐，转行做了歌星还学会了些打击乐。</p>
-<p>最初投票决定社团是否以参加全国大赛为目标的时候，投了唯一的反对票。</p>
-<p>从北宇治毕业后，考入了理想的私立大学。在那里与晴香再次相遇，之后一起加入了吹奏部。</p>
-</blockquote>
-<p>斋藤葵无疑是存在感比较低的一个角色，但确实我们生活中很常见的一类人。葵无疑是热爱管乐的，但是升学的压力迫使她放弃了自己的所爱，但好在最后能够考入理想大学，不失为一个相对圆满的结局。在我多年的竞赛生涯中，这样的人可能是见的最多的，他们其中不乏有热爱竞赛的，在种种因素的影响下，他们选择了一时的放弃，抑或永远离开竞赛。</p>
-<p>很多时候，我们说他们并非真正热爱，但是，我想说，人和人的经历、家庭背景等条件是不一样的，我们没有真正经历他人所经历的，也不能肆意评价他人的选择。我选择了竞赛，固然有我热爱的因素，但不可否认也有学校，老师，家庭的因素，倘若我没有进入外国语，没有接触到竞赛，又何谈选择呢？所以，我一向是感谢过去支持我的所有人的，没有他们，毫无疑问，我的人生不会这样精彩。</p>
-<p>葵是大部分普通人的写照。他们有着自己所爱，却又因现实割爱，个中痛苦，只有他们自己知道。急流勇退，弯道超车何尝不是一种明智选择？</p>
-<h3 id="田中明日香"><a href="#田中明日香" class="headerlink" title="田中明日香"></a>田中明日香</h3><blockquote>
-<p>田中明日香（田中 あすか（たなか あすか），声：寿美菜子）</p>
-<p>三年级生，使用的乐器是粗管上低音号。副乐团长，负责带领乐团低音分部的职务。统率能力十分高，但并不想成为乐团长或副乐团长。曾说连当上副乐团长都是被百般请求才愿意担任副乐团长一职。一直在乐团的冲突中保持中立，从不讲自己的想法。红框眼镜为其标志。</p>
-<p>父母在2岁时离异，小时候时收到了父亲寄来的自用上低音号和笔记，因此学习了吹上低音号，但也被其母亲所厌恶，以答应保持成绩不退步来维持吹上低音号的承诺。当得知全国大会的评委有其父亲，为了见上父亲一脸而努力带领管乐团冲击全国大会，但也因此激怒了母亲而被迫暂时退出社团活动，最终在模拟考中保持水平而与母亲谈判得以继续。</p>
-<p>“她表现得太完美了，完全分不清哪些是她的伪装，哪些是她的真实想法。”——秀一</p>
-<p>“明日香学姐的伪装太过严实，要剥下她伪装的面具，我实在无能为力。”——久美子</p>
-</blockquote>
-<p>田中明日香可以说是理想的葵，不仅在吹奏乐上实力强大，在学习上更是恐怖（全国前 30 的水平）。但是明日香可以说是全局中背负最多的，受伤最多，却又最不肯展现真实自己的角色。为了能见到自己父亲，即使被母亲反对也同时坚持了吹奏乐和学业，并且将社团打理得井然有序。这里说一个维基中没有提及的情节：母亲为了明日香的学业强迫明日香退社，在明日香表达反对后，当着老师和校长的面抽了明日香一个耳光，但随即意识到自己又情绪失控而自责。但是，明日香的反应异常冷静，反而原谅母亲并向老师请假，并带着母亲目不斜视地从目睹一切的久美子面前走过，并在久美子提起时一带而过。这段情节在动漫中表现得淋漓尽致，甚至观众都没反应到明日香会挨这一耳光，更惊叹与明日香的超过成人的成熟和冷静。</p>
-<p>但是，对应到生活中，这种人反而是最少的。既要有实力，又要有强大的内心。我至今还从未在现实中遇到。在我看来，成为像明日香一样的强者意味着要承受普通人难以承受的压力和痛苦，是否要成为这样的人，见仁见智。但是，能否成为这样的人，恐怕不是靠想与不想决定的。</p>
-<h3 id="小笠原晴香"><a href="#小笠原晴香" class="headerlink" title="小笠原晴香"></a>小笠原晴香</h3><blockquote>
-<p>小笠原晴香（小笠原 晴香（おがさわら はるか），声：早见沙织）</p>
-<p>三年级生，使用的乐器是上低音萨克斯管。乐团长，并为萨克斯管分部的部长。性格温柔亲切，作为乐团长包容整个乐团。由于性格柔弱，所以曾推选明日香担当部长但没被接受，对自己作为团长自信心不足。</p>
-<p>当作为部长站在大家面前时会努力的挺起胸膛大声说话，可一旦丧失自信就会缩成一团。</p>
-<p>因为经常落泪在部员内也有“雨女”的爱称。</p>
-<p>優しいなんて褒めるところがない人に言うことセリフでしょ（温柔什么的，就是给没有值得称赞优点的人的台词不是吗？）——小笠原晴香</p>
-<p>明日香、私ソロ吹くことになったから、しっかり支えてね（明日香，我要进行独奏，要认真的支持我哦。）——小笠原晴香</p>
-</blockquote>
-<p>晴香作为社长却因为性格原因长期大权旁落于明日香手中，以至于一度陷入自我怀疑而说出惊世名言：“温柔什么的，就是给没有值得称赞优点的人的台词不是吗？”但是当明日香因为种种因素无法主持吹奏部时，第一个站出来了却是晴香，并在公演中完美地完成了《宝岛》的低音萨克斯 solo。</p>
-<p>这种人在生活中也不少见，他们平日里可能平平无奇，但是总能在关键时候站出来稳定局面。这不是因为他们天性如此，而是平日里他们在我们看不见的地方默默努力付出。可能一时没有获得人们的注意，但只有在最需要的时候，才能感受到他们的可贵。成为晴香这样的人无疑是一个不错的选择。</p>
-<h3 id="中世古香织"><a href="#中世古香织" class="headerlink" title="中世古香织"></a>中世古香织</h3><blockquote>
-<p>中世古香织（中世古 香織（なかせこ かおり），声：茅原实里）</p>
-<p>三年级生，使用的乐器是小号。乐团小号分部的领队。被晴香喻为管乐团的玛丹娜，受很多人仰慕。一直希望能在音乐会上独奏，却因各种因素屡次没有被选中。当众与丽奈比试之后，被泷老师问是否想担任独奏，但最后决定让给实力较强的丽奈。</p>
-<p>性格稳重，很有大小姐的风范，不喜争锋。对社团活动也十分热心，憧憬着明日香的天赋才华，自己也每日刻苦的练习技艺。 在泷昇顾问没有来到吹奏乐部时，吹奏乐部几乎名存实亡，部员们每天的活动都是摸鱼聊天，而香织是少属不愿随波逐流，独自练习的成员。</p>
-<p>在二年级时看到毫无上进心的三年级部员对希美优子等部员施行冷暴力时，主动向前辈低头，请求他们不要再无视一年级的新生们。为了缓和部内沉闷的气氛，愿意主动让出首席的位置，把机会给那些没有实力的前辈。</p>
-</blockquote>
-<p>香织是作为部长小笠原晴香的左臂右膀，能够调和田中明日香与部长的关系。可以说，香织真的是北宇治最温柔（完全褒义，不是上文含义）的前辈。她的所有举动都是为了最大化社团的利益。在社团风气差时不随波逐流坚持练习，并积极为后辈争取权益，在社团风气蒸蒸日上时没有选择用前辈的地位和实力拿下 solo 名额，而是敢于承认自己实力不如后辈。</p>
-<p>香织这一形象虽然看起来没有难度，可在现实中，又有多少人能够做到？</p>
-<p><strong>在付出与索取面前，大把的人选择索取；</strong></p>
-<p><strong>在努力与安逸面前，大把的人选择安逸；</strong></p>
-<p><strong>在集体与个人面前，大把的人选择个人；</strong></p>
-<p><strong>在实力与资历面前，大把的人选择资历。</strong></p>
-<p>而香织不一样，她选择了集体，选择了努力，选择了付出，最后甚至让出了自己努力的成果。只为了能让社团保证公平，让自己内心安心。</p>
-<p>我个人非常认可并且努力追寻做这样追求公平正义，不用权利谋取私利的人。</p>
-<h3 id="吉川优子"><a href="#吉川优子" class="headerlink" title="吉川优子"></a>吉川优子</h3><blockquote>
-<p>吉川优子（吉川 優子（よしかわ ゆうこ），声：山冈百合）</p>
-<p>二年级生，来自管乐强校市立南中，使用的乐器是小号。非常仰慕学姐香织。对丽奈纯熟的小号吹奏能力十分嫉妒，时常以上辈的身份打压。曾经怀疑丽奈借与泷老师相熟而获得竞演比赛的独奏机会，而迫使泷老师进行第二次小号独奏选拔。为了让香织学姐获得独奏机会，而偷偷在第二次独奏选拔前拜托丽奈把这个机会让给香织，但被丽奈拒绝。</p>
-<p>将霙视为朋友，也知道霙有心灵创伤，并希望作为希美的替代。</p>
-<p>在三年级毕业退出后被指定担任新团长。</p>
-</blockquote>
-<p>优子给大部人的第一影响是无脑追求前辈的后辈形象，在动漫刚开始的时候风评较差。可随着剧情的发展，我们能够更加客观地看到一个立体的优子。有人说这部番中没有反派，我深以为然。从优子角度来看，多次帮助自己的前辈被后辈抢去 solo 资格难免打抱不平。她当然知道反对实力至上无疑是没有出路的，即便如此，她还是选择了为前辈说话，哪怕与大半社团为敌。可谓人人骂优子，可人人又都想有一个这样永远支持你的朋友。</p>
-<p>在当选部长后，优子更是用自己的能力解决了部里的众多问题。这样一个有实力，有义气的人怎能不让我们喜欢呢？</p>
-<h3 id="铠冢霙"><a href="#铠冢霙" class="headerlink" title="铠冢霙"></a>铠冢霙</h3><p><strong>强烈建议和后文伞木希美结合来看。</strong></p>
-<blockquote>
-<p>铠冢霙（鎧塚 みぞれ（よろいづか みぞれ），声：种崎敦美）</p>
-<p>二年级生，来自管乐强校市立南中。故事的第一年曾是北宇治高中管乐团中唯一使用双簧管的人。</p>
-<p>初中时，因为性格阴沉而没有朋友，后来被希美邀请加入管乐团。视希美为很重要的朋友，但也意识到自己只是希美众多朋友其中一员。初中三年级的时候，希美向霙说“入读高中之后，一定要取得金奖”。但后来希美却退出了管乐团，而自己竟然是透过希美其他朋友得知。霙感到自己对希美的友谊竟如此薄弱。以致开始无法面对希美，深怕看到自己以为的真相。对希美的恐惧已经到“光看就想呕吐”的地步。只好将乐器视为与希美唯一的联系，继续留在管乐团。</p>
-<p>以为优子接近自己是因为看自己可怜，所以不视其为朋友。后经过与优子和希美的对话解开心结。</p>
-<p>在剧场版中揭露，其双簧管实力已强至会无意识的顾虑配合希美的长笛，但此举导致合奏出现断层。</p>
-</blockquote>
-<p>强烈建议看一下 <a target="_blank" rel="noopener" href="https://zh.moegirl.org.cn/%E9%93%A0%E5%86%A2%E9%9C%99">wiki</a>。</p>
-<p>很喜欢的一个角色，<del>因为是“三无”。</del></p>
-<p>铠冢霙和伞木希美的故事在剧场版《利兹与青鸟》中有详细描写，高分文艺片。</p>
-<p>铠冢霙作为内向的人，在伞木希美邀请进入吹奏部前几乎没有朋友，也因此伞木希美作为最重要的人，起初一切的演奏都是在为伞木希美而奏，但在初中失利后开始厌恶比赛。在经历很多事情后最终发自内心爱上双簧管和音乐。天赋异禀，唯二进入音大的人。</p>
-<p>铠冢霙类的人物在竞赛中也不少见。不少人进入竞赛不是发自内心的喜爱，甚至只是为了功利的目的，但是他们天赋异禀，依然取得不错成绩。但是最终，他们发自内心爱上了算法，不再为了功利而练习，而是为了自身的爱好而努力。成为这种人真的是我内心的向往啊，只可惜大部分人难以摆脱功利，我也不例外。</p>
-<h3 id="伞木希美"><a href="#伞木希美" class="headerlink" title="伞木希美"></a>伞木希美</h3><blockquote>
-<p>伞木希美（傘木 希美（かさき のぞみ），声：东山奈央）</p>
-<p>二年级生，来自管乐强校市立南中，使用的乐器是长笛。一年级时，满腔热诚地与同样来自管乐强校市立南中的朋友一起，想改革弱小的北宇治高中管乐团，但最终因为忍受不了当时的顾问采取不问实力只按辈份来选拔参赛成员的方针，以及高年级生不认真练习的态度而退出了。</p>
-<p>将明日香视为特别的存在，一直不断希望借由明日香的准许回到管乐团。在泷老师成为顾问并改革之后希望返回管乐团，帮上明日香的忙。</p>
-<p>与霙是国中好友。但由于自身拥有许多朋友加上未将退团一事告知霙。以致霙以为自己从不受到重视，导致她十分严重的心结，希美却一直没有察觉。而这也是明日香不希望希美回乐团的主要原因。最终和霙解释清楚后解开了霙的心结，也最终得到允许回到乐团。</p>
-<p>“才能”远低于霙。两人之间复杂的情感导致第二次全国大赛自选曲中，两人乐声应答出现违和。</p>
-</blockquote>
-<p>上面的 wiki 不太行啊。大家看看就好。</p>
-<blockquote>
-<p>她们既是对方的莉兹，也是对方的青鸟。曾经伞木希美是铠冢霙的青鸟，带她走进了音乐的世界不再孤独；但现在铠冢霙是自己的青鸟，最好的爱应该是放手，她有属于自己的更大的天空。</p>
-</blockquote>
-<p>萌娘 win 了。</p>
-<p>伞木希美啊。痛，太痛了。</p>
-<p>把霙带入管乐，却发现霙的实力远在自己之上。最终认清现实，选择考入普通的大学。</p>
-<p><img src="/picture/kSVpg9FKRIOaoT8.jpg" alt=""></p>
-<p>op 当中一句迫伞台词：“如果努力的尽头就是奇迹”</p>
-<p>很现实的一个问题：<strong>努力的尽头是奇迹吗？</strong></p>
-<p>很大概率不是的。希美就是这样一个人，努力不比任何人少，成功却不比任何人多。</p>
-<p>这样的人，生活中也不少。如何面对失败，不同人的选择却不一样。如果缺少天赋，换条赛道不是一种明智的选择。</p>
-<h3 id="高坂丽奈"><a href="#高坂丽奈" class="headerlink" title="高坂丽奈"></a>高坂丽奈</h3><blockquote>
-<p>高坂丽奈（高坂 麗奈（こうさか れいな），声：安济知佳）<br>一年级生，使用的乐器是小号。与久美子就读同一间初中，父亲为知名小号演奏家。从小于父亲要求下开始吹奏小号，上高中决定在管乐团继续吹奏下去。其演奏实力在高中生中出类拔萃，自己也对音乐相关事务要求严格，但不善于人际关系。暗恋泷老师，也因此无法忍受别人说他的坏话，但同时亦对久美子有超越一般同性朋友的情感。曾说过“为了成为与众不同的人，所以我吹小号”。在小说第三本中从泷老师口中得知泷老师前妻一事。</p>
-<p>私、特別になりたいの、他の奴らと、同じになりたくない。だから私はトランペットをやってる、特別になりために。（我想成为特别的人，不想和其他人一样。为此我选择了小号，不愿随波逐流。）——高坂丽奈</p>
-</blockquote>
-<p>丽奈是一个比较好分析的人物，因为她单纯，单纯到只想成为特别的人，可这“想成为特别的人”十分其实并不特别。她吹奏小号是否是真的因为热爱，抑或只是想要变得特别。不同人有不同看法。</p>
-<p>在现实中，我比较害怕用丽奈头像的人。因为潜意识里认为这些人会为了目标不择手段。我喜欢这样纯粹，追求“特别”的人，可我又害怕他们的歇斯底里。相比之下，铠冢霙无疑是更加专注于音乐。</p>
-<p>以下引用京吹学报</p>
-<blockquote>
-<p><strong>丽奈毫无疑问是强大的，压倒性的强大，相对于她来说大部分的吹奏部员都是弱小的。整个久三年，她不断在用话语和行动诠释，她一点也不在乎实力不如她的人是怎么想的，所有弱者的痛苦、不甘、难过在她看来都是无病呻吟。</strong></p>
-<p>在首席会议上，有声部长提出有落选了的人在闹情绪，丽奈回以怒斥 “随他们去”；在三人的干部会议上，秀一说丽奈管的太严了，丽奈回以 “实力不如我的人不配对顾问不满”；在石造的堤防上，久美子说这次我没办法完全信任老师，丽奈回以 “那你不配当部长”。</p>
-</blockquote>
-<p>但是，即便如此，我依然赞赏每一个为了梦想不顾一切的人。但是，想必他们根本不会在乎他人的看法，深处自己的世界，怡然自乐。</p>
-<h3 id="黄前久美子"><a href="#黄前久美子" class="headerlink" title="黄前久美子"></a>黄前久美子</h3><blockquote>
-<p>黄前久美子（黄前 久美子（おうまえ くみこ），声：黑泽朋世）</p>
-<p>一年级生，使用的乐器是粗管上低音号。因为憧憬水手服而进入北宇治高中就读。初中时是管乐团的成员，进入高中后同样加入管乐团。较为没有主见，有着想说什么就说什么的习惯，被丽奈说“久美子的性格真是糟糕呢”。以前曾在东京居住过，会使用该地区罕见的标准语。</p>
-</blockquote>
-<p><strong>“うまくなりたい、うまくなりたい！（想要变得更好）”</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1uJ411M7q3/">我想要吹的更好</a></p>
-<p>久美子作为主角似乎没有什么特别突出的特点，几乎每一方面都有比她更好的。可是他是我最为感同身受的一个角色。</p>
-<p>恐怕她也是很多人最感同身受的角色。</p>
-<p><strong>我们可能也像久美子一样，有一些特长，有一些朋友，有过高光，又有过黯淡；久美子也和我们一样，为了学业倍感压力，为了金奖努力练习，一样有过挫折，一样想要变好。她就是我们普通人的真实写照，从初入社团的青涩到当部长时的干练。千言万语敌不过一句“想要变得更好”。</strong></p>
-<p>虽然直到毕业也有这样那样的缺点，但是她只是一个高中生，我们也不过是一个个普通的人。但是只要心怀“想要变得更好”就不会止步。</p>
-<p>曾几何时，我也想要成为像霙一样天赋异禀的人，可渐渐，我意识到与其希望自己天赋异禀，不如怀着想要变好的心投入到努力当中。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>时间有限，只写了几个主要的角色，很多新角色包括第三季即将登场的黑江真由都没有写，以后大概可能会更新。</p>
-<p>《悠风号》作为群像剧，人物众多，性格各异。即便如此，我们也不必认为某个人物和自己很像而去模仿，每个人都是独特的存在，学习他们身上的优点并在生活中不断提升自我难道不是更好吗？你想活出怎样的人生完全取决于你自己！</p>
-<p>愿我们都能活成我们心目中的样子！</p>
-<p><img src="/picture/212956.png" alt=""></p>
-<link rel="stylesheet" href="/css/spoiler.css" type="text/css"><script src="/js/spoiler.js" type="text/javascript" async></script>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
   </div>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
   </nav>
 
 
@@ -1760,7 +1670,7 @@ A (B A)^{n - 1} B
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
           <a href="/archives">
-          <span class="site-state-item-count">40</span>
+          <span class="site-state-item-count">41</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
